@@ -7,6 +7,15 @@ import javax.persistence.Id;
 
 @Entity
 public class ProdutoModel {
+	
+	/**
+	 * Classe utilizada como Entidade no Banco de dados para Produto, a mesma
+	 * possui atributos que seram colunas no banco com titulo: Nome, Marca, Descrição, Preço. 
+	 * 
+	 * @author ActionForLife
+	 * @since 1.0
+	 */
+	
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) long idProduto;
 	private String nome;
 	private String marca;
