@@ -4,6 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class ProdutoModel {
@@ -17,10 +22,15 @@ public class ProdutoModel {
 	 */
 	
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) long idProduto;
-	private String nome;
+	private @NotBlank String nome;
 	private String marca;
 	private String descricao;
-	private double preco;
+	private @NotBlank double preco;
+	
+	@ManyToOne
+	@JoinColumn(name = "categoria_id")
+	@JsonIgnoreProperties({"produtos"})
+	private CategoriaModel categoriaProduto;
 
 	public long getIdProduto() {
 		return idProduto;
@@ -60,5 +70,13 @@ public class ProdutoModel {
 
 	public void setPreco(double preco) {
 		this.preco = preco;
+	}
+
+	public CategoriaModel getCategoriaProduto() {
+		return categoriaProduto;
+	}
+
+	public void setCategoriaProduto(CategoriaModel categoriaProduto) {
+		this.categoriaProduto = categoriaProduto;
 	}
 }

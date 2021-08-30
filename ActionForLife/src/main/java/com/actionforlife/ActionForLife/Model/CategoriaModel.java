@@ -1,9 +1,14 @@
 package com.actionforlife.ActionForLife.Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class CategoriaModel {
@@ -20,6 +25,9 @@ public class CategoriaModel {
 	private String planta;
 	private String vestuario;
 	private String bijuteria;
+	
+	@OneToMany(mappedBy = "categoriaProduto", cascade = CascadeType.REMOVE)
+	private List<ProdutoModel> produtos = new ArrayList();
 	
 	public long getIdCategoria() {
 		return idCategoria;
@@ -45,7 +53,10 @@ public class CategoriaModel {
 	public void setBijuteria(String bijuteria) {
 		this.bijuteria = bijuteria;
 	}
-	
-	
-
+	public List<ProdutoModel> getProdutos() {
+		return produtos;
+	}
+	public void setProdutos(List<ProdutoModel> produtos) {
+		this.produtos = produtos;
+	}	
 }
