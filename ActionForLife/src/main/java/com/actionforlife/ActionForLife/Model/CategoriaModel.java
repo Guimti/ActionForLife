@@ -22,9 +22,7 @@ public class CategoriaModel {
 	 */
 	
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) long idCategoria;
-	private String planta;
-	private String vestuario;
-	private String bijuteria;
+	private String tipo;
 	
 	@OneToMany(mappedBy = "categoriaProduto", cascade = CascadeType.REMOVE)
 	private List<ProdutoModel> produtos = new ArrayList();
@@ -35,24 +33,13 @@ public class CategoriaModel {
 	public void setIdCategoria(long idCategoria) {
 		this.idCategoria = idCategoria;
 	}
-	public String getPlanta() {
-		return planta;
+	public String getTipo() {
+		return tipo;
 	}
-	public void setPlanta(String planta) {
-		this.planta = planta;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
-	public String getVestuario() {
-		return vestuario;
-	}
-	public void setVestuario(String vestuario) {
-		this.vestuario = vestuario;
-	}
-	public String getBijuteria() {
-		return bijuteria;
-	}
-	public void setBijuteria(String bijuteria) {
-		this.bijuteria = bijuteria;
-	}
+	
 	public List<ProdutoModel> getProdutos() {
 		return produtos;
 	}
