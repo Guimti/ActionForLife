@@ -1,9 +1,14 @@
 package com.actionforlife.ActionForLife.Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class CategoriaModel {
@@ -16,36 +21,30 @@ public class CategoriaModel {
 	 * @since 1.0
 	 */
 	
-	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) long idCategoria;
-	private String planta;
-	private String vestuario;
-	private String bijuteria;
+	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idCategoria;
+	private String tipo;
 	
-	public long getIdCategoria() {
+	
+	@OneToMany(mappedBy = "categoriaProduto", cascade = CascadeType.REMOVE)
+	private List<ProdutoModel> produtos = new ArrayList();
+	
+	public Long getIdCategoria() {
 		return idCategoria;
 	}
-	public void setIdCategoria(long idCategoria) {
+	public void setIdCategoria(Long idCategoria) {
 		this.idCategoria = idCategoria;
 	}
-	public String getPlanta() {
-		return planta;
+	public String getTipo() {
+		return tipo;
 	}
-	public void setPlanta(String planta) {
-		this.planta = planta;
-	}
-	public String getVestuario() {
-		return vestuario;
-	}
-	public void setVestuario(String vestuario) {
-		this.vestuario = vestuario;
-	}
-	public String getBijuteria() {
-		return bijuteria;
-	}
-	public void setBijuteria(String bijuteria) {
-		this.bijuteria = bijuteria;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	
-	
-
+	public List<ProdutoModel> getProdutos() {
+		return produtos;
+	}
+	public void setProdutos(List<ProdutoModel> produtos) {
+		this.produtos = produtos;
+	}	
 }
