@@ -25,7 +25,7 @@ public class ProdutoModel {
 	private @NotBlank String nome;
 	private String marca;
 	private String descricao;
-	private @NotBlank double preco;
+	private double preco;
 	
 	@ManyToOne
 	@JoinColumn(name = "categoria_id")

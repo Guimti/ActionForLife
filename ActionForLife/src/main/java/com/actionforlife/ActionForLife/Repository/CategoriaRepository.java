@@ -9,6 +9,6 @@ import com.actionforlife.ActionForLife.Model.CategoriaModel;
 @Repository
 public interface CategoriaRepository  extends JpaRepository<CategoriaModel, Long>{
 	
-public List <CategoriaModel>  findAllByTipoContainingIgnoreCase (String tipo );
+	public List<CategoriaModel> findAllByTipoContainingIgnoreCase(String tipo);
 	
 }
