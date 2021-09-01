@@ -39,39 +39,29 @@ public class CategoriaController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 
+	@GetMapping("/tipo/{tipo}")
+	public ResponseEntity<List<CategoriaModel>> buscarPorTipo(@PathVariable(value = "tipo") String tipo) {
+		List<CategoriaModel> objetoLista = repository.findAllByTipoContainingIgnoreCase(tipo);
+		if (objetoLista.isEmpty()) {
+			return ResponseEntity.status(204).build();
+		} else {
+			return ResponseEntity.status(200).body(objetoLista);
+		}
+	}
+
 	@PostMapping("/salvar")
 	public ResponseEntity<CategoriaModel> salvar(@Valid @RequestBody CategoriaModel paraSalvar) {
 		return ResponseEntity.ok(repository.save(paraSalvar));
 	}
-	
+
 	@PutMapping("/atualizar")
-	public ResponseEntity<CategoriaModel> atualizar(@Valid @RequestBody CategoriaModel paraAtualizar)
-	{
+	public ResponseEntity<CategoriaModel> atualizar(@Valid @RequestBody CategoriaModel paraAtualizar) {
 		return ResponseEntity.ok(repository.save(paraAtualizar));
 	}
-	
+
 	@DeleteMapping("/deletar/{deletarId}")
-	public void deletarId(@PathVariable (value = "deletarId") Long paraDeletar)
-	{
+	public void deletarId(@PathVariable(value = "deletarId") Long paraDeletar) {
 		repository.deleteById(paraDeletar);
 	}
-	
-	@GetMapping("/tipo/{tipo}")
-    public ResponseEntity<List<CategoriaModel>> buscarPorTipo(@PathVariable (value = "tipo") String tipo) {
-        List<CategoriaModel> objetoLista = repository.findAllByTipoContainingIgnoreCase(tipo);
-        if (objetoLista.isEmpty()) {
-            return ResponseEntity.status(204).build();
-        } else {
-            return ResponseEntity.status(200).body(objetoLista);
-        }
-    }
+
 }
-
-
-
-
-
-
-
-
-

@@ -24,6 +24,7 @@ public class CategoriaModel {
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idCategoria;
 	private String tipo;
 	
+	
 	@OneToMany(mappedBy = "categoriaProduto", cascade = CascadeType.REMOVE)
 	private List<ProdutoModel> produtos = new ArrayList();
 	
