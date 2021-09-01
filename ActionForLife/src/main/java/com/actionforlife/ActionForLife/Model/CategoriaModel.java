@@ -21,16 +21,16 @@ public class CategoriaModel {
 	 * @since 1.0
 	 */
 	
-	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) long idCategoria;
+	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idCategoria;
 	private String tipo;
 	
 	@OneToMany(mappedBy = "categoriaProduto", cascade = CascadeType.REMOVE)
 	private List<ProdutoModel> produtos = new ArrayList();
 	
-	public long getIdCategoria() {
+	public Long getIdCategoria() {
 		return idCategoria;
 	}
-	public void setIdCategoria(long idCategoria) {
+	public void setIdCategoria(Long idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 	public String getTipo() {
