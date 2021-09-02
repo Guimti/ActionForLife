@@ -21,38 +21,26 @@ public class CategoriaModel {
 	 * @since 1.0
 	 */
 	
-	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) long idCategoria;
-	private String planta;
-	private String vestuario;
-	private String bijuteria;
+	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idCategoria;
+	private String tipo;
+	
 	
 	@OneToMany(mappedBy = "categoriaProduto", cascade = CascadeType.REMOVE)
 	private List<ProdutoModel> produtos = new ArrayList();
 	
-	public long getIdCategoria() {
+	public Long getIdCategoria() {
 		return idCategoria;
 	}
-	public void setIdCategoria(long idCategoria) {
+	public void setIdCategoria(Long idCategoria) {
 		this.idCategoria = idCategoria;
 	}
-	public String getPlanta() {
-		return planta;
+	public String getTipo() {
+		return tipo;
 	}
-	public void setPlanta(String planta) {
-		this.planta = planta;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
-	public String getVestuario() {
-		return vestuario;
-	}
-	public void setVestuario(String vestuario) {
-		this.vestuario = vestuario;
-	}
-	public String getBijuteria() {
-		return bijuteria;
-	}
-	public void setBijuteria(String bijuteria) {
-		this.bijuteria = bijuteria;
-	}
+	
 	public List<ProdutoModel> getProdutos() {
 		return produtos;
 	}

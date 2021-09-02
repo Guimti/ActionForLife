@@ -12,25 +12,31 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class ProdutoModel {
-	
+
 	/**
-	 * Classe utilizada como Entidade no Banco de dados para Produto, a mesma
-	 * possui atributos que seram colunas no banco com titulo: Nome, Marca, Descrição, Preço. 
+	 * Classe utilizada como Entidade no Banco de dados para Produto, a mesma possui
+	 * atributos que seram colunas no banco com titulo: Nome, Marca, Descrição,
+	 * Preço.
 	 * 
 	 * @author ActionForLife
 	 * @since 1.0
 	 */
-	
+
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) long idProduto;
 	private @NotBlank String nome;
 	private String marca;
 	private String descricao;
-	private @NotBlank double preco;
-	
+	private double preco;
+
 	@ManyToOne
 	@JoinColumn(name = "categoria_id")
-	@JsonIgnoreProperties({"produtos"})
+	@JsonIgnoreProperties({ "produtos" })
 	private CategoriaModel categoriaProduto;
+
+	@ManyToOne
+	@JoinColumn(name = "usuario_id")
+	@JsonIgnoreProperties({ "meusProdutos" })
+	private UsuarioModel comprador;
 
 	public long getIdProduto() {
 		return idProduto;
@@ -78,5 +84,13 @@ public class ProdutoModel {
 
 	public void setCategoriaProduto(CategoriaModel categoriaProduto) {
 		this.categoriaProduto = categoriaProduto;
+	}
+
+	public UsuarioModel getComprador() {
+		return comprador;
+	}
+
+	public void setComprador(UsuarioModel comprador) {
+		this.comprador = comprador;
 	}
 }
