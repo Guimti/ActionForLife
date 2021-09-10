@@ -19,7 +19,7 @@ public class UserService {
 	@Autowired
 	private UsuarioRepository repository;
 	
-	public UsuarioModel CadastrarUsuario (UsuarioModel usuario) {
+	public UsuarioModel cadastrarUsuario (UsuarioModel usuario) {
 		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		String senhaEncoder =  encoder.encode(usuario.getSenha());
@@ -29,7 +29,7 @@ public class UserService {
 	}
 	
 	
-	public Optional<UsuarioLogin> Logar (Optional<UsuarioLogin> user ){
+	public Optional<UsuarioLogin> logar (Optional<UsuarioLogin> user ){
 		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		Optional<UsuarioModel> usuario = repository.findByemail(user.get().getEmail());
