@@ -10,5 +10,5 @@ import com.actionforlife.ActionForLife.Model.UsuarioModel;
 @Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioModel, Long> {
 	List<UsuarioModel> findAllByNomeContainingIgnoreCase(String nome);
-	Optional<UsuarioModel> findByemail(String email);
+	Optional<UsuarioModel> findByEmail(String email);
 }
