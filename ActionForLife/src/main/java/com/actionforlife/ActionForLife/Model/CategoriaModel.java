@@ -17,12 +17,15 @@ public class CategoriaModel {
 	 * Classe utilizada como Entidade no Banco de dados para Categoria, a mesma
 	 * possui atributos que seram colunas no banco com titulo: Planta, Vestuario, Bijuteria. 
 	 * 
+	 * Descrição para categoria / adicionar mais atributos.
 	 * @author ActionForLife
 	 * @since 1.0
 	 */
 	
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idCategoria;
 	private String tipo;
+	private String desricao;
+	private String relevancia;
 	
 	
 	@OneToMany(mappedBy = "categoriaProduto", cascade = CascadeType.REMOVE)
@@ -46,5 +49,22 @@ public class CategoriaModel {
 	}
 	public void setProdutos(List<ProdutoModel> produtos) {
 		this.produtos = produtos;
+	}
+	public String getDesricao() {
+		return desricao;
+	}
+	public void setDesricao(String desricao) {
+		this.desricao = desricao;
+	}
+	public String getRelevancia() {
+		return relevancia;
+	}
+	public void setRelevancia(String relevancia) {
+		this.relevancia = relevancia;
 	}	
+	
+	
+	
+	
+	
 }
