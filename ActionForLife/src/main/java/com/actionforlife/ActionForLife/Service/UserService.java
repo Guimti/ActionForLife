@@ -19,20 +19,21 @@ public class UserService {
 	@Autowired
 	private UsuarioRepository repository;
 	
-	public UsuarioModel cadastrarUsuario (UsuarioModel usuario) {
-		
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		String senhaEncoder =  encoder.encode(usuario.getSenha());
-		usuario.setSenha(senhaEncoder);
-		return repository.save(usuario);
-	
+	public Optional<Object> cadastrarUsuario (UsuarioModel user) {
+		return repository.findByEmail(user.getEmail()).map(emailExistente -> {
+			return Optional.empty();
+		}).orElseGet(() -> {
+			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+			String passwordEncoder = encoder.encode(user.getSenha());
+			user.setSenha(passwordEncoder);
+			return Optional.ofNullable(repository.save(user));
+		});
 	}
-	
 	
 	public Optional<UsuarioLogin> logar (Optional<UsuarioLogin> user ){
 		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		Optional<UsuarioModel> usuario = repository.findByemail(user.get().getEmail());
+		Optional<UsuarioModel> usuario = repository.findByEmail(user.get().getEmail());
 		
 		if(usuario.isPresent()) {
 			if(encoder.matches(user.get().getSenha(), usuario.get().getSenha())) {

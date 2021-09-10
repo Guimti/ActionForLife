@@ -57,12 +57,17 @@ public class UsuarioController {
 	}
 
 	@PostMapping("/cadastrar")
-	public ResponseEntity<UsuarioModel> cadastrarUsuario(@RequestBody UsuarioModel novoUsuario) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(service.cadastrarUsuario(novoUsuario));
-
+	public ResponseEntity<Object> cadastrarUsuario(@RequestBody UsuarioModel novoUsuario) {
+		Optional<Object> objectOptional = service.cadastrarUsuario(novoUsuario);
+		
+		if (objectOptional.isEmpty()) {
+			return ResponseEntity.status(400).build();
+		} else {
+			return ResponseEntity.status(201).body(objectOptional.get());
+		}
 	}
 
-	@PutMapping("logar")
+	@PutMapping("/logar")
 	public ResponseEntity<UsuarioLogin> Autorization(@RequestBody Optional<UsuarioLogin> user) {
 		return service.logar(user).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());

@@ -21,7 +21,7 @@ public class UsuarioModel {
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idUsuario;
 	private @NotBlank String nome;
 	private @NotBlank String email;
-	private @NotBlank @Size(min = 5, max = 8) String senha;
+	private @NotBlank @Size(min = 5) String senha;
 	@OneToMany(mappedBy = "comprador", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({ "comprador" })
 	private List<ProdutoModel> meusProdutos = new ArrayList<>();
