@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.actionforlife.ActionForLife.Model.UsuarioModel;
+import com.actionforlife.ActionForLife.Model.UserModel;
 
 public class UserDetailsImplements implements UserDetails {
 
@@ -16,9 +16,9 @@ public class UserDetailsImplements implements UserDetails {
 	private String email;
 	private String senha ;
 	private List<GrantedAuthority> autorizacoes;
-	public UserDetailsImplements(UsuarioModel usuario) {
+	public UserDetailsImplements(UserModel usuario) {
 		this.email = usuario.getEmail();
-		this.senha = usuario.getSenha();
+		this.senha = usuario.getPassword();
 	}
 	
 	@Override

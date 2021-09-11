@@ -8,19 +8,19 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.actionforlife.ActionForLife.Model.UsuarioModel;
-import com.actionforlife.ActionForLife.Repository.UsuarioRepository;
+import com.actionforlife.ActionForLife.Model.UserModel;
+import com.actionforlife.ActionForLife.Repository.UserRepository;
 
 @Service
 public class UserDetailsServiceImplements implements UserDetailsService{
 
 	@Autowired
-	private UsuarioRepository repositorio;
+	private UserRepository repositorio;
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		Optional<UsuarioModel> objetoOptional = repositorio.findByEmail(username);
+		Optional<UserModel> objetoOptional = repositorio.findByEmail(username);
 		
 		if (objetoOptional.isPresent()) {
 			return new UserDetailsImplements(objetoOptional.get());
