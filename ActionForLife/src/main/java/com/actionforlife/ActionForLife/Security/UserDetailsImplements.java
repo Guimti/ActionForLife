@@ -10,25 +10,25 @@ import com.actionforlife.ActionForLife.Model.UserModel;
 
 public class UserDetailsImplements implements UserDetails {
 
-	
 	private static final long serialVersionUID = 1L;
 
 	private String email;
-	private String senha ;
-	private List<GrantedAuthority> autorizacoes;
-	public UserDetailsImplements(UserModel usuario) {
-		this.email = usuario.getEmail();
-		this.senha = usuario.getPassword();
+	private String password;
+	private List<GrantedAuthority> authorizations;
+
+	public UserDetailsImplements(UserModel user) {
+		this.email = user.getEmail();
+		this.password = user.getPassword();
 	}
-	
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return autorizacoes;
+		return authorizations;
 	}
 
 	@Override
 	public String getPassword() {
-		return senha;
+		return password;
 	}
 
 	@Override
@@ -55,5 +55,4 @@ public class UserDetailsImplements implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
-
 }

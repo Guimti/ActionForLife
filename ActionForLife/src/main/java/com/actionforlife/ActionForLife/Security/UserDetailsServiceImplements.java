@@ -12,24 +12,20 @@ import com.actionforlife.ActionForLife.Model.UserModel;
 import com.actionforlife.ActionForLife.Repository.UserRepository;
 
 @Service
-public class UserDetailsServiceImplements implements UserDetailsService{
+public class UserDetailsServiceImplements implements UserDetailsService {
 
 	@Autowired
-	private UserRepository repositorio;
-	
+	private UserRepository repository;
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
-		Optional<UserModel> objetoOptional = repositorio.findByEmail(username);
-		
-		if (objetoOptional.isPresent()) {
-			return new UserDetailsImplements(objetoOptional.get());
-		}
-		else {
+
+		Optional<UserModel> objectOptional = repository.findByEmail(username);
+
+		if (objectOptional.isPresent()) {
+			return new UserDetailsImplements(objectOptional.get());
+		} else {
 			throw new UsernameNotFoundException(username + "Não Existe!");
 		}
-		
-	} 
-
-	
+	}
 }
