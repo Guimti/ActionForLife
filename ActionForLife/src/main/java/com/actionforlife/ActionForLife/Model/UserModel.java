@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -19,7 +20,7 @@ public class UserModel {
 
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idUser;
 	private @NotBlank String name;
-	private @NotBlank String email;
+	private @NotBlank @Email String email;
 	private @NotBlank @Size(min = 5) String password;
 	
 	@OneToMany(mappedBy = "buyer", cascade = CascadeType.REMOVE)
