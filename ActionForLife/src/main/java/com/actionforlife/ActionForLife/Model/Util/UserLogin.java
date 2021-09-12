@@ -1,11 +1,13 @@
 package com.actionforlife.ActionForLife.Model.Util;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class UserLogin {
 
-	private @NotBlank String email;
-	private @NotBlank String password;
+	private @NotBlank @Email String email;
+	private @NotBlank @Size(min = 5) String password;
 
 	private String name;
 	private String token;

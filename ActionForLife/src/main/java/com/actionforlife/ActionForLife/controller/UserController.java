@@ -57,7 +57,7 @@ public class UserController {
 	}
 
 	@PostMapping("/register")
-	public ResponseEntity<Object> registerUser(@RequestBody UserModel newUser) {
+	public ResponseEntity<Object> registerUser(@Valid @RequestBody UserModel newUser) {
 		Optional<Object> objectOptional = service.registerUser(newUser);
 
 		if (objectOptional.isEmpty()) {
@@ -68,7 +68,7 @@ public class UserController {
 	}
 
 	@PutMapping("/authorize")
-	public ResponseEntity<UserLogin> authorization(@RequestBody Optional<UserLogin> user) {
+	public ResponseEntity<UserLogin> authorization(@Valid @RequestBody Optional<UserLogin> user) {
 		return service.authorize(user).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}

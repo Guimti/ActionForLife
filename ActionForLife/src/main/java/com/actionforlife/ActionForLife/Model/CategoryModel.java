@@ -30,7 +30,7 @@ public class CategoryModel {
 	private String description;
 	private @NotBlank String relevancy;
 
-	@OneToMany(mappedBy = "productCategory", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "categoryProduct", cascade = CascadeType.REMOVE)
 	private List<ProductModel> products = new ArrayList<>();
 
 	public Long getIdCategory() {
