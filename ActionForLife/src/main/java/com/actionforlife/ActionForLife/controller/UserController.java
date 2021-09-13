@@ -40,7 +40,7 @@ public class UserController {
 	}
 
 	@GetMapping("/id/{id}")
-	public ResponseEntity<UserModel> findById(@PathVariable Long idUser) {
+	public ResponseEntity<UserModel> findById(@PathVariable(value = "id") Long idUser) {
 
 		return repository.findById(idUser).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
