@@ -32,7 +32,7 @@ public class CategoryController {
 	}
 
 	@GetMapping("/id/{id}")
-	public ResponseEntity<CategoryModel> getById(@PathVariable Long id) {
+	public ResponseEntity<CategoryModel> getById(@PathVariable(value = "id") Long id) {
 
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}

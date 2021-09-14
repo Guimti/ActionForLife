@@ -32,7 +32,7 @@ public class SwaggerConfig {
 	}
 
 	private static Contact contact() {
-		return new Contact("Grupo 2", "https://github.com/Guimti/ActionForLife.git", "charlesoliveira0293@hotmail.com; dayannemdchaves@gmail.com; evelyncarolina.contato@gmail.com; alysonrodrigo14@hotmail.com; guilhermeguimti@hotmail.com");
+		return new Contact("Grupo 2", "https://github.com/Guimti/ActionForLife.git", "guilhermeguimti@hotmail.com");
 	}
 
 	private static List<Response> responseMessageForGET() {
