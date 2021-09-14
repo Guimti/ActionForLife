@@ -16,7 +16,6 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UserDetailsServiceImplements service;
-
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -24,10 +23,14 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/user/register").permitAll()
-				.antMatchers(HttpMethod.PUT, "/user/authorize").permitAll().anyRequest().authenticated().and()
-				.httpBasic().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-				.cors().and().csrf().disable();
+		http.authorizeRequests()
+		.antMatchers("/user/register").permitAll()
+		.antMatchers("/user/authorize").permitAll()
+		.antMatchers(HttpMethod.OPTIONS).permitAll()
+		.anyRequest().authenticated().and().httpBasic()
+		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+		.and().cors()
+		.and().csrf().disable();
 	}
 
 	@Override
