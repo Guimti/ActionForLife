@@ -1,6 +1,7 @@
 package com.actionforlife.ActionForLife.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -59,13 +60,26 @@ public class ProductController {
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<ProductModel> updateProduct(@Valid @RequestBody ProductModel updatedProduct) {
-		return ResponseEntity.ok(repository.save(updatedProduct));
+	public ResponseEntity<ProductModel> updateProduct(@Valid @RequestBody ProductModel updateProduct) {
+		Optional<ProductModel> productUpdated = repository.findById(updateProduct.getIdProduct()); 
+		
+		if(productUpdated.isEmpty()) {
+			return ResponseEntity.status(204).build();
+		} else {
+			return ResponseEntity.ok(repository.save(productUpdated.get()));
+		}
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public void deleteById(@PathVariable(value = "id") Long idProduct) {
-		repository.deleteById(idProduct);
-	}
+	public ResponseEntity<Object> deleteById(@PathVariable(value = "id") Long idProduct) {
+		Optional<ProductModel> productId = repository.findById(idProduct);
+
+		if(productId.isEmpty()) {
+			return ResponseEntity.status(204).build();
+		} else {
+			repository.deleteById(idProduct);
+			return ResponseEntity.status(200).build();
+		}		
+	}	
 
 }

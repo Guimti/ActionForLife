@@ -1,6 +1,7 @@
 package com.actionforlife.ActionForLife.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -53,13 +54,26 @@ public class CategoryController {
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<CategoryModel> update(@Valid @RequestBody CategoryModel toUpdate) {
-		return ResponseEntity.ok(repository.save(toUpdate));
+	public ResponseEntity<CategoryModel> update(@Valid @RequestBody CategoryModel updateCategory) {
+		Optional<CategoryModel> categoryUpdated = repository.findById(updateCategory.getIdCategory()); 
+		
+		if(categoryUpdated.isEmpty()) {
+			return ResponseEntity.status(204).build();
+		} else {
+			return ResponseEntity.ok(repository.save(categoryUpdated.get()));
+		}
 	}
 
-	@DeleteMapping("/delete/{deleteId}")
-	public void deletarId(@PathVariable(value = "deleteId") Long toDelete) {
-		repository.deleteById(toDelete);
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<Object> deletarId(@PathVariable(value = "Id") Long idCategory) {
+		Optional<CategoryModel> categoryId = repository.findById(idCategory);
+
+		if(categoryId.isEmpty()) {
+			return ResponseEntity.status(204).build();
+		} else {
+			repository.deleteById(idCategory);
+			return ResponseEntity.status(200).build();
+		}		
 	}
 
 }
