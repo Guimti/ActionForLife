@@ -37,7 +37,7 @@ public class ProductController {
 	}
 
 	@GetMapping("/id/{id}")
-	public ResponseEntity<ProductModel> findById(@PathVariable Long idProduct) {
+	public ResponseEntity<ProductModel> findById(@PathVariable(value = "id") Long idProduct) {
 
 		return repository.findById(idProduct).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
