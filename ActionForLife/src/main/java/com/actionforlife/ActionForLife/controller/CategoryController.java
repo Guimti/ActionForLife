@@ -55,13 +55,7 @@ public class CategoryController {
 
 	@PutMapping("/update")
 	public ResponseEntity<CategoryModel> update(@Valid @RequestBody CategoryModel updateCategory) {
-		Optional<CategoryModel> categoryUpdated = repository.findById(updateCategory.getIdCategory()); 
-		
-		if(categoryUpdated.isEmpty()) {
-			return ResponseEntity.status(204).build();
-		} else {
-			return ResponseEntity.ok(repository.save(categoryUpdated.get()));
-		}
+		return ResponseEntity.status(201).body(repository.save(updateCategory));
 	}
 
 	@DeleteMapping("/delete/{id}")

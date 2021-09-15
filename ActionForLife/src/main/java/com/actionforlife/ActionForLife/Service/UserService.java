@@ -49,4 +49,19 @@ public class UserService {
 		}
 		return Optional.empty();
 	}
+
+	public Optional<?> update(UserModel user) {
+		return repository.findById(user.getIdUser()).map(userExists -> {
+			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+			String passwordEncoder = encoder.encode(user.getPassword());
+
+			userExists.setName(user.getName());
+			userExists.setEmail(user.getEmail());
+			userExists.setPassword(passwordEncoder);
+			
+			return Optional.ofNullable(repository.save(userExists));
+		}).orElseGet(() -> {
+			return Optional.empty();
+		});
+	}
 }
