@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -26,7 +27,7 @@ public class ProductModel {
 	private @NotBlank String name;
 	private String brand;
 	private String description;
-	private @NotBlank double price;
+	private @NotNull Float price;
 
 	@ManyToOne
 	@JoinColumn(name = "category_id")
@@ -74,7 +75,7 @@ public class ProductModel {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 
