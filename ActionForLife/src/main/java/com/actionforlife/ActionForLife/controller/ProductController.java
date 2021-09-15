@@ -61,13 +61,7 @@ public class ProductController {
 
 	@PutMapping("/update")
 	public ResponseEntity<ProductModel> updateProduct(@Valid @RequestBody ProductModel updateProduct) {
-		Optional<ProductModel> productUpdated = repository.findById(updateProduct.getIdProduct()); 
-		
-		if(productUpdated.isEmpty()) {
-			return ResponseEntity.status(204).build();
-		} else {
-			return ResponseEntity.ok(repository.save(productUpdated.get()));
-		}
+		return ResponseEntity.status(201).body(repository.save(updateProduct));
 	}
 
 	@DeleteMapping("/delete/{id}")
