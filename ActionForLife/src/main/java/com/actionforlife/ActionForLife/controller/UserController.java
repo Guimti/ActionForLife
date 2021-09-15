@@ -74,12 +74,25 @@ public class UserController {
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<UserModel> updateUser(@Valid @RequestBody UserModel updatedUser) {
-		return ResponseEntity.ok(repository.save(updatedUser));
+	public ResponseEntity<UserModel> updateUser(@RequestBody UserModel updateUser) {
+		Optional<UserModel> userUpdated = repository.findById(updateUser.getIdUser()); 
+
+		if(userUpdated.isEmpty()) {
+			return ResponseEntity.status(204).build();
+		} else {
+			return ResponseEntity.ok(repository.save(userUpdated.get()));
+		}
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public void deleteById(@PathVariable(value = "id") Long idUser) {
-		repository.deleteById(idUser);
+	public ResponseEntity<Object> deleteById(@PathVariable(value = "id") Long idUser) {
+		Optional<UserModel> userId = repository.findById(idUser);
+
+		if(userId.isEmpty()) {
+			return ResponseEntity.status(204).build();
+		} else {
+			repository.deleteById(idUser);
+			return ResponseEntity.status(200).build();
+		}	
 	}
 }
