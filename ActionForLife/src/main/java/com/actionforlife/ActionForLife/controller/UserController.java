@@ -74,13 +74,13 @@ public class UserController {
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<UserModel> updateUser(@RequestBody UserModel updateUser) {
-		Optional<UserModel> userUpdated = repository.findById(updateUser.getIdUser()); 
+	public ResponseEntity<Object> updateUser(@Valid @RequestBody UserModel user) {
+		Optional<?> userUpdated = service.update(user);  
 
 		if(userUpdated.isEmpty()) {
 			return ResponseEntity.status(204).build();
 		} else {
-			return ResponseEntity.ok(repository.save(userUpdated.get()));
+			return ResponseEntity.status(200).body(userUpdated.get());
 		}
 	}
 
