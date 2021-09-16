@@ -18,11 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.actionforlife.ActionForLife.Model.ProductModel;
 import com.actionforlife.ActionForLife.Repository.ProductRepository;
+import com.actionforlife.ActionForLife.Service.ProductService;
 
 @RestController
 @RequestMapping("/product")
 public class ProductController {
-
+	private @Autowired ProductService service;
 	@Autowired
 	private ProductRepository repository;
 
@@ -61,7 +62,13 @@ public class ProductController {
 
 	@PutMapping("/update")
 	public ResponseEntity<ProductModel> updateProduct(@Valid @RequestBody ProductModel updateProduct) {
-		return ResponseEntity.status(201).body(repository.save(updateProduct));
+		Optional<ProductModel> changedobject = service.UpdateProduct(updateProduct);
+
+		if (changedobject.isPresent()) {
+			return ResponseEntity.status(201).body(changedobject.get());
+		} else {
+			return ResponseEntity.status(400).build();
+		}
 	}
 
 	@DeleteMapping("/delete/{id}")
