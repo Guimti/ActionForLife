@@ -20,7 +20,6 @@ import com.actionforlife.ActionForLife.Model.CategoryModel;
 import com.actionforlife.ActionForLife.Repository.CategoryRepository;
 import com.actionforlife.ActionForLife.Service.CategoryService;
 
-import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/category")
