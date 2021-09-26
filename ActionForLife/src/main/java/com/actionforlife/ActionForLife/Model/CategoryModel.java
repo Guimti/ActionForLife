@@ -61,7 +61,7 @@ public class CategoryModel {
 		return description;
 	}
 
-	public void setDesription(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
