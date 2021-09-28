@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "ActionForLife"
+  "defaultProject": "ActionForLife",
+  "cli": {
+    "analytics": "b77214b3-0f08-4ac2-ae75-c91718868a97"
+  }
 }
