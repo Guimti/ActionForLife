@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.actionforlife.ActionForLife.Model.ProductModel;
 import com.actionforlife.ActionForLife.Repository.ProductRepository;
+import com.actionforlife.ActionForLife.Service.ProductService;
 
 @RestController
 @RequestMapping("/product")
@@ -25,6 +26,8 @@ public class ProductController {
 
 	@Autowired
 	private ProductRepository repository;
+	@Autowired
+	private ProductService service;
 
 	@GetMapping("/all")
 	public ResponseEntity<List<ProductModel>> getAll() {
@@ -60,8 +63,14 @@ public class ProductController {
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<ProductModel> updateProduct(@Valid @RequestBody ProductModel updateProduct) {
-		return ResponseEntity.status(201).body(repository.save(updateProduct));
+	public ResponseEntity<Object> updateProduct(@Valid @RequestBody ProductModel updateProduct) {
+		Optional<?> productToChange = service.updateProduct(updateProduct);
+		
+		if (productToChange.isPresent()) {
+			return ResponseEntity.status(201).body(productToChange.get());
+		}else {
+			return ResponseEntity.status(204).build();
+		}
 	}
 
 	@DeleteMapping("/delete/{id}")
