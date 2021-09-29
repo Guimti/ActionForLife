@@ -13,26 +13,26 @@
         <div class="col-md-6 ">
 
             <div class="form-group">
-                <label for="usuario">Name</label><input class="form-control" type="text" name="nome" id="nome">
+                <label for="usuario">First name</label><input class="form-control" type="text" name="nome" id="nome">
             </div>
             <div class="form-group">
                 <label for="cpf">CPF</label><input class="form-control" type="number" name="cpf" id="cpf">
             </div>
             <div class="form-group">
-                <label for="password">Senha</label><input class="form-control" type="password" name="senha" id="senha">
+                <label for="password">Password</label><input class="form-control" type="password" name="password" id="password">
             </div>
 
         </div>
         <div class="col-md-6">
 
             <div class="form-group">
-                <label for="usuario">Sobrenome</label><input class="form-control" type="text" name="nome" id="nome">
+                <label for="usuario">Last name</label><input class="form-control" type="text" name="nome" id="nome">
             </div>
             <div class="form-group">
                 <label for="email">E-mail</label><input class="form-control" type="email" name="email" id="email">
             </div>
             <div class="form-group">
-                <label for="password">Confirme sua senha</label><input class="form-control" type="password" name="senha">
+                <label for="password">Confirm your password</label><input class="form-control" type="password" name="senha">
             </div>
 
         </div>
@@ -42,14 +42,16 @@
     <div class="row m-auto">
         <div class="col">
             <input type="checkbox" class="m-3" id="temos" name="termos">
-            <label for="termos"> Aceito os Termos e condições e autorizo o uso de meus dados de acordo com a Declaração
-                de privacidade.</label>
+            <label for="termos"> I accept the Terms and Conditions and authorize the use of my data in accordance with the Privacy Statement.</label>
         </div>
     </div>
 
     <div class="row mt-3">
-        <div class="col">
-            <a href="#" class="myButton">Criar Conta</a>
+        <div class="col-6">
+            <a routerLink='/null' class="myButton">Create an account</a>
+        </div>
+        <div class="col-6 d-flex align-items-end justify-content-end">
+            <a routerLink='/login' class="myButton2 ">Cancel</a>
         </div>
     </div>
 
