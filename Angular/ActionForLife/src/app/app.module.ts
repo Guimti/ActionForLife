@@ -5,19 +5,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './header/header.component';
+<<<<<<< HEAD
+import { FooterComponent } from './footer/footer.component';
+=======
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+>>>>>>> dbbe868875fc069cf212c0f4c7a89a35e8dcfdb2
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+<<<<<<< HEAD
+    FooterComponent
+=======
     LoginComponent,
     RegistrationComponent,
     FooterComponent,
     HomeComponent
+>>>>>>> dbbe868875fc069cf212c0f4c7a89a35e8dcfdb2
   ],
   imports: [
     BrowserModule,
