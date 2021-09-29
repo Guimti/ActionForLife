@@ -1,0 +1,41 @@
+.color-green {
+    color: #253F01;
+}
+
+.bgcolor-orange {
+    background-color: #F2A922;
+}
+
+.bgcolor-top {
+    background-color: #ECF3D5;
+}
+
+.size-carousel {
+    max-height: 250px;
+    width: 100%;
+}
+
+.border-radius {
+    border-radius: 13px;
+}
+
+.size-multiple-carousel {
+    max-height: 150px;
+}
+
+.margin-top {
+    margin-top: 80px;
+}
+
+.padding-x {
+    padding: 0px 20%;
+}
+
+.padding-r {
+    padding-right: 17%;
+}
+
+.size-img-idea {
+    max-width: 300px;
+    height: auto;
+}
