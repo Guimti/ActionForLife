@@ -36,6 +36,11 @@
 }
 
 .size-img-idea {
-    max-width: 300px;
+    max-width: 25%;
     height: auto;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    border: 2px solid #253F01;
+    background-color: #253F01 !important;
 }
