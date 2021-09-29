@@ -50,8 +50,8 @@ public class UserService {
 		return Optional.empty();
 	}
 
-	public Optional<?> update(UserModel user) {
-		return repository.findById(user.getIdUser()).map(userExists -> {
+	public Optional<?> update(UserLogin user) {
+		return repository.findById(user.getId()).map(userExists -> {
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 			String passwordEncoder = encoder.encode(user.getPassword());
 

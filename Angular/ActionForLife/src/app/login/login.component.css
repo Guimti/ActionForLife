@@ -1,9 +1,6 @@
-.cor-bg{
-   background-color: #ECF3D5;
-    
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+h1{
+    color: #253F01;
+    font-size: 38pt;
 }
 .cor-text{
     color: #253F01;
