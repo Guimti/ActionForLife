@@ -74,7 +74,7 @@ public class UserController {
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<Object> updateUser(@Valid @RequestBody UserModel user) {
+	public ResponseEntity<Object> updateUser(@Valid @RequestBody UserLogin user) {
 		Optional<?> userUpdated = service.update(user); 
 		
 		if(userUpdated.isEmpty()) {
