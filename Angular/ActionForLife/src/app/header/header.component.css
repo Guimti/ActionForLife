@@ -3,15 +3,11 @@
     margin: 20px;
 }
 
-
-
-.navbar-color{
-    background-color:#253F01;
-    
-    
+nav a {
+    color: #253F01 !important ;
 }
 
-.text-t{
-    color:   #ECF3D5;
+nav a:hover {
+    color: #6c9039 !important ;
 }
 
