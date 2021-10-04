@@ -49,19 +49,11 @@ public class CategoryModel {
 		this.type = type;
 	}
 
-	public List<ProductModel> getProducts() {
-		return products;
-	}
-
-	public void setProducts(List<ProductModel> products) {
-		this.products = products;
-	}
-
 	public String getDescription() {
 		return description;
 	}
 
-	public void setDesription(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -71,6 +63,14 @@ public class CategoryModel {
 
 	public void setRelevancy(String relevancy) {
 		this.relevancy = relevancy;
+	}
+
+	public List<ProductModel> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<ProductModel> products) {
+		this.products = products;
 	}
 
 }

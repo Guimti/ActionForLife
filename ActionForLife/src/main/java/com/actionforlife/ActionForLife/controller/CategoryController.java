@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.actionforlife.ActionForLife.Model.CategoryModel;
 import com.actionforlife.ActionForLife.Repository.CategoryRepository;
+import com.actionforlife.ActionForLife.Service.CategoryService;
+
 
 @RestController
 @RequestMapping("/category")
@@ -25,7 +27,7 @@ public class CategoryController {
 
 	@Autowired
 	private CategoryRepository repository;
-
+	private @Autowired CategoryService service;
 	@GetMapping("/all")
 	public ResponseEntity<List<CategoryModel>> getAll() {
 
@@ -54,8 +56,14 @@ public class CategoryController {
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<CategoryModel> update(@Valid @RequestBody CategoryModel updateCategory) {
-		return ResponseEntity.status(201).body(repository.save(updateCategory));
+	public ResponseEntity<CategoryModel> update(@Valid @RequestBody CategoryModel update_Category) {
+		Optional<CategoryModel> changedobject = service.UpdateCategory(update_Category);
+
+		if (changedobject.isPresent()) {
+			return ResponseEntity.status(201).body(changedobject.get());
+		} else {
+			return ResponseEntity.status(400).build();
+		}
 	}
 
 	@DeleteMapping("/delete/{id}")
