@@ -57,7 +57,7 @@ public class CategoryController {
 
 	@PutMapping("/update")
 	public ResponseEntity<CategoryModel> update(@Valid @RequestBody CategoryModel update_Category) {
-		Optional<CategoryModel> changedobject = service.UpdateCategory(update_Category);
+		Optional<CategoryModel> changedobject = service.updateCategory(update_Category);
 
 		if (changedobject.isPresent()) {
 			return ResponseEntity.status(201).body(changedobject.get());
