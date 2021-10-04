@@ -4,8 +4,11 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class UserLogin {
 
+	private  Long id;
 	private @NotBlank @Email String email;
 	private @NotBlank @Size(min = 5) String password;
 
@@ -44,4 +47,13 @@ public class UserLogin {
 		this.token = token;
 	}
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	
 }
