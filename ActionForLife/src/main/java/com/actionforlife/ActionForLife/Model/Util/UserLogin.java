@@ -8,11 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserLogin {
 
-	private  Long id;
 	private @NotBlank @Email String email;
-	private @NotBlank @Size(min = 5) String password;
+	private @NotBlank @Size(min = 6) String password;
 
+	private Long id;
 	private String name;
+	private String lastName;
+	private String address;
+	private Double cpf;
 	private String token;
 
 	public String getName() {
@@ -55,5 +58,27 @@ public class UserLogin {
 		this.id = id;
 	}
 	
-	
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Double getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(Double cpf) {
+		this.cpf = cpf;
+	}
 }

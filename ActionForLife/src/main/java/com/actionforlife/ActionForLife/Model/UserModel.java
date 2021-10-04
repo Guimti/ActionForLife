@@ -13,8 +13,11 @@ public class UserModel {
 
 	private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long idUser;
 	private @NotBlank String name;
+	private @NotBlank String lastName;
 	private @NotBlank @Email String email;
-	private @NotBlank @Size(min = 5) String password;
+	private @NotNull @Size(min = 11, max = 11) Double cpf;
+	private @NotBlank String address;
+	private @NotBlank @Size(min = 6) String password;
 	
 	public Long getIdUser() {
 		return idUser;
@@ -46,6 +49,30 @@ public class UserModel {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Double getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(Double cpf) {
+		this.cpf = cpf;
 	}
 
 }
