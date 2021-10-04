@@ -12,6 +12,7 @@ import com.actionforlife.ActionForLife.Repository.ProductRepository;
 public class ProductService {
 	private @Autowired ProductRepository repository;
 
+
 	public Optional<?> updateProduct(ProductModel productToChange) {
 		return repository.findById(productToChange.getIdProduct()).map(productExists -> {
 			productExists.setName(productToChange.getName());
