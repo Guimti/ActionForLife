@@ -27,17 +27,12 @@ public class ProductModel {
 	private @NotBlank String name;
 	private String brand;
 	private String description;
-	private @NotNull Float price;
+	private @NotNull Double price;
 
 	@ManyToOne
 	@JoinColumn(name = "category_id")
 	@JsonIgnoreProperties({ "products" })
 	private CategoryModel categoryProduct;
-
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	@JsonIgnoreProperties({ "myProducts" })
-	private UserModel buyer;
 
 	public long getIdProduct() {
 		return idProduct;
@@ -71,11 +66,11 @@ public class ProductModel {
 		this.description = description;
 	}
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Float price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
@@ -87,11 +82,5 @@ public class ProductModel {
 		this.categoryProduct = categoryProduct;
 	}
 
-	public UserModel getBuyer() {
-		return buyer;
-	}
-
-	public void setBuyer(UserModel buyer) {
-		this.buyer = buyer;
-	}
+	
 }

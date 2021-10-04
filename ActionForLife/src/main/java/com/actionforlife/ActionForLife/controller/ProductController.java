@@ -23,9 +23,9 @@ import com.actionforlife.ActionForLife.Service.ProductService;
 @RestController
 @RequestMapping("/product")
 public class ProductController {
+	
 	private @Autowired ProductService service;
-	@Autowired
-	private ProductRepository repository;
+	private @Autowired ProductRepository repository;
 
 	@GetMapping("/all")
 	public ResponseEntity<List<ProductModel>> getAll() {
@@ -61,13 +61,13 @@ public class ProductController {
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<ProductModel> updateProduct(@Valid @RequestBody ProductModel updateProduct) {
-		Optional<ProductModel> changedobject = service.UpdateProduct(updateProduct);
+	public ResponseEntity<Object> updateProduct(@Valid @RequestBody ProductModel updateProduct) {
+		Optional<?> productToChange = service.updateProduct(updateProduct);
 
-		if (changedobject.isPresent()) {
-			return ResponseEntity.status(201).body(changedobject.get());
-		} else {
-			return ResponseEntity.status(400).build();
+		if(productToChange.isPresent()) {
+			return ResponseEntity.status(201).body(productToChange.get());
+		}else {
+			return ResponseEntity.status(204).build();
 		}
 	}
 
