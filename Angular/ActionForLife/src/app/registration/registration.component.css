@@ -15,7 +15,19 @@ h1{
 	font-size:15px;
 	padding:8px 20px;
 	text-decoration:none;
-
+}
+.notButton{
+	background-color:#dfdfdf;
+	border-radius:10px;
+	border:1px solid #dfdfdf;
+	display:inline-block;
+	color:#909090;
+	font-size:15px;
+	padding:8px 20px;
+	text-decoration:none;
+}
+.notButton:hover {
+	background-color:#dfdfdf;
 }
 .myButton:hover {
 	background-color:#D93D04;
