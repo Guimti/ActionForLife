@@ -17,7 +17,7 @@ public class UserModel {
 	private @NotBlank String lastName;
 	private @NotBlank @Email String email;
 	private @NotBlank @Size(min = 5) String password;
-	private @NotNull Long cpf;
+	private String photo;
 	private @NotBlank String address;
 	
 	public Long getIdUser() {
@@ -60,12 +60,12 @@ public class UserModel {
 		this.lastName = lastName;
 	}
 
-	public Long getCpf() {
-		return cpf;
+	public String getPhoto() {
+		return photo;
 	}
 
-	public void setCpf(Long cpf) {
-		this.cpf = cpf;
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 	public String getAddress() {

@@ -47,7 +47,7 @@ public class UserService {
 				user.get().setLastName(userEmail.get().getLastName());
 				user.get().setPassword(userEmail.get().getPassword());
 				user.get().setEmail(userEmail.get().getEmail());
-				user.get().setCpf(userEmail.get().getCpf());
+				user.get().setPhoto(userEmail.get().getPhoto());
 				user.get().setAddress(userEmail.get().getAddress());
 
 				return user;
@@ -65,7 +65,7 @@ public class UserService {
 			userExists.setName(user.getName());
 			userExists.setEmail(user.getEmail());
 			userExists.setLastName(user.getLastName());
-			userExists.setCpf(user.getCpf());
+			userExists.setPhoto(user.getPhoto());
 			userExists.setAddress(user.getAddress());
 			userExists.setPassword(passwordEncoder);
 
