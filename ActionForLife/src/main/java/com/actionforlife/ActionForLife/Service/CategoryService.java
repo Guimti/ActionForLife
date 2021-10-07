@@ -12,13 +12,10 @@ import com.actionforlife.ActionForLife.Repository.CategoryRepository;
 public class CategoryService {
 	private @Autowired CategoryRepository repository;
 
-	public Optional<CategoryModel> updateCategory(CategoryModel categoryToChange) {
-		return repository.findById(categoryToChange.getIdCategory()).map(existingCategory -> {
-			existingCategory.setIdCategory(categoryToChange.getIdCategory());
-			existingCategory.setType(categoryToChange.getType());
-			existingCategory.setDescription(categoryToChange.getDescription());
-			existingCategory.setRelevancy(categoryToChange.getRelevancy());
-			return Optional.ofNullable(repository.save(existingCategory));
+	public Optional<CategoryModel> UpdateCategory(CategoryModel categoryToChange) {
+		return repository.findById(categoryToChange.getIdCategory()).map(ExistingCategory -> {
+			ExistingCategory.setIdCategory(categoryToChange.getIdCategory());
+			return Optional.ofNullable(repository.save(ExistingCategory));
 		}).orElseGet(() -> {
 			return Optional.empty();
 		});

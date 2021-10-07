@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import com.actionforlife.ActionForLife.Service.CategoryService;
 
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/category")
 public class CategoryController {
 
@@ -57,7 +59,7 @@ public class CategoryController {
 
 	@PutMapping("/update")
 	public ResponseEntity<CategoryModel> update(@Valid @RequestBody CategoryModel update_Category) {
-		Optional<CategoryModel> changedobject = service.updateCategory(update_Category);
+		Optional<CategoryModel> changedobject = service.UpdateCategory(update_Category);
 
 		if (changedobject.isPresent()) {
 			return ResponseEntity.status(201).body(changedobject.get());

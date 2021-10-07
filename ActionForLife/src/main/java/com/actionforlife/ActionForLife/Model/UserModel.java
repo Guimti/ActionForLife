@@ -16,9 +16,9 @@ public class UserModel {
 	private @NotBlank String name;
 	private @NotBlank String lastName;
 	private @NotBlank @Email String email;
-	private @NotNull @Size(min = 11, max = 11) Double cpf;
+	private @NotBlank @Size(min = 5) String password;
+	private @NotNull Long cpf;
 	private @NotBlank String address;
-	private @NotBlank @Size(min = 6) String password;
 	
 	public Long getIdUser() {
 		return idUser;
@@ -60,6 +60,14 @@ public class UserModel {
 		this.lastName = lastName;
 	}
 
+	public Long getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(Long cpf) {
+		this.cpf = cpf;
+	}
+
 	public String getAddress() {
 		return address;
 	}
@@ -68,12 +76,5 @@ public class UserModel {
 		this.address = address;
 	}
 
-	public Double getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(Double cpf) {
-		this.cpf = cpf;
-	}
-
+	
 }
