@@ -7,4 +7,5 @@ export class UserLogin{
     public cpf:number
     public address:string
     public token: string
+    public photo: string
 }
