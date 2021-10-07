@@ -4,19 +4,17 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 public class UserLogin {
 
-	private @NotBlank @Email String email;
-	private @NotBlank @Size(min = 6) String password;
-
 	private Long id;
+	private @NotBlank @Email String email;
+	private @NotBlank @Size(min = 5) String password;
+
 	private String name;
 	private String lastName;
-	private String address;
-	private Double cpf;
 	private String token;
+	private Long cpf;
+	private String address;
 
 	public String getName() {
 		return name;
@@ -50,20 +48,28 @@ public class UserLogin {
 		this.token = token;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getLastName() {
 		return lastName;
 	}
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public Long getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(Long cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getAddress() {
@@ -74,11 +80,4 @@ public class UserLogin {
 		this.address = address;
 	}
 
-	public Double getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(Double cpf) {
-		this.cpf = cpf;
-	}
 }

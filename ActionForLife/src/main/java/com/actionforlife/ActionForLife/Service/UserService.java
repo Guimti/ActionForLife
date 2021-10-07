@@ -45,9 +45,10 @@ public class UserService {
 				user.get().setId(userEmail.get().getIdUser());
 				user.get().setName(userEmail.get().getName());
 				user.get().setLastName(userEmail.get().getLastName());
+				user.get().setPassword(userEmail.get().getPassword());
 				user.get().setEmail(userEmail.get().getEmail());
-				user.get().setAddress(userEmail.get().getAddress());
 				user.get().setCpf(userEmail.get().getCpf());
+				user.get().setAddress(userEmail.get().getAddress());
 
 				return user;
 			}
@@ -56,17 +57,22 @@ public class UserService {
 	}
 	
 	public Optional<?> update(UserModel user) {
+
 		return repository.findById(user.getIdUser()).map(userExists -> {
 			BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 			String passwordEncoder = encoder.encode(user.getPassword());
 
 			userExists.setName(user.getName());
 			userExists.setEmail(user.getEmail());
+			userExists.setLastName(user.getLastName());
+			userExists.setCpf(user.getCpf());
+			userExists.setAddress(user.getAddress());
 			userExists.setPassword(passwordEncoder);
 
 			return Optional.ofNullable(repository.save(userExists));
 		}).orElseGet(() -> {
 			return Optional.empty();
 		});
+		
 	}
 }
