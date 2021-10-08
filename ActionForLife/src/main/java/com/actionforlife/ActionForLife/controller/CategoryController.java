@@ -23,7 +23,7 @@ import com.actionforlife.ActionForLife.Service.CategoryService;
 
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin("*")
 @RequestMapping("/category")
 public class CategoryController {
 

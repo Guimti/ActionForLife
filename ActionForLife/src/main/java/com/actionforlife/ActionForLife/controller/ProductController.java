@@ -22,7 +22,7 @@ import com.actionforlife.ActionForLife.Repository.ProductRepository;
 import com.actionforlife.ActionForLife.Service.ProductService;
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin("*")
 @RequestMapping("/product")
 public class ProductController {
 	

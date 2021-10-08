@@ -13,7 +13,7 @@ public class UserLogin {
 	private String name;
 	private String lastName;
 	private String token;
-	private Long cpf;
+	private String photo;
 	private String address;
 
 	public String getName() {
@@ -64,12 +64,12 @@ public class UserLogin {
 		this.lastName = lastName;
 	}
 
-	public Long getCpf() {
-		return cpf;
+	public String getPhoto() {
+		return photo;
 	}
 
-	public void setCpf(Long cpf) {
-		this.cpf = cpf;
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 	public String getAddress() {
