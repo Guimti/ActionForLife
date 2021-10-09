@@ -11,7 +11,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
-import { CategoryComponent } from './category/category.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { CategoryComponent } from './category/category.component';
     RegistrationComponent,
     FooterComponent,
     HomeComponent,
-    CategoryComponent
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

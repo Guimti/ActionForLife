@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       environment.lastName = this.userLogin.lastName
       environment.email = this.userLogin.email
       environment.id = this.userLogin.id
-      environment.cpf = this.userLogin.cpf
+      environment.photo = this.userLogin.photo
       environment.address = this.userLogin.address
 
       this.router.navigate(['/home'])
