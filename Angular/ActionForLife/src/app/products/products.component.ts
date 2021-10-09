@@ -13,6 +13,7 @@ import { CategoryService } from '../service/category.service';
 })
 export class ProductsComponent implements OnInit {
 
+  category: CategoryModel = new CategoryModel()
   categoryList: CategoryModel[]
 
   product: ProductModel = new ProductModel()
