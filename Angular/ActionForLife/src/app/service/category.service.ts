@@ -30,4 +30,11 @@ export class CategoryService {
   putCategory(category: CategoryModel): Observable<CategoryModel> {
     return this.http.put<CategoryModel>('https://action-forlife.herokuapp.com/category/update', category, this.token)
   }
+
+  deleteCategory(id: number){
+      return this.http.delete(`https://action-forlife.herokuapp.com/category/delete/${id}`,  this.token)   
+  }
+
+  
+
 }
