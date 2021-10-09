@@ -2,8 +2,11 @@
     <div class="row">
         <div class="col-md-2 ml-0">
             <ul class="nav">
-                <li class="nav-item" *ngFor="let category of categoryList">
-                    <a class="nav-link" href="#">{{category.type}}</a>
+                <li class="nav-item d-flex" *ngFor="let category of categoryList">
+                    <a class="nav-link font-size13 h6" href="#">{{category.type}}</a>
+                    <button type="button" class="btn btn-sm font-size10 font-weight-bold p-0" data-toggle="modal"
+                        data-target="#updateCategory">Editar</button>
+                    <button type="button" class="btn btn-sm font-size10 font-weight-bold p-0">Deletar</button>
                 </li>
             </ul>
         </div>
@@ -37,4 +40,47 @@
 
     </div>
 
+</div>
+
+<div class="modal fade" id="updateCategory" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Atualizar Categoria</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="type">Nome</label>
+                        <input [(ngModel)]='category.type' type="title" class="form-control" id="type"
+                            placeholder="Insira o nome da categoria.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Descrição</label>
+                        <textarea [(ngModel)]='category.description' class="form-control" name="description"
+                            id="description" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="relevancy">Relevância da Categoria</label>
+                        <input [(ngModel)]='category.relevancy' type="text" class="form-control" name="relevancy"
+                            id="relevancy">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" 
+                        data-dismiss="modal">Atualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
