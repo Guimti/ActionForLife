@@ -4,7 +4,6 @@ export class UserLogin{
     public lastName : string
     public email: string
     public password: string
-    public cpf:number
     public address:string
     public token: string
     public photo: string

@@ -19,8 +19,13 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Sobre</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/category">Produtos</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Produtos
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" *ngFor="let category of categoryList">{{category.type}}</a>
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Ideia</a>
@@ -35,7 +40,7 @@
           
           <ul  class="navbar-nav ml-auto d-flex align-items-center">
             <li class="nav-item pl-3">
-              <a class="m-0 font-weight-bolder fs-15"routerLink="/login">Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
+              <a class="m-0 font-weight-bolder fs-15" (click)='exit()'>Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
               </a>
               </li>
           </ul>

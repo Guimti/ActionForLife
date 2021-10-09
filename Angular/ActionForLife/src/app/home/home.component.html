@@ -1,7 +1,3 @@
-<!-- inicio da navbar -->
-<app-header></app-header>
-<!-- fim da navbar -->
-
 <div class="container mt-5 px-0">
     <div class="row d-flex px-0">
         <div class="col-6 color-green padding-r pt-3">
@@ -9,7 +5,8 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamsus porttitor et tellus ac dignissim.
                 Maeceas id lorem et odio vitae et consectetur varius id sed erat.
             </p>
-            <button class="btn border-radius text-white bgcolor-orange px-4">Produtos</button>
+            <button class="btn border-radius text-white bgcolor-orange px-4" routerLink='/products'>Produtos</button>
+            <button class="btn border-radius text-white bgcolor-orange px-4 ml-4" data-toggle="modal" data-target="#newPost">Cadastrar Produto</button>
         </div>
 
         <div class="col-6">
@@ -100,4 +97,102 @@
     </div>
 </div>
 
-<app-footer></app-footer>
+<!-- Modal -->
+<div class="modal fade" id="newPost" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Cadastrar Novo Produto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input [(ngModel)]='product.name' type="title" class="form-control" id="name"
+                            placeholder="Insira o nome do produto.">
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="brand">Marca</label>
+                        <input [(ngModel)]='product.brand' type="text" class="form-control" name="brand" id="brand">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Descrição</label>
+                        <textarea [(ngModel)]='product.description' class="form-control" name="description" id="description"
+                            rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Preço</label>
+                        <input [(ngModel)]='product.price' type="text" class="form-control" name="price" id="price">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Defina a categoria do produto ou <a data-dismiss="modal"
+                                data-toggle="modal" data-target="#newCategory">cadastre uma nova categoria</a>:</label>
+                        <select class="form-control" [(ngModel)]='idCateg' (change)='findByIdCategory()' name="category" id="category">        
+                            <option *ngFor="let item of categoryList" value="{{item.idCategory}}">
+                                {{item.type}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" (click)='insertProduct()'
+                        data-dismiss="modal">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Category-->
+<div class="modal fade" id="newCategory" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Cadastrar nova Categoria</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="type">Nome</label>
+                        <input [(ngModel)]='category.type' type="title" class="form-control" id="type"
+                            placeholder="Insira o nome da categoria.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Descrição</label>
+                        <textarea [(ngModel)]='category.description' class="form-control" name="description" id="description"
+                            rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="relevancy">Relevância da Categoria</label>
+                        <input [(ngModel)]='category.relevancy' type="text" class="form-control" name="relevancy" id="relevancy">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" (click)='insertCategory()'
+                        data-dismiss="modal">Criar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

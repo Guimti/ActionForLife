@@ -5,7 +5,7 @@ export const environment = {
   lastName : '',
   email: '',
   password: '',
-  cpf:0,
+  photo:'',
   address:'',
   token: ''
 };
