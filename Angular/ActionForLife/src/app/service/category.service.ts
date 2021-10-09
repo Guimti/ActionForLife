@@ -26,4 +26,8 @@ export class CategoryService {
   postCategory(category: CategoryModel): Observable<CategoryModel> {
     return this.http.post<CategoryModel>('https://action-forlife.herokuapp.com/category/save', category, this.token)
   }
+
+  putCategory(category: CategoryModel): Observable<CategoryModel> {
+    return this.http.put<CategoryModel>('https://action-forlife.herokuapp.com/category/update', category, this.token)
+  }
 }

@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { CategoryEditComponent } from './edit/category-edit/category-edit.component';
+import { CategoryDeleteComponent } from './delete/category-delete/category-delete.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CategoryEditComponent } from './edit/category-edit/category-edit.compon
     FooterComponent,
     HomeComponent,
     ProductsComponent,
-    CategoryEditComponent
+    CategoryEditComponent,
+    CategoryDeleteComponent
   ],
   imports: [
     BrowserModule,
