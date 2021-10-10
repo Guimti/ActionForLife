@@ -12,13 +12,13 @@
     <div class="row d-flex align-items-center color-text">
         <div class="col-md-6 ">
             <div class="form-group">
-                <label for="usuario">Nome</label><input [(ngModel)]='userModel.name' class="form-control" type="text"
+                <label for="usuario">Nome*</label><input [(ngModel)]='userModel.name' class="form-control" type="text"
                     name="nome" id="nome">
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="usuario">Sobrenome</label><input [(ngModel)]='userModel.lastName' class="form-control"
+                <label for="usuario">Sobrenome*</label><input [(ngModel)]='userModel.lastName' class="form-control"
                     type="text" name="nome" id="nome">
             </div>
         </div>
@@ -33,7 +33,7 @@
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="email">E-mail</label><input [(ngModel)]='userModel.email' class="form-control" type="email"
+                <label for="email">E-mail*</label><input [(ngModel)]='userModel.email' class="form-control" type="email"
                     name="email" id="email">
             </div>
         </div>
@@ -42,13 +42,13 @@
     <div class="row d-flex align-items-center color-text">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="password">Senha</label><input (input)='confirmPassword($event)' class="form-control"
+                <label for="password">Senha*</label><input (input)='confirmPassword($event)' class="form-control"
                     type="password" name="password" id="password">
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="password">Confirme Sua Senha</label><input [(ngModel)]='userModel.password'
+                <label for="password">Confirme Sua Senha*</label><input [(ngModel)]='userModel.password'
                     class="form-control" type="password" name="senha">
             </div>
         </div>
@@ -57,7 +57,7 @@
     <div class="row d-flex align-items-center color-text">
         <div class="col-md-12">
             <div class="form-group">
-                <label for="address">Endereço</label><input [(ngModel)]='userModel.address' class="form-control"
+                <label for="address">Endereço*</label><input [(ngModel)]='userModel.address' class="form-control"
                     type="address" name="address" id="address">
             </div>
         </div>
