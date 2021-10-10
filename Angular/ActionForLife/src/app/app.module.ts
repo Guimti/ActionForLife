@@ -14,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { CategoryEditComponent } from './edit/category-edit/category-edit.component';
 import { CategoryDeleteComponent } from './delete/category-delete/category-delete.component';
+import { ProductEditComponent } from './edit/product-edit/product-edit.component';
+import { ProductDeleteComponent } from './delete/product-delete/product-delete.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
@@ -27,6 +29,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     ProductsComponent,
     CategoryEditComponent,
     CategoryDeleteComponent,
+    ProductEditComponent,
+    ProductDeleteComponent,
     AboutUsComponent
   ],
   imports: [

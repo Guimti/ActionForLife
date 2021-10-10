@@ -20,7 +20,7 @@ export class CategoryService {
   }
 
   getByIdCategory(id: number): Observable<CategoryModel> {
-    return this.http.get<CategoryModel>(`https://action-forlife.herokuapp.com/category/id/${id}`)
+    return this.http.get<CategoryModel>(`https://action-forlife.herokuapp.com/category/id/${id}`, this.token)
   }
 
   postCategory(category: CategoryModel): Observable<CategoryModel> {

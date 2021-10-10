@@ -15,6 +15,7 @@ export class ProductsComponent implements OnInit {
 
   category: CategoryModel = new CategoryModel()
   categoryList: CategoryModel[]
+  idCat: number
 
   product: ProductModel = new ProductModel()
   productsList: ProductModel[]
@@ -43,6 +44,14 @@ export class ProductsComponent implements OnInit {
   findAllProducts() {
     this.productService.getAllProducts().subscribe((resp: ProductModel[]) => {
       this.productsList = resp
+    })
+  }
+
+  findByIdCategory() {
+    console.log("IdCategoria: "+ JSON.stringify(this.idCat))
+    this.categoryService.getByIdCategory(this.idCat).subscribe((resp: CategoryModel) => {
+      console.log("Chegou aqui")
+      this.category = resp
     })
   }
 }
