@@ -1,0 +1,47 @@
+.tm-logo{
+    width: 50px;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 50px;
+    color: #253F01;
+}
+
+.color-green {
+    color: #253F01;
+}
+
+.mar-action {
+    margin-left: 10rem;
+    margin-right: 10rem;
+    font-size: 15pt;
+}
+
+.mt-about {
+    margin-top: 10rem;
+}
+
+.img-about {
+    width: 19rem;
+    float: right;
+}
+
+.img-about-2 {
+    width: 20rem;
+    align-items: flex-end;
+}
+
+.size-img {
+    width: 12rem;
+}
+
+.size-img-2 {
+    width: 11rem;
+    padding-top: 1rem;
+}
+
+.card:hover {
+    border-style: solid;
+    border-color: #F2A922;
+}

@@ -2,6 +2,10 @@
     color: #253F01;
 }
 
+h1 {
+    font-size: 50px;
+}
+
 .bgcolor-orange {
     background-color: #F2A922;
 }
@@ -10,17 +14,25 @@
     background-color: #ECF3D5;
 }
 
-.size-carousel {
-    max-height: 250px;
-    width: 100%;
+.size-carousel {  
+    width: 20em;
 }
 
+/*.zero-padding {
+    padding: 0;
+}
+
+.zero-magin {
+    margin: 0;
+}*/
+
+
 .border-radius {
-    border-radius: 13px;
+    border-radius: 10px;
 }
 
 .size-multiple-carousel {
-    max-height: 150px;
+    max-height: 230px;
 }
 
 .margin-top {
