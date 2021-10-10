@@ -47,12 +47,14 @@
                             <div class="card">
                                 <img src="{{item.photo}}" class="card-img-top" alt="Foto do produto">
                                 <div class="card-body">
-                                    <h3 class="card-title">{{item.name}}</h3>
+                                    <h4 class="card-title">{{item.name}}</h4>
                                     <h5>{{item.brand}}</h5>
                                     <p class="card-text">{{item.description}}</p>
 
-                                    <a [routerLink]="['/product-edit', item.idProduct]" routerLinkActive="router-link-active"  class="text-info mr-3" href="">Editar</a>
-                                    <a [routerLink]="['/product-delete', item.idProduct]" routerLinkActive="router-link-active"  class="text-danger" href="">Deletar</a>
+                                    <a [routerLink]="['/product-edit', item.idProduct]"
+                                        routerLinkActive="router-link-active" class="text-info mr-3" href="">Editar</a>
+                                    <a [routerLink]="['/product-delete', item.idProduct]"
+                                        routerLinkActive="router-link-active" class="text-danger" href="">Deletar</a>
                                 </div>
                             </div>
 
@@ -68,21 +70,27 @@
                         Produtos por categoria
                     </h1>
                 </div>
-                
-                <div class="card-columns" *ngFor='let category of categoryList'>
-                    <div class="card text-center" *ngFor='let item of category.products'>
-                        <img src="{{item.photo}}" class="card-img-top" alt="Foto do produto">
-                        <div class="card-body">
-                            <h2 class="card-title">{{category.type}}</h2>
-                            <h3 class="card-title">{{item.name}}</h3>
-                            <h5>{{item.brand}}</h5>
-                            <p class="card-text">{{item.description}}</p>
 
-                            <a [routerLink]="['/product-edit', item.idProduct]" routerLinkActive="router-link-active"  class="text-info mr-3" href="">Editar</a>
-                                    <a [routerLink]="['/product-delete', item.idProduct]" routerLinkActive="router-link-active"  class="text-danger" href="">Deletar</a>
+                <div class="col-md-12 d-flex justify-content-center" *ngFor='let category of categoryList'>
+                    <div class="col-md-3 mb-3" *ngFor='let item of category.products'>
+
+                        <div class="card">
+                            <img src="{{item.photo}}" class="card-img-top" alt="Foto do produto">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.name}}</h4>
+                                <h5>{{item.brand}}</h5>
+                                <h6 class="card-title">{{category.type}}</h6>
+                                <p class="card-text">{{item.description}}</p>
+
+                                <a [routerLink]="['/product-edit', item.idProduct]"
+                                    routerLinkActive="router-link-active" class="text-info mr-3" href="">Editar</a>
+                                <a [routerLink]="['/product-delete', item.idProduct]"
+                                    routerLinkActive="router-link-active" class="text-danger" href="">Deletar</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
 

@@ -8,6 +8,7 @@ import { CategoryEditComponent } from './edit/category-edit/category-edit.compon
 import { CategoryDeleteComponent } from './delete/category-delete/category-delete.component';
 import { ProductEditComponent } from './edit/product-edit/product-edit.component';
 import { ProductDeleteComponent } from './delete/product-delete/product-delete.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'login', pathMatch: 'full'},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: "category-edit/:id", component: CategoryEditComponent},
   {path: "category-delete/:id", component: CategoryDeleteComponent},
   {path: "product-edit/:id", component: ProductEditComponent},
-  {path: "product-delete/:id", component: ProductDeleteComponent}
+  {path: "product-delete/:id", component: ProductDeleteComponent},
+  {path: "about-us",component:AboutUsComponent}
 ];
 
 @NgModule({
