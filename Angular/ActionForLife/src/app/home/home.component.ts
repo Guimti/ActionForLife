@@ -55,7 +55,6 @@ export class HomeComponent implements OnInit {
   insertCategory() {
     this.categoryService.postCategory(this.category).subscribe((resp: CategoryModel) => {
       this.category = resp
-      console.log("categoria: "+ JSON.stringify(resp))
       alert('Categoria cadastrada com sucesso!')
       this.category = new CategoryModel()
     })

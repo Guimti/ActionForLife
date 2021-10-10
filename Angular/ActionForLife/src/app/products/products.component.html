@@ -1,47 +1,97 @@
 <div class="container ml-0 pb-0 mb-0">
-    <div class="row">
+    <div class="row" id="section-products">
+
         <div class="col-md-2 ml-0">
-            <ul class="nav">
-                <li class="nav-item d-flex" *ngFor="let category of categoryList">
-                    <a class="nav-link font-size13 h6" href="#">{{category.type}}</a>
-                    <button type="button" class="btn btn-sm font-size10 font-weight-bold p-0" data-toggle="modal"
-                        data-target="#updateCategory">Editar</button>
-                    <button type="button" class="btn btn-sm font-size10 font-weight-bold p-0">Deletar</button>
+            <ul class="nav" id="nav-tab" role="tablist">
+
+                <li class="d-flex">
+                    <a class="nav-item nav-link active font-size13 h6" id="nav-allProducts-tab" data-toggle="tab"
+                        href="#allProducts" role="tab" aria-controls="nav-allProducts" aria-selected="true">Todos os
+                        produtos</a>
+                </li>
+
+                <li class="d-flex" *ngFor="let category of categoryList">
+                    <a class="nav-item nav-link font-size13 h6" id="nav-byCategory-tab" data-toggle="tab"
+                        href="#byCategory" role="tab" aria-controls="nav-byCategory"
+                        aria-selected="false">{{category.type}}
+                    </a>
+
+                    <button type="button" class="btn btn-sm font-size10 font-weight-bold p-0"
+                        [routerLink]="['/category-edit', category.idCategory]"
+                        routerLinkActive="router-link-active">Editar
+                    </button>
+                    <button type="button" class="btn btn-sm font-size10 font-weight-bold p-0"
+                        [routerLink]="['/category-delete', category.idCategory]"
+                        routerLinkActive="router-link-active">Deletar
+                    </button>
                 </li>
             </ul>
         </div>
 
-        <div class="col-md-10">
-            <div class="row">
-                <div class="col-md-12 d-flex justify-content-center">
-                    <h1>
-                        Todos os Produtos
-                    </h1>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-12 d-flex justify-content-around">
-                    <div class="col-md-3 mb-3" *ngFor='let item of productsList'>
+        <div class="tab-content col-md-10" id="nav-tabContent">
 
-                        <div class="card">
-                            <img src="{{item.photo}}" class="card-img-top" alt="Foto do produto">
-                            <div class="card-body">
-                                <h3 class="card-title">{{item.name}}</h3>
-                                <h5>{{item.brand}}</h5>
-                                <p class="card-text">{{item.description}}</p>
+            <div class="tab-pane fade show active" id="allProducts" role="tabpanel"
+                aria-labelledby="nav-allProducts-tab">
+
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <h1>
+                            Todos os Produtos
+                        </h1>
+                    </div>
+
+                    <div class="col-md-12 d-flex justify-content-center">
+                        <div class="col-md-3 mb-3" *ngFor='let item of productsList'>
+
+                            <div class="card">
+                                <img src="{{item.photo}}" class="card-img-top" alt="Foto do produto">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{item.name}}</h3>
+                                    <h5>{{item.brand}}</h5>
+                                    <p class="card-text">{{item.description}}</p>
+
+                                    <a [routerLink]="['/product-edit', item.idProduct]" routerLinkActive="router-link-active"  class="text-info mr-3" href="">Editar</a>
+                                    <a [routerLink]="['/product-delete', item.idProduct]" routerLinkActive="router-link-active"  class="text-danger" href="">Deletar</a>
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="tab-pane fade" id="byCategory" role="tabpanel" aria-labelledby="nav-byCategory-tab">
+
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h1>
+                        Produtos por categoria
+                    </h1>
+                </div>
+                
+                <div class="card-columns" *ngFor='let category of categoryList'>
+                    <div class="card text-center" *ngFor='let item of category.products'>
+                        <img src="{{item.photo}}" class="card-img-top" alt="Foto do produto">
+                        <div class="card-body">
+                            <h2 class="card-title">{{category.type}}</h2>
+                            <h3 class="card-title">{{item.name}}</h3>
+                            <h5>{{item.brand}}</h5>
+                            <p class="card-text">{{item.description}}</p>
+
+                            <a [routerLink]="['/product-edit', item.idProduct]" routerLinkActive="router-link-active"  class="text-info mr-3" href="">Editar</a>
+                                    <a [routerLink]="['/product-delete', item.idProduct]" routerLinkActive="router-link-active"  class="text-danger" href="">Deletar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
     </div>
 
 </div>
-
+<!--
 <div class="modal fade" id="updateCategory" data-backdrop="static" data-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -55,9 +105,9 @@
 
             <div class="modal-body">
 
-                <div class="modal-body">
+                <div class="modal-body" *ngFor="let item of categoryList">
                     <div class="form-group">
-                        <label for="type">Nome</label>
+                        <label for="type">{{category.type}}</label>
                         <input [(ngModel)]='category.type' type="title" class="form-control" id="type"
                             placeholder="Insira o nome da categoria.">
                     </div>
@@ -77,10 +127,11 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-success" 
-                        data-dismiss="modal">Atualizar</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Atualizar</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+-->
