@@ -1,56 +1,60 @@
 <nav class="navbar navbar-expand-lg ">
-      <img class="logo" src="https://i.imgur.com/saNzsxi.png" alt="logo">
-    
-      <form class="form-inline my-2 my-lg-0">
-        <div id="divBusca">
-          <input [(ngModel)]="busca" name="search" type="search" id="txtBusca" placeholder="Pesquisar..."> 
-          <button class="btn" type="submit" id="cor" (click)="refresh()"><i id="cor" class="fa fa-search" aria-hidden="true"></i></button>
-        </div>
-      </form>
-  
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="container">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link mx-2" routerLink="/home">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link mx-2" routerLink="/about">Sobre</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle mx-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Produtos
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" *ngFor="let category of categoryList">{{category.type}}</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" routerLink='/products'>Todos os produtos</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link mx-2" href="#ideias">Faça Parte</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link mx-2" routerLink="/about-us">Contato</a>
-            </li>
-          </ul>
-          
-          <ul  class="navbar-nav ml-auto d-flex align-items-center">
-            <li class="nav-item">
-              <a *ngIf="deslogado()" class="nav-link" routerLink="/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a *ngIf="deslogado()" class="nav-link" routerLink="/registration">Criar Conta</a>
-            </li>
-            <li class="nav-item pl-3">
-              <a *ngIf="logado()" class="m-0 font-weight-bolder fs-15" (click)='exit()'>Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
-              </a>
-              </li>
-          </ul>
-        </div>
-      </div>
-      </nav>
+  <img class="logo" src="https://i.imgur.com/saNzsxi.png" alt="logo">
+
+  <form class="form-inline my-2 my-lg-0">
+    <div id="divBusca">
+      <input [(ngModel)]="busca" name="search" type="search" id="txtBusca" placeholder="Pesquisar...">
+      <button class="btn" type="submit" id="cor" (click)="refresh()"><i id="cor" class="fa fa-search"
+          aria-hidden="true"></i></button>
+    </div>
+  </form>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="container">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link mx-2" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2" routerLink="/about">Sobre</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mx-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Produtos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink='/products#byCategory' *ngFor="let category of categoryList">{{category.type}}</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink='/products'>Todos os produtos</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2" href="#ideias">Faça Parte</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2" routerLink="/about-us">Contato</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto d-flex align-items-center">
+        <li class="nav-item">
+          <a *ngIf="deslogado()" class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="deslogado()" class="nav-link" routerLink="/registration">Criar Conta</a>
+        </li>
+        <li class="nav-item pl-3">
+          <a *ngIf="logado()" class="m-0 font-weight-bolder fs-15" (click)='exit()'>Sair<i class="fa fa-sign-out"
+              aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

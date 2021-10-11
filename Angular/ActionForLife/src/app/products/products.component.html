@@ -1,55 +1,63 @@
-<div class="container ml-0 pb-0 mb-0">
+<div class="container-fluid ml-0 pb-0 mb-0">
     <div class="row" id="section-products">
 
-        <div class="col-md-2 ml-0">
-            <ul class="nav" id="nav-tab" role="tablist">
+        <div class="col-md-3 mt-5 bg-light pl-5 pt-3">
+            <ul class="nav col-md-12" id="nav-tab" role="tablist">
 
                 <li class="d-flex">
-                    <a class="nav-item nav-link active font-size13 h6" id="nav-allProducts-tab" data-toggle="tab"
+                    <a class="nav-item nav-link active h5 color-green" id="nav-allProducts-tab" data-toggle="tab"
                         href="#allProducts" role="tab" aria-controls="nav-allProducts" aria-selected="true">Todos os
                         produtos</a>
                 </li>
 
-                <li class="d-flex" *ngFor="let category of categoryList">
-                    <a (click)='findByIdCategory(category.idCategory)'  class="nav-item nav-link font-size13 h6" id="nav-byCategory-tab" data-toggle="tab"
-                        href="#byCategory" role="tab" aria-controls="nav-byCategory"
+                <li class="d-flex mt-4 mb-0">
+                    <h5 class="nav-item nav-link color-green" id="nav-categories-tab" aria-controls="nav-categories">
+                        Categorias
+                    </h5>
+                </li>
+
+                <li class="d-flex flex-wrap mb-2" *ngFor="let category of categoryList">
+                    <a (click)='findByIdCategory(category.idCategory)'
+                        class="nav-item nav-link h6 color-green col-md-12 mb-0 pb-0" id="nav-byCategory-tab"
+                        data-toggle="tab" href="#byCategory" role="tab" aria-controls="nav-byCategory"
                         aria-selected="false">{{category.type}}
                     </a>
-
-                    <button type="button" class="btn btn-sm font-size10 font-weight-bold p-0"
-                        [routerLink]="['/category-edit', category.idCategory]"
-                        routerLinkActive="router-link-active">Editar
-                    </button>
-                    <button type="button" class="btn btn-sm font-size10 font-weight-bold p-0"
-                        [routerLink]="['/category-delete', category.idCategory]"
-                        routerLinkActive="router-link-active">Deletar
-                    </button>
+                    <div class="col-md-12 pl-2">
+                        <button type="button" class="btn btn-sm font-size10 font-weight-bold text-info"
+                            [routerLink]="['/category-edit', category.idCategory]"
+                            routerLinkActive="router-link-active">Editar
+                        </button>
+                        <button type="button" class="btn btn-sm font-size10 font-weight-bold p-0 text-danger"
+                            [routerLink]="['/category-delete', category.idCategory]"
+                            routerLinkActive="router-link-active">Deletar
+                        </button>
+                    </div>
                 </li>
             </ul>
         </div>
 
 
-        <div class="tab-content col-md-10" id="nav-tabContent">
+        <div class="tab-content col-md-9" id="nav-tabContent">
 
             <div class="tab-pane fade show active" id="allProducts" role="tabpanel"
                 aria-labelledby="nav-allProducts-tab">
 
                 <div class="row">
-                    <div class="col-md-12 d-flex justify-content-center">
+                    <div class="col-md-12 d-flex justify-content-center mb-3">
                         <h1>
                             Todos os Produtos
                         </h1>
                     </div>
 
-                    <div class="col-md-12 d-flex justify-content-center">
-                        <div class="col-md-3 mb-3" *ngFor='let item of productsList'>
+                    <div class="col-md-12 d-flex flex-wrap">
+                        <div class="col-md-3 mb-4" *ngFor='let item of productsList'>
 
-                            <div class="card">
-                                <img src="{{item.photo}}" class="card-img-top" alt="Foto do produto">
+                            <div class="card bg-light color-green">
+                                <img src="{{item.photo}}" class="card-img-top img-card-size" alt="Foto do produto">
                                 <div class="card-body">
-                                    <h4 class="card-title">{{item.name}}</h4>
-                                    <h5>{{item.brand}}</h5>
-                                    <p class="card-text">{{item.description}}</p>
+                                    <h4 class="card-title mb-0">{{item.name}}</h4>
+                                    <p class="mb-2">{{item.brand}}</p>
+                                    <p class="card-text h5">R${{item.price}}</p>
 
                                     <a [routerLink]="['/product-edit', item.idProduct]"
                                         routerLinkActive="router-link-active" class="text-info mr-3" href="">Editar</a>
@@ -65,22 +73,21 @@
 
             <div class="tab-pane fade" id="byCategory" role="tabpanel" aria-labelledby="nav-byCategory-tab">
 
-                <div class="col-md-12 d-flex justify-content-center">
+                <div class="col-md-12 d-flex justify-content-center mb-3">
                     <h1>
                         {{category.type}}
                     </h1>
                 </div>
 
-                <div class="col-md-12 d-flex justify-content-center">
-                    <div class="col-md-3 mb-3" *ngFor='let item of category.products'>
+                <div class="col-md-12 d-flex flex-wrap">
+                    <div class="col-md-3 mb-4" *ngFor='let item of category.products'>
 
-                        <div class="card">
-                            <img src="{{item.photo}}" class="card-img-top" alt="Foto do produto">
+                        <div class="card bg-light color-green">
+                            <img src="{{item.photo}}" class="card-img-top img-card-size" alt="Foto do produto">
                             <div class="card-body">
-                                <h4 class="card-title">{{item.name}}</h4>
-                                <h5>{{item.brand}}</h5>
-                                <h6 class="card-title">{{category.type}}</h6>
-                                <p class="card-text">{{item.description}}</p>
+                                <h4 class="card-title mb-0">{{item.name}}</h4>
+                                <p class="mb-2">{{item.brand}}</p>
+                                <p class="card-text h5">R${{item.price}}</p>
 
                                 <a [routerLink]="['/product-edit', item.idProduct]"
                                     routerLinkActive="router-link-active" class="text-info mr-3" href="">Editar</a>
