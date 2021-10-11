@@ -32,10 +32,10 @@ export class ProductsComponent implements OnInit {
     }
     
     this.findAllProducts()
-    this.getAllCategories()
+    this.findAllCategories()
   }
 
-  getAllCategories() {
+  findAllCategories() {
     this.categoryService.getAllCategory().subscribe((resp: CategoryModel[]) => {
       this.categoryList = resp
     })
@@ -47,11 +47,12 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  findByIdCategory() {
-    console.log("IdCategoria: "+ JSON.stringify(this.idCat))
-    this.categoryService.getByIdCategory(this.idCat).subscribe((resp: CategoryModel) => {
-      console.log("Chegou aqui")
+  findByIdCategory(id: number) {
+    console.log("IdCategoriaaaa: "+ JSON.stringify(id))
+    this.categoryService.getByIdCategory(id).subscribe((resp: CategoryModel) => {
       this.category = resp
+      console.log("Chegou aqui: "+ JSON.stringify(this.category))
     })
   }
+
 }
