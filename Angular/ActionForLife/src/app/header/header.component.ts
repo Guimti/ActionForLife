@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment.prod';
+import { CategoryModel } from '../Model/CategoryModel';
+import { CategoryService } from '../service/category.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +11,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  categoryList: CategoryModel[]
 
-  ngOnInit(): void {
+  constructor(
+    private router: Router,
+    private categoryService: CategoryService
+  ) { }
+
+  ngOnInit() {
+    this.getAllCategories()
   }
 
+  getAllCategories() {
+    this.categoryService.getAllCategory().subscribe((resp: CategoryModel[]) => {
+      this.categoryList = resp
+    })
+  }
+
+  exit() {
+    this.router.navigate(['/login'])
+    environment.token = ''
+    environment.address = ''
+    environment.email = ''
+    environment.lastName = ''
+    environment.name = ''
+    environment.password = ''
+    environment.id = 0
+    environment.photo = ''
+  }
 }
