@@ -19,6 +19,10 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(environment.token == '') {
+      this.router.navigate(['/login'])
+    }
+    
     this.getAllCategories()
   }
 

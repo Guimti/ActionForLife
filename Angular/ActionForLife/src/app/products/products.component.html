@@ -11,7 +11,7 @@
                 </li>
 
                 <li class="d-flex" *ngFor="let category of categoryList">
-                    <a class="nav-item nav-link font-size13 h6" id="nav-byCategory-tab" data-toggle="tab"
+                    <a (click)='findByIdCategory(category.idCategory)'  class="nav-item nav-link font-size13 h6" id="nav-byCategory-tab" data-toggle="tab"
                         href="#byCategory" role="tab" aria-controls="nav-byCategory"
                         aria-selected="false">{{category.type}}
                     </a>
@@ -67,11 +67,11 @@
 
                 <div class="col-md-12 d-flex justify-content-center">
                     <h1>
-                        Produtos por categoria
+                        {{category.type}}
                     </h1>
                 </div>
 
-                <div class="col-md-12 d-flex justify-content-center" *ngFor='let category of categoryList'>
+                <div class="col-md-12 d-flex justify-content-center">
                     <div class="col-md-3 mb-3" *ngFor='let item of category.products'>
 
                         <div class="card">
