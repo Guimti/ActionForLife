@@ -21,28 +21,39 @@ export class RegistrationComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
+    window.scroll(0, 0)
   }
 
   confirmPassword(event: any) {
     this.confirmPassword1 = event.target.value
   }
 
-  typeUser(event: any){
+  typeUser(event: any) {
     this.user.type = event.target.value
   }
 
   register() {
-    
-    if(this.userModel.password != this.confirmPassword1){
-      alert("As senhas estão incorretas.")
-    }else{
-      this.authService.register(this.userModel).subscribe((resp: UserModel) => {
-        this.userModel = resp
-        this.router.navigate(['/login'])
-        alert("Usuário cadastrado com sucesso!")
-      })
-    }
-  }
 
+    if (this.userModel.password != this.confirmPassword1) {
+      alert("As senhas estão incorretas.")
+    } else {
+      if (this.user.type == "Administrador" && this.code == "xxx") {
+        this.authService.register(this.userModel).subscribe((resp: UserModel) => {
+          this.userModel = resp
+          this.router.navigate(['/login'])
+          alert("Usuário cadastrado com sucesso!")
+        })
+      } else if (this.user.type == "Normal") {
+        this.authService.register(this.userModel).subscribe((resp: UserModel)=>{
+          this.userModel = resp
+          this.router.navigate(["/login"])
+        })
+        } else {
+        alert("Dados incorretos, por favor corrigir.")
+        this.router.navigate(['/registration'])
+      }
+
+    }
+
+  }
 }

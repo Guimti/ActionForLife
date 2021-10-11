@@ -21,12 +21,14 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
-    this.busca = this.route.snapshot.params["busca"]
-    this.search()
+    this.busca = this.route.snapshot.params['busca']
+    this.search(this.busca)
   }
 
-  search(){
-    this.productService
+  search(busca: string){
+    this.productService.getProductsByName(busca).subscribe((resp: ProductModel[])=>{
+      this.listProduct = resp
+    })
   }
 
 }
