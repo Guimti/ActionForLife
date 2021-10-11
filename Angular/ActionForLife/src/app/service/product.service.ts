@@ -23,6 +23,10 @@ export class ProductService {
     return this.http.get<ProductModel>(`https://action-forlife.herokuapp.com/product/id/${id}`, this.token)
   }
 
+  getProductsByName(busca: string): Observable<ProductModel[]>{
+    return this.http.get<ProductModel[]>(`https://action-forlife.herokuapp.com/product/name/${busca}`, this.token)
+  }
+
   postProduct(product: ProductModel): Observable<ProductModel> {
     return this.http.post<ProductModel>('https://action-forlife.herokuapp.com/product/add', product, this.token)
   }

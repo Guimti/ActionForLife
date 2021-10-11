@@ -49,8 +49,7 @@ export class HeaderComponent implements OnInit {
   }
 
   refresh(){
-          this.router.navigate(["/search",this.busca])
-    
+    this.router.navigate(["/search"],{queryParams:{name:this.busca}})   
   }
 
   logado() {
