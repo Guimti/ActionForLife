@@ -3,8 +3,8 @@
     
       <form class="form-inline my-2 my-lg-0">
         <div id="divBusca">
-          <input name="search" type="search" id="txtBusca" placeholder="Pesquisar..."> 
-          <button class="btn" type="submit" id="cor"><i id="cor" class="fa fa-search" aria-hidden="true"></i></button>
+          <input [(ngModel)]="busca" name="search" type="search" id="txtBusca" placeholder="Pesquisar..."> 
+          <button class="btn" type="submit" id="cor" (click)="refresh()"><i id="cor" class="fa fa-search" aria-hidden="true"></i></button>
         </div>
       </form>
   
@@ -39,13 +39,13 @@
           
           <ul  class="navbar-nav ml-auto d-flex align-items-center">
             <li class="nav-item">
-              <a class="nav-link" routerLink="/login">Login</a>
+              <a *ngIf="deslogado()" class="nav-link" routerLink="/login">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="/registration">Criar Conta</a>
+              <a *ngIf="deslogado()" class="nav-link" routerLink="/registration">Criar Conta</a>
             </li>
             <li class="nav-item pl-3">
-              <a class="m-0 font-weight-bolder fs-15" (click)='exit()'>Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
+              <a *ngIf="logado()" class="m-0 font-weight-bolder fs-15" (click)='exit()'>Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
               </a>
               </li>
           </ul>

@@ -63,6 +63,25 @@
         </div>
     </div>
 
+    <div class="row d-flex align-items-center color-text">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="type">Tipo de Usuário</label>
+                <select class="form-control" name="type" id="type" (change)='typeUser($event)'>
+                    <option>Selecione um tipo de usuário</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Administrador">Administrador</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="code">Código de usuário administrador</label><input [(ngModel)]='code'
+                    class="form-control" type="code" name="code">
+            </div>
+        </div>
+    </div>
+
     <div class="row m-auto">
         <div class="col">
             <input type="checkbox" class="m-3" id="temos" name="termos">
@@ -262,6 +281,7 @@
             <a class="btn myButton" (click)='register()'>Criar Conta</a>
         </div>
         <div class="col-6 d-flex align-items-end justify-content-end">
+            <a class="myButton2" routerLink="/home">Home</a>
             <a class="myButton2" routerLink="/login">Cancelar</a>
         </div>
     </div>

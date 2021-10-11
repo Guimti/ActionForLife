@@ -7,4 +7,5 @@ export class UserLogin{
     public address:string
     public token: string
     public photo: string
+    public type: string
 }

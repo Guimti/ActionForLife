@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
@@ -12,8 +13,10 @@ import { CategoryService } from '../service/category.service';
 export class HeaderComponent implements OnInit {
 
   categoryList: CategoryModel[]
+  busca: string
 
   constructor(
+    private http: HttpClient,
     private router: Router,
     private categoryService: CategoryService
   ) { }
@@ -44,4 +47,29 @@ export class HeaderComponent implements OnInit {
     environment.id = 0
     environment.photo = ''
   }
+
+  refresh(){
+          this.router.navigate(["/search",this.busca])
+    
+  }
+
+  logado() {
+    let ok: boolean = false
+
+    if(environment.token != ''){
+      ok = true
+    }
+  }
+
+  
+  deslogado(){
+    let ok: boolean = true
+
+    if (environment.token != '') {
+      ok = false
+    }
+
+    return ok
+  }
+
 }
