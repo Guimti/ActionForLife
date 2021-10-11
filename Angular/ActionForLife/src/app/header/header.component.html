@@ -27,10 +27,12 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" *ngFor="let category of categoryList">{{category.type}}</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" routerLink='/products'>Todos os produtos</a>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-2" href="#">Ideia</a>
+              <a class="nav-link mx-2" href="#ideias">Faça Parte</a>
             </li>
             <li class="nav-item">
               <a class="nav-link mx-2" routerLink="/about-us">Contato</a>
