@@ -12,6 +12,8 @@ export class RegistrationComponent implements OnInit {
 
   userModel: UserModel = new UserModel
   confirmPassword1: string
+  code: string
+  user: UserModel
 
   constructor(
     private authService: AuthService,
@@ -24,6 +26,10 @@ export class RegistrationComponent implements OnInit {
 
   confirmPassword(event: any) {
     this.confirmPassword1 = event.target.value
+  }
+
+  typeUser(event: any){
+    this.user.type = event.target.value
   }
 
   register() {

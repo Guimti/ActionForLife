@@ -6,4 +6,5 @@ export class UserModel{
     public password: string
     public address:string
     public photo: string
+    public type: string
 }

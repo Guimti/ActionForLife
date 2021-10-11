@@ -10,11 +10,12 @@ import { ProductEditComponent } from './edit/product-edit/product-edit.component
 import { ProductDeleteComponent } from './delete/product-delete/product-delete.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AboutComponent } from './about/about.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
-  {path: '', redirectTo:'login', pathMatch: 'full'},
-  {path: "login", component: LoginComponent},
+  {path: '', redirectTo:'home', pathMatch: 'full'},
   {path: "home", component: HomeComponent},
+  {path: "login", component: LoginComponent},
   {path: "registration", component: RegistrationComponent},
   {path: "products", component: ProductsComponent},
   {path: "category-edit/:id", component: CategoryEditComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: "product-edit/:id", component: ProductEditComponent},
   {path: "product-delete/:id", component: ProductDeleteComponent},
   {path: "about-us", component: AboutUsComponent},
-  {path: "about", component: AboutComponent}
+  {path: "about", component: AboutComponent},
+  {path: "search", component: SearchComponent}
 ];
 
 @NgModule({
