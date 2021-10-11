@@ -30,9 +30,10 @@ export class HomeComponent implements OnInit {
   ) { }
 
     ngOnInit() {
-      if(environment.token == '') {
+      window.scroll(0,0)
+     /*  if(environment.token == '') {
         this.router.navigate(['/login'])
-      }
+      } */
     this.getAllCategories()
 
     console.log("categorias: "+ JSON.stringify(this.categoryList))

@@ -12,9 +12,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
-  {path: '', redirectTo:'login', pathMatch: 'full'},
-  {path: "login", component: LoginComponent},
+  {path: '', redirectTo:'home', pathMatch: 'full'},
   {path: "home", component: HomeComponent},
+  {path: "login", component: LoginComponent},
   {path: "registration", component: RegistrationComponent},
   {path: "products", component: ProductsComponent},
   {path: "category-edit/:id", component: CategoryEditComponent},

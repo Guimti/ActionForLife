@@ -2,8 +2,10 @@
       <img class="logo" src="https://i.imgur.com/saNzsxi.png" alt="logo">
     
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar..." aria-label="Search"> 
-        <!--<i class="fa fa-search" aria-hidden="true"></i>-->
+        <div id="divBusca">
+          <input name="search" type="search" id="txtBusca" placeholder="Pesquisar..."> 
+          <button class="btn" type="submit" id="cor"><i id="cor" class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
       </form>
   
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,13 +16,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link mx-2" routerLink="/home">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="/about">Sobre</a>
+              <a class="nav-link mx-2" routerLink="/about">Sobre</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle mx-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Produtos
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -28,17 +30,20 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Ideia</a>
+              <a class="nav-link mx-2" href="#">Ideia</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="/about-us">Contato</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/registration">Criar Conta</a>
+              <a class="nav-link mx-2" routerLink="/about-us">Contato</a>
             </li>
           </ul>
           
           <ul  class="navbar-nav ml-auto d-flex align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/registration">Criar Conta</a>
+            </li>
             <li class="nav-item pl-3">
               <a class="m-0 font-weight-bolder fs-15" (click)='exit()'>Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
               </a>
