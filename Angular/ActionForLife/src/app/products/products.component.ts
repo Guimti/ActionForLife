@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment.prod';
 import { ProductModel } from '../Model/ProductModel';
 import { ProductService } from '../service/product.service';
 import { CategoryModel } from '../Model/CategoryModel';

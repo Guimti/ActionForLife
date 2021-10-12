@@ -11,6 +11,7 @@ import { ProductDeleteComponent } from './delete/product-delete/product-delete.c
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'home', pathMatch: 'full'},
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: "product-delete/:id", component: ProductDeleteComponent},
   {path: "about-us", component: AboutUsComponent},
   {path: "about", component: AboutComponent},
-  {path: "search", component: SearchComponent}
+  {path: "search", component: SearchComponent},
+  {path: "payment", component: PaymentComponent}
 ];
 
 @NgModule({
