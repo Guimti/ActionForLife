@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { CategoryModel } from '../Model/CategoryModel';
+import { UserLogin } from '../Model/UserLogin';
+import { AuthService } from '../service/auth.service';
 import { CategoryService } from '../service/category.service';
 
 @Component({
@@ -18,6 +20,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
+    public authService: AuthService,
     private categoryService: CategoryService
   ) { }
 
@@ -46,6 +49,7 @@ export class HeaderComponent implements OnInit {
     environment.password = ''
     environment.id = 0
     environment.photo = ''
+    environment.type = ''
   }
 
   refresh(){

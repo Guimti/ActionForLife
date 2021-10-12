@@ -4,6 +4,7 @@ import { ProductModel } from '../Model/ProductModel';
 import { ProductService } from '../service/product.service';
 import { CategoryModel } from '../Model/CategoryModel';
 import { CategoryService } from '../service/category.service';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-products',
@@ -14,7 +15,7 @@ export class ProductsComponent implements OnInit {
 
   category: CategoryModel = new CategoryModel()
   categoryList: CategoryModel[]
-  idCat: number
+  idCateg: number
 
   product: ProductModel = new ProductModel()
   productsList: ProductModel[]
@@ -22,6 +23,7 @@ export class ProductsComponent implements OnInit {
   constructor(
     private router: Router,
     private productService: ProductService,
+    public authService: AuthService,
     private categoryService: CategoryService
   ) { }
 
@@ -48,11 +50,62 @@ export class ProductsComponent implements OnInit {
   }
 
   findByIdCategory(id: number) {
-    console.log("IdCategoriaaaa: "+ JSON.stringify(id))
     this.categoryService.getByIdCategory(id).subscribe((resp: CategoryModel) => {
       this.category = resp
-      console.log("Chegou aqui: "+ JSON.stringify(this.category))
     })
   }
+
+  findByIdProduct(id: number) {
+    this.productService.getByIdProducts(id).subscribe((resp: ProductModel) => {
+      this.product = resp
+      console.log("IdCategoriaaaa: "+ JSON.stringify(this.product))
+
+    })
+  }
+
+  updateCategory() {
+    this.categoryService.putCategory(this.category).subscribe((resp: CategoryModel) => {
+      this.category = resp
+      alert('Categoria atualizada com sucesso!')
+      this.router.navigate(['/home'])
+      this.category = new CategoryModel()
+    })
+  }
+
+  deleteCategory(id: number) {
+    console.log("IdCategoriaaaa: "+ JSON.stringify(id))
+    this.categoryService.deleteCategory(id).subscribe(() => {
+      alert('Categoria deletada com sucesso!')
+      this.router.navigate(['/home'])
+    }) 
+  }
+
+  updateProduct() {
+    this.category.idCategory = this.idCateg
+    this.product.categoryProduct = this.category
+
+    this.productService.putProduct(this.product).subscribe((resp: ProductModel) => {
+      this.product = resp
+      alert('Produto atualizado com sucesso!')
+      this.router.navigate(['/products'])
+    })
+  }
+
+  deleteProduct(id: number) {
+    this.productService.deleteProduct(id).subscribe(() => {
+      alert('Produto deletado com sucesso!')
+      this.router.navigate(['/products'])
+    })
+  }
+
+  comprar(){
+    if (environment.token == "") {
+      alert('É preciso estar logado para comprar')
+      this.router.navigate(["/login"])
+      }else{
+        //criar componente carrinho.
+      }
+    }
+
 
 }

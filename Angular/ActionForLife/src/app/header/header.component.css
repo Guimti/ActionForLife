@@ -3,6 +3,11 @@
     margin: 20px;
 }
 
+.imgUser{
+    width: 30px;
+    border-radius: 12px;
+}
+
 nav a {
     color: #253F01 !important ;
 }

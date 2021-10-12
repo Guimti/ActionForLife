@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { CategoryModel } from '../Model/CategoryModel';
 import { ProductModel } from '../Model/ProductModel';
 import { UserModel } from '../Model/UserModel';
+import { AuthService } from '../service/auth.service';
 import { CategoryService } from '../service/category.service';
 import { ProductService } from '../service/product.service';
 
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private productService: ProductService,
+    public authService: AuthService,
     private categoryService: CategoryService
   ) { }
 
@@ -71,4 +73,24 @@ export class HomeComponent implements OnInit {
       this.product = new ProductModel()
     })
   }
+
+  logado() {
+    let ok: boolean = false
+
+    if(environment.token != ''){
+      ok = true
+    }
+
+    return ok
+  } 
+
+  typeUser(){
+    let ok: boolean = false
+    if(environment.type == "Administrador"){
+      ok = true
+    }
+
+    return ok
+  }
+
 }

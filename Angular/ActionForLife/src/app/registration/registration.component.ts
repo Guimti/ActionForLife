@@ -29,25 +29,25 @@ export class RegistrationComponent implements OnInit {
   }
 
   typeUser(event: any) {
-    this.user.type = event.target.value
-    console.log("categorias: "+ JSON.stringify(this.user.type))
+    this.userModel.type = event.target.value
+    console.log("categorias: "+ JSON.stringify(this.userModel.type))
   }
 
   register() {
-
     if (this.userModel.password != this.confirmPassword1) {
       alert("As senhas estão incorretas.")
     } else {
-      if (this.user.type == "Administrador" && this.code == "xxx") {
+      if (this.userModel.type == "Administrador" && this.code == "xxx") {
         this.authService.register(this.userModel).subscribe((resp: UserModel) => {
           this.userModel = resp
           this.router.navigate(['/login'])
           alert("Usuário cadastrado com sucesso!")
         })
-      } else if (this.user.type == "Normal") {
+      } else if (this.userModel.type == "Normal") {
         this.authService.register(this.userModel).subscribe((resp: UserModel)=>{
           this.userModel = resp
           this.router.navigate(["/login"])
+          alert("Usuário cadastrado com sucesso!")
         })
         } else {
         alert("Dados incorretos, por favor corrigir.")
