@@ -98,4 +98,15 @@ export class ProductsComponent implements OnInit {
       this.router.navigate(['/products'])
     })
   }
+
+  comprar(){
+    if (environment.token == "") {
+      alert('É preciso estar logado para comprar')
+      this.router.navigate(["/login"])
+      }else{
+        
+      }
+    }
+
+
 }
