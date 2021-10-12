@@ -10,10 +10,10 @@ import { AuthService } from '../service/auth.service';
 })
 export class RegistrationComponent implements OnInit {
 
-  userModel: UserModel = new UserModel
+  userModel: UserModel = new UserModel()
   confirmPassword1: string
   code: string
-  user: UserModel
+  user: UserModel = new UserModel()
 
   constructor(
     private authService: AuthService,
@@ -30,6 +30,7 @@ export class RegistrationComponent implements OnInit {
 
   typeUser(event: any) {
     this.user.type = event.target.value
+    console.log("categorias: "+ JSON.stringify(this.user.type))
   }
 
   register() {
