@@ -49,6 +49,7 @@ export class HeaderComponent implements OnInit {
     environment.password = ''
     environment.id = 0
     environment.photo = ''
+    environment.type = ''
   }
 
   refresh(){
