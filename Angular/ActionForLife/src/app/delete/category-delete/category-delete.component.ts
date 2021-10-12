@@ -13,7 +13,7 @@ export class CategoryDeleteComponent implements OnInit {
 
   category: CategoryModel = new CategoryModel()
   idCategory: number
-
+  
   constructor(
     private categoryService: CategoryService,
     private router: Router,
