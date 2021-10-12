@@ -104,7 +104,7 @@ export class ProductsComponent implements OnInit {
       alert('É preciso estar logado para comprar')
       this.router.navigate(["/login"])
       }else{
-        
+        //criar componente carrinho.
       }
     }
 
