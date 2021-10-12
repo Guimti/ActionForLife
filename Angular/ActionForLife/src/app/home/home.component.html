@@ -8,7 +8,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamsus porttitor et tellus ac dignissim.
             </p>
             <button class="btn border-radius text-white bgcolor-orange px-4" routerLink='/products'>Produtos</button>
-            <button class="btn border-radius text-white bgcolor-orange px-4 ml-4" data-toggle="modal" data-target="#newProduct">Cadastrar Produto</button>
+            <button *ngIf="authService.logado() && authService.typeUser() == true "  class="btn border-radius text-white bgcolor-orange px-4 ml-4" data-toggle="modal" data-target="#newProduct">Cadastrar Produto</button>
         </div>
 
 <!--CARROSSEL-->

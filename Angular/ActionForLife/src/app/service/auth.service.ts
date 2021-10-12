@@ -42,4 +42,22 @@ export class AuthService {
     return ok
   }
 
+  userDados(){
+    let user = {
+      name: environment.name,
+      photo: environment.photo
+    }
+    return user
+  }
+
+  typeUser(){
+    let ok: boolean = false
+
+    if(environment.type == "Administrador"){
+      ok = true
+    }
+
+    return ok
+  }
+
 }
