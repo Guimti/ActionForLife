@@ -5,6 +5,7 @@ import { ProductModel } from '../Model/ProductModel';
 import { ProductService } from '../service/product.service';
 import { CategoryModel } from '../Model/CategoryModel';
 import { CategoryService } from '../service/category.service';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-products',
@@ -23,6 +24,7 @@ export class ProductsComponent implements OnInit {
   constructor(
     private router: Router,
     private productService: ProductService,
+    public authService: AuthService,
     private categoryService: CategoryService
   ) { }
 

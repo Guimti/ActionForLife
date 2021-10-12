@@ -48,6 +48,7 @@ export class RegistrationComponent implements OnInit {
         this.authService.register(this.userModel).subscribe((resp: UserModel)=>{
           this.userModel = resp
           this.router.navigate(["/login"])
+          alert("Usuário cadastrado com sucesso!")
         })
         } else {
         alert("Dados incorretos, por favor corrigir.")
