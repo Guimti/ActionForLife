@@ -5,6 +5,7 @@ import { ProductService } from '../service/product.service';
 import { CategoryModel } from '../Model/CategoryModel';
 import { CategoryService } from '../service/category.service';
 import { AuthService } from '../service/auth.service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-products',
