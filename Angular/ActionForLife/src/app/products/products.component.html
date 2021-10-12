@@ -1,6 +1,7 @@
 <div class="container-fluid ml-0 pb-0 mb-0">
     <div class="row" id="section-products">
 
+<!--Menu lateral com Categorias-->
         <div class="col-md-3 margin-top4-5rem bg-light pl-5 pt-3">
             <ul class="nav col-md-12" id="nav-tab" role="tablist">
 
@@ -15,13 +16,14 @@
                         Categorias
                     </h5>
                 </li>
-
+<!--Buscar todas as categorias para exibir no menu-->
                 <li class="d-flex flex-wrap mb-2" *ngFor="let category of categoryList">
                     <a (click)='findByIdCategory(category.idCategory)'
                         class="nav-item nav-link h6 color-green col-md-12 mb-0 pb-0" id="nav-byCategory-tab"
                         data-toggle="tab" href="#byCategory" role="tab" aria-controls="nav-byCategory"
                         aria-selected="false">{{category.type}}
                     </a>
+<!--\Botões para editar e deletar categorias-->
                     <div class="col-md-12 pl-2">
                         <button (click)='findByIdCategory(category.idCategory)' type="button"
                             class="btn btn-sm font-size10 font-weight-bold text-info" data-toggle="modal"
@@ -41,7 +43,7 @@
 
             <div class="tab-pane fade show active" id="allProducts" role="tabpanel"
                 aria-labelledby="nav-allProducts-tab">
-
+<!--Exibição de todos os produtos-->
                 <div class="row">
                     <div class="col-md-12 d-flex justify-content-center mb-3">
                         <h1>
@@ -50,15 +52,15 @@
                     </div>
 
                     <div class="col-md-12 d-flex flex-wrap">
+<!--Buscar e exibir todos os produtos-->
                         <div class="col-md-3 mb-4" *ngFor='let item of productsList'>
-
                             <div class="card bg-light color-green">
                                 <img src="{{item.photo}}" class="card-img-top img-card-size" alt="Foto do produto">
                                 <div class="card-body">
                                     <h4 class="card-title mb-0">{{item.name}}</h4>
                                     <p class="mb-2">{{item.brand}}</p>
                                     <p class="card-text h5">R${{item.price}}</p>
-
+<!--Botões para editar, deletar e comprar produto-->
                                     <a (click)='findByIdProduct(item.idProduct)' data-toggle="modal"
                                         data-target='#updateProduct' class="text-info mr-3" href="">Editar</a>
                                     <a (click)='findByIdProduct(item.idProduct)' data-toggle="modal"
@@ -73,7 +75,7 @@
                     </div>
                 </div>
             </div>
-
+<!--Buscar e exibir produtos por categoria-->
             <div class="tab-pane fade" id="byCategory" role="tabpanel" aria-labelledby="nav-byCategory-tab">
 
                 <div class="col-md-12 d-flex justify-content-center mb-3">
@@ -91,7 +93,7 @@
                                 <h4 class="card-title mb-0">{{item.name}}</h4>
                                 <p class="mb-2">{{item.brand}}</p>
                                 <p class="card-text h5">R${{item.price}}</p>
-
+<!--Botões de editar, deletar e comprar produto-->
                                 <a (click)='findByIdProduct(product.idProduct)' data-toggle="modal"
                                     data-target='#updateProduct' class="text-info mr-3" href="">Editar</a>
                                 <a (click)='findByIdProduct(product.idProduct)' data-toggle="modal"
@@ -109,7 +111,7 @@
     </div>
 
 </div>
-
+<!--Modal para atualizar categoria-->
 <div class="modal fade" id="updateCategory" data-backdrop="static" data-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -152,6 +154,7 @@
     </div>
 </div>
 
+<!--Modal para deletar categoria-->
 <div class="modal fade" id="deleteCategory" data-backdrop="static" data-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -191,6 +194,7 @@
     </div>
 </div>
 
+<!--Modal para atualizar produto-->
 <div class="modal fade" id="updateProduct" data-backdrop="static" data-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -252,12 +256,13 @@
     </div>
 </div>
 
+<!--Modal para deletar produto-->
 <div class="modal fade" id="deleteProduct" data-backdrop="static" data-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Deletar Categoria</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Deletar Produto</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -268,15 +273,14 @@
                 <div class="modal-body">
                     <div class="row mb-5">
                         <div class="col-md-12">
-                            <h1 class="text-center text-secondary">Deletar Categoria</h1>
+                            <h1 class="text-center text-secondary">Deletar Produto</h1>
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <div class="col-md-12">
-                            <h4 class="text-center text-secondary">Você tem certeza que deseja deletar a categoria
-                                '<span class="text-info h4">{{category.type}}</span>'? Todos os produtos dessa categoria
-                                também serão deletados.</h4>
+                            <h4 class="text-center text-secondary">Você tem certeza que deseja deletar o produto
+                                '<span class="text-info h4">{{product.name}}</span>'?</h4>
                         </div>
                     </div>
 
