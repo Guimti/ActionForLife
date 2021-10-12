@@ -1,7 +1,7 @@
 <div class="container-fluid ml-0 pb-0 mb-0">
     <div class="row" id="section-products">
 
-        <div class="col-md-3 mt-5 bg-light pl-5 pt-3">
+        <div class="col-md-3 margin-top4-5rem bg-light pl-5 pt-3">
             <ul class="nav col-md-12" id="nav-tab" role="tablist">
 
                 <li class="d-flex">
@@ -23,13 +23,13 @@
                         aria-selected="false">{{category.type}}
                     </a>
                     <div class="col-md-12 pl-2">
-                        <button type="button" class="btn btn-sm font-size10 font-weight-bold text-info"
-                            [routerLink]="['/category-edit', category.idCategory]"
-                            routerLinkActive="router-link-active">Editar
+                        <button (click)='findByIdCategory(category.idCategory)' type="button"
+                            class="btn btn-sm font-size10 font-weight-bold text-info" data-toggle="modal"
+                            data-target='#updateCategory'>Editar
                         </button>
-                        <button type="button" class="btn btn-sm font-size10 font-weight-bold p-0 text-danger"
-                            [routerLink]="['/category-delete', category.idCategory]"
-                            routerLinkActive="router-link-active">Deletar
+                        <button (click)='findByIdCategory(category.idCategory)' type="button"
+                            class="btn btn-sm font-size10 font-weight-bold p-0 text-danger" data-toggle="modal"
+                            data-target='#deleteCategory'>Deletar
                         </button>
                     </div>
                 </li>
@@ -59,10 +59,10 @@
                                     <p class="mb-2">{{item.brand}}</p>
                                     <p class="card-text h5">R${{item.price}}</p>
 
-                                    <a [routerLink]="['/product-edit', item.idProduct]"
-                                        routerLinkActive="router-link-active" class="text-info mr-3" href="">Editar</a>
-                                    <a [routerLink]="['/product-delete', item.idProduct]"
-                                        routerLinkActive="router-link-active" class="text-danger" href="">Deletar</a>
+                                    <a (click)='findByIdProduct(item.idProduct)' data-toggle="modal"
+                                        data-target='#updateProduct' class="text-info mr-3" href="">Editar</a>
+                                    <a (click)='findByIdProduct(item.idProduct)' data-toggle="modal"
+                                        data-target='#deleteProduct' class="text-danger" href="">Deletar</a>
                                     <div>
                                         <button class="btn btn-success mt-2">Comprar</button>
                                     </div>
@@ -92,10 +92,10 @@
                                 <p class="mb-2">{{item.brand}}</p>
                                 <p class="card-text h5">R${{item.price}}</p>
 
-                                <a [routerLink]="['/product-edit', item.idProduct]"
-                                    routerLinkActive="router-link-active" class="text-info mr-3" href="">Editar</a>
-                                <a [routerLink]="['/product-delete', item.idProduct]"
-                                    routerLinkActive="router-link-active" class="text-danger" href="">Deletar</a>
+                                <a (click)='findByIdProduct(product.idProduct)' data-toggle="modal"
+                                    data-target='#updateProduct' class="text-info mr-3" href="">Editar</a>
+                                <a (click)='findByIdProduct(product.idProduct)' data-toggle="modal"
+                                    data-target='#deleteProduct' class="text-danger" href="">Deletar</a>
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
     </div>
 
 </div>
-<!--
+
 <div class="modal fade" id="updateCategory" data-backdrop="static" data-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -123,11 +123,10 @@
 
             <div class="modal-body">
 
-                <div class="modal-body" *ngFor="let item of categoryList">
+                <div class="modal-body">
                     <div class="form-group">
-                        <label for="type">{{category.type}}</label>
-                        <input [(ngModel)]='category.type' type="title" class="form-control" id="type"
-                            placeholder="Insira o nome da categoria.">
+                        <label for="type">Nome</label>
+                        <input [(ngModel)]='category.type' type="title" class="form-control" id="type">
                     </div>
 
                     <div class="form-group">
@@ -145,11 +144,149 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-success" data-dismiss="modal">Atualizar</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal"
+                        (click)='updateCategory()' routerLink='/home'>Atualizar</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
--->
+<div class="modal fade" id="deleteCategory" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Deletar Categoria</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="modal-body">
+                    <div class="row mb-5">
+                        <div class="col-md-12">
+                            <h1 class="text-center text-secondary">Deletar Categoria</h1>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <h4 class="text-center text-secondary">Você tem certeza que deseja deletar a categoria
+                                '<span class="text-info h4">{{category.type}}</span>'? Todos os produtos dessa categoria
+                                também serão deletados.</h4>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal"
+                        (click)='deleteCategory(category.idCategory)' routerLink='/home'>Sim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="updateProduct" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Atualizar Produto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input [(ngModel)]='product.name' type="title" class="form-control" id="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="brand">Marca</label>
+                        <input [(ngModel)]='product.brand' type="text" class="form-control" name="brand" id="brand">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Descrição</label>
+                        <textarea [(ngModel)]='product.description' class="form-control" name="description"
+                            id="description" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Preço</label>
+                        <input [(ngModel)]='product.price' type="text" class="form-control" name="price" id="price">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="photo">Link da Foto</label>
+                        <input [(ngModel)]='product.photo' type="text" class="form-control" name="photo" id="photo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Defina a categoria do produto:</label>
+                        <select class="form-control" [(ngModel)]='idCateg' (change)='findByIdCategory(idCateg)'
+                            name="category" id="category">
+                            <option *ngFor="let category of categoryList" value="{{category.idCategory}}">
+                                {{category.type}}
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal"
+                        (click)='updateProduct()' routerLink='/home'>Atualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteProduct" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Deletar Categoria</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="modal-body">
+                    <div class="row mb-5">
+                        <div class="col-md-12">
+                            <h1 class="text-center text-secondary">Deletar Categoria</h1>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <h4 class="text-center text-secondary">Você tem certeza que deseja deletar a categoria
+                                '<span class="text-info h4">{{category.type}}</span>'? Todos os produtos dessa categoria
+                                também serão deletados.</h4>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal"
+                        (click)='deleteProduct(product.idProduct)' routerLink='/home'>Sim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
