@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg ">
   <a routerLink="/home">
-    <img class="logo"   src="https://i.imgur.com/saNzsxi.png" alt="logo">
+    <img class="logo" src="https://i.imgur.com/saNzsxi.png" alt="logo">
   </a>
-  
-  
+
+
 
   <form class="form-inline my-2 my-lg-0">
     <div id="divBusca">
@@ -33,7 +33,8 @@
             Produtos
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink='/products#byCategory' *ngFor="let category of categoryList">{{category.type}}</a>
+            <a class="dropdown-item" routerLink='/products#byCategory'
+              *ngFor="let category of categoryList">{{category.type}}</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" routerLink='/products'>Todos os produtos</a>
           </div>
@@ -47,6 +48,12 @@
       </ul>
 
       <ul class="navbar-nav ml-auto d-flex align-items-center">
+        <li>
+          <div class="row mx-3 d-flex text-center">
+            <img *ngIf="logado()" class="imgUser" src="{{authService.userDados().photo}}" alt="">
+            <h6 *ngIf="logado()"> Olá {{authService.userDados().name}}! </h6>
+          </div>
+        </li>
         <li class="nav-item">
           <a *ngIf="deslogado()" class="nav-link" routerLink="/login">Login</a>
         </li>
