@@ -73,4 +73,24 @@ export class HomeComponent implements OnInit {
       this.product = new ProductModel()
     })
   }
+
+  logado() {
+    let ok: boolean = false
+
+    if(environment.token != ''){
+      ok = true
+    }
+
+    return ok
+  } 
+
+  typeUser(){
+    let ok: boolean = false
+    if(environment.type == "Administrador"){
+      ok = true
+    }
+
+    return ok
+  }
+
 }
