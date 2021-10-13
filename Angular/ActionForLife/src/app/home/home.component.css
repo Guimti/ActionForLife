@@ -3,7 +3,11 @@
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 3.3rem;
+}
+
+.size-action {
+    font-size: 1.2rem;
 }
 
 .bgcolor-orange {
@@ -22,6 +26,10 @@ h1 {
     width: 20rem;
 }
 
+.hover-img:hover{
+    border: 3px solid #253f016e;
+}
+
 .border-radius {
     border-radius: 10px;
 }
@@ -34,21 +42,8 @@ h1 {
     max-height: 8rem;
 }
 
-.padding-x {
-    padding: 0px 20%;
-}
-
-.padding-r {
-    padding-right: 17%;
-}
-
 .font-size08 {
     font-size: 0.8rem;
-}
-
-.size-img-idea {
-    max-width: 25%;
-    height: auto;
 }
 
 .width35 {
@@ -59,7 +54,7 @@ h1 {
     border: 2px solid #253F01;
     background-color: #253F01 !important;
 }
-
+/*TESTE PRA DEIXAR IMAGEM DO PRODUTO DE FUNDO E TEXTO DENTRO DELA
 .bg-img1 {
     background-image: url(../../assets/img/img-bg1.png);
     background-size: 100%;
@@ -68,3 +63,4 @@ h1 {
 .bg-white-opacity {
     background-color: rgba(255, 255, 255, 0.801);
 }
+*/
