@@ -1,71 +1,91 @@
-<div class="container mt-5 px-0">
-
-    <div class="row d-flex px-0">
-
-<!--INFOS ACTION-->
-        <div class="col-6 color-green padding-r pt-3">
-            <h1>Action For Life</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamsus porttitor et tellus ac dignissim.
-            </p>
-            <button class="btn border-radius text-white bgcolor-orange px-4" routerLink='/products'>Produtos</button>
-            <button *ngIf="authService.typeUser()"  class="btn border-radius text-white bgcolor-orange px-4 ml-4" data-toggle="modal" data-target="#newProduct">Cadastrar Produto</button>
+<div class="container-fluid mt-5">
+    <div class="row">
+        <!--Informações sobre produtos e Botão para a página de Produtos e modal de cadastrar produto-->
+        <div class="col-md-6 color-green flex-column align-items-center d-flex">
+            <div class="col-md-8">
+                <h1>Action For Life</h1>
+                <p class="size-action">Nascemos para facilitar a vida de pessoas que gostam de fazer compras de forma
+                    consciente! Apoie essa causa e garanta um futuro melhor para todos.
+                </p>
+                <div>
+                    <button class="btn border-radius text-white bgcolor-orange px-4"
+                        routerLink='/products'>Produtos</button>
+                    <button *ngIf="authService.typeUser()" class="btn border-radius text-white bgcolor-orange px-4 ml-4"
+                        data-toggle="modal" data-target="#newProduct">Cadastrar Produto</button>
+                </div>
+            </div>
         </div>
 
-<!--CARROSSEL-->
-    <div class="col-6 d-flex justify-content-end zero-padding zero-magin">
+        <!--Carrossel com imagens-->
+        <div class="col-md-6 d-flex justify-content-center">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="/../../assets/img/img-home/home3.png" class="d-block size-carousel" alt="alyson">
+                        <img src="/../../assets/img/img-home/home3.png" class="d-block size-carousel" alt="">
                     </div>
                     <div class="carousel-item">
-                        <img src="/../../assets/img/img-home/home2.png" class="d-block size-carousel" alt="charles">
+                        <img src="/../../assets/img/img-home/home2.png" class="d-block size-carousel" alt="">
                     </div>
                     <div class="carousel-item">
-                        <img src="/../../assets/img/img-home/home4.png" class="d-block size-carousel" alt="dayane">
+                        <img src="/../../assets/img/img-home/home4.png" class="d-block size-carousel" alt="">
                     </div>
                     <div class="carousel-item">
-                        <img src="/../../assets/img/img-home/home1.png" class="d-block size-carousel"
-                            alt="evelyn">
+                        <img src="/../../assets/img/img-home/home1.png" class="d-block size-carousel" alt="">
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-12 text-center margin-top">
+
+        <!--Carrossel com varias imagens por vez-->
+        <div class="col-md-12 text-center mt-5">
             <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel" data-interval="0">
                 <div class="carousel-inner w-100" role="listbox">
                     <div class="carousel-item row no-gutters active">
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
-                                src="https://i.imgur.com/hFmAI0I.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
-                                src="https://i.imgur.com/nEgswFP.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
-                                src="https://i.imgur.com/MEvoEin.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
-                                src="https://i.imgur.com/5rmPacL.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
-                                src="https://i.imgur.com/XFN17F9.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius" src="https://i.imgur.com/x3WwxXu.jpg"></div>
-
+                        <div class="col-2 float-left"><img
+                                class="img-fluid hover-img size-multiple-carousel border-radius"
+                                src="https://i.imgur.com/hFmAI0I.jpg">
+                        </div>
+                        <div class="col-2 float-left"><img
+                                class="img-fluid hover-img size-multiple-carousel border-radius"
+                                src="https://i.imgur.com/nEgswFP.jpg">
+                        </div>
+                        <div class="col-2 float-left"><img
+                                class="img-fluid hover-img size-multiple-carousel border-radius"
+                                src="https://i.imgur.com/MEvoEin.jpg">
+                        </div>
+                        <div class="col-2 float-left"><img
+                                class="img-fluid hover-img size-multiple-carousel border-radius"
+                                src="https://i.imgur.com/5rmPacL.jpg">
+                        </div>
+                        <div class="col-2 float-left"><img
+                                class="img-fluid hover-img size-multiple-carousel border-radius"
+                                src="https://i.imgur.com/XFN17F9.jpg">
+                        </div>
+                        <div class="col-2 float-left"><img
+                                class="img-fluid hover-img size-multiple-carousel border-radius"
+                                src="https://i.imgur.com/x3WwxXu.jpg">
+                        </div>
                     </div>
+
                     <div class="carousel-item row no-gutters">
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
+                        <div class="col-md-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
                                 src="https://i.imgur.com/mupJ1Qg.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
+                        <div class="col-md-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
                                 src="https://i.imgur.com/NWEZm5w.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
+                        <div class="col-md-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
                                 src="https://i.imgur.com/WtVleGI.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
+                        <div class="col-md-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
                                 src="https://i.imgur.com/hFmAI0I.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
+                        <div class="col-md-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
                                 src="https://i.imgur.com/nm7JdMX.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
+                        <div class="col-md-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
                                 src="https://i.imgur.com/NKAVGfK.jpg"></div>
                     </div>
                 </div>
@@ -80,20 +100,86 @@
             </div>
         </div>
 
-        <div class="col-12 text-center text-white mt-5 py-5 bgcolor-orange mx-0" id="ideias">
+        <!--Parte de Compre uma Ideia-->
+        <div class="col-md-12 d-flex flex-column align-items-center text-white mt-5 pt-4 pb-5 bgcolor-orange"
+            id="ideias">
             <h2>Faça Parte!</h2>
             <h3>Compre uma ideia</h3>
-            <p class="padding-x">Pellentesque convallis purus eget metus gravida, ell tempor ante mattis. Nulla
-                facilisi. Aliq
-                uam scelerisque, sem bibendum tincidunt blandit, leo lacus viverra orci.
+            <p class="w-50 text-center">O projeto compre uma ideia é uma iniciativa da Action For Life para restaurar
+                algumas áreas ameaçadas pelo desmatamento. A pessoa que estiver interessada em combater o desmatamento
+                pode comprar suprimentos, contratar pessoas ou dependendo da área pode até comprar o local.
             </p>
             <div class="d-flex justify-content-around">
-                <img class="size-img-idea" src="/../../assets/img/ideia/arte.png" alt="Arte Urbana">
-                <img class="size-img-idea" src="/../../assets/img/ideia/ideia-de-negocio.png" alt="Lâmpada de ideia">
-                <img class="size-img-idea" src="/../../assets/img/ideia/natureza.jpg" alt="Natureza">
+                <img class="w-25" src="https://i.imgur.com/x1bGDB1.jpg" alt="Arte Urbana">
+                <img class="w-25" src="https://i.imgur.com/MQjDFu3.jpg" alt="Lâmpada de ideia">
+                <img class="w-25" src="https://i.imgur.com/dkkQz8k.jpg" alt="Natureza">
+            </div>
+        </div>
+        <!--Conheça os Produtos Artesanais e Reciclaveis-->
+        <div class="col-md-12 d-flex flex-wrap justify-content-center mt-4">
+            <div class="col-md-9">
+                <h2>Conheça os produtos artesanais e recicláveis</h2>
+                <p class="col-md-10 pl-0">
+                    Pellentesque convallis purus eget metus gravida, ell tempor ante mattis. Nulla facilisi. Aliq
+                    uam scelerisque, sem bibendum tincidunt blandit, leo lacus viverra orci.
+                </p>
+            </div>
+            <div class="row d-flex justify-content-between col-md-9">
+            <!--TESTE PRA DEIXAR IMAGEM DO PRODUTO DE FUNDO E TEXTO DENTRO DELA
+                <div class="card px-0 col-md-2 border-0 bg-img1 d-flex justify-content-end">
+                    <div class="px-2 bg-white-opacity">
+                        <h6 class="color-green opacity100">Vaso de garrafa</h6>
+                        <p class="color-green font-size08 opacity100">R$15,99</p>
+                    </div>
+                </div> 
+            -->
+
+                <div class="card col-md-2 border-0">
+                    <img src="/../../assets/img/plants/vaso1.jpg" class="card-img-top size-multiple-cards" alt="...">
+                    <div class="card-body px-0">
+                        <h6 class="color-green">Vaso de garrafa</h6>
+                        <p class="card-text color-green font-size08">R$15,99</p>
+                    </div>
+                </div>
+
+                <div class="card col-md-2 border-0">
+                    <img src="/../../assets/img/plants/vaso2.jpg" class="card-img-top size-multiple-cards" alt="...">
+                    <div class="card-body px-0">
+                        <h6 class="color-green">Vaso de garrafa</h6>
+                        <p class="card-text color-green font-size08">R$15,99</p>
+                    </div>
+                </div>
+
+                <div class="card col-md-2 border-0">
+                    <img src="/../../assets/img/plants/vaso3.jpg" class="card-img-top size-multiple-cards" alt="...">
+                    <div class="card-body px-0">
+                        <h6 class="color-green">Vaso de garrafa</h6>
+                        <p class="card-text color-green font-size08">R$15,99</p>
+                    </div>
+                </div>
+
+                <div class="card col-md-2 border-0">
+                    <img src="/../../assets/img/plants/vaso4.jpg" class="card-img-top size-multiple-cards" alt="...">
+                    <div class="card-body px-0">
+                        <h6 class="color-green">Vaso de garrafa</h6>
+                        <p class="card-text color-green font-size08">R$15,99</p>
+                    </div>
+                </div>
+
+                <div class="card col-md-2 border-0">
+                    <img src="/../../assets/img/plants/vaso5.jpg" class="card-img-top size-multiple-cards" alt="...">
+                    <div class="card-body px-0">
+                        <h6 class="color-green">Vaso de garrafa</h6>
+                        <p class="card-text color-green font-size08">R$15,99</p>
+                    </div>
+                </div>
             </div>
         </div>
 
+        <div class="col-md-12 bgcolor-green d-flex justify-content-center py-5 mt-3 mb-4">
+            <img src="https://imgur.com/yG54YC7.png" alt="" class="width35 border-radius mr-5">
+            <img src="https://imgur.com/yG54YC7.png" alt="" class="width35 border-radius ml-5">
+        </div>
     </div>
 </div>
 
@@ -117,7 +203,7 @@
                         <input [(ngModel)]='product.name' type="title" class="form-control" id="name"
                             placeholder="Insira o nome do produto.">
                     </div>
-                
+
                     <div class="form-group">
                         <label for="brand">Marca</label>
                         <input [(ngModel)]='product.brand' type="text" class="form-control" name="brand" id="brand">
@@ -125,8 +211,8 @@
 
                     <div class="form-group">
                         <label for="description">Descrição</label>
-                        <textarea [(ngModel)]='product.description' class="form-control" name="description" id="description"
-                            rows="3"></textarea>
+                        <textarea [(ngModel)]='product.description' class="form-control" name="description"
+                            id="description" rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -142,7 +228,8 @@
                     <div class="form-group">
                         <label for="category">Defina a categoria do produto ou <a data-dismiss="modal"
                                 data-toggle="modal" data-target="#newCategory">cadastre uma nova categoria</a>:</label>
-                        <select class="form-control" [(ngModel)]='idCateg' (change)='findByIdCategory()' name="category" id="category">        
+                        <select class="form-control" [(ngModel)]='idCateg' (change)='findByIdCategory()' name="category"
+                            id="category">
                             <option *ngFor="let item of categoryList" value="{{item.idCategory}}">
                                 {{item.type}}
                             </option>
@@ -182,13 +269,14 @@
 
                     <div class="form-group">
                         <label for="description">Descrição</label>
-                        <textarea [(ngModel)]='category.description' class="form-control" name="description" id="description"
-                            rows="3"></textarea>
+                        <textarea [(ngModel)]='category.description' class="form-control" name="description"
+                            id="description" rows="3"></textarea>
                     </div>
 
                     <div class="form-group">
                         <label for="relevancy">Relevância da Categoria</label>
-                        <input [(ngModel)]='category.relevancy' type="text" class="form-control" name="relevancy" id="relevancy">
+                        <input [(ngModel)]='category.relevancy' type="text" class="form-control" name="relevancy"
+                            id="relevancy">
                     </div>
 
                 </div>
