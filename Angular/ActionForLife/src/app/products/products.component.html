@@ -58,10 +58,12 @@
                                 <p class="mb-2">{{item.brand}}</p>
                                 <p class="card-text h5">R${{item.price}}</p>
                                 <!--Botões para editar, deletar e comprar produto-->
-                                <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)' data-toggle="modal"
-                                    data-target='#updateProduct' class="text-info mr-3" href="">Editar</a>
-                                <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)' data-toggle="modal"
-                                    data-target='#deleteProduct' class="text-danger" href="">Deletar</a>
+                                <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
+                                    data-toggle="modal" data-target='#updateProduct' class="text-info mr-3"
+                                    href="">Editar</a>
+                                <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
+                                    data-toggle="modal" data-target='#deleteProduct' class="text-danger"
+                                    href="">Deletar</a>
                                 <div>
                                     <button (click)="comprar()" class="btn btn-success mt-2">Comprar</button>
                                 </div>
@@ -91,10 +93,14 @@
                             <p class="mb-2">{{item.brand}}</p>
                             <p class="card-text h5">R${{item.price}}</p>
                             <!--Botões de editar, deletar e comprar produto-->
-                            <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)' data-toggle="modal"
-                                data-target='#updateProduct' class="text-info mr-3" href="">Editar</a>
-                            <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)' data-toggle="modal"
-                                data-target='#deleteProduct' class="text-danger" href="">Deletar</a>
+                            <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
+                                data-toggle="modal" data-target='#updateProduct' class="text-info mr-3"
+                                href="">Editar</a>
+                            <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
+                                data-toggle="modal" data-target='#deleteProduct' class="text-danger" href="">Deletar</a>
+                            <div>
+                                <button (click)="comprar()" class="btn btn-success mt-2">Comprar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
