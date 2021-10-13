@@ -52,7 +52,8 @@
                     <!--Buscar e exibir todos os produtos-->
                     <div class="col-md-3 mb-4" *ngFor='let item of productsList'>
                         <div class="card bg-light color-green">
-                            <img src="{{item.photo}}" class="card-img-top img-card-size" alt="Foto do produto">
+                            <img *ngIf="photoEmpty(item.photo)" src="https://imgur.com/a597BDf.jpg" class="card-img-top img-card-size" alt="Produto sem Foto">
+                            <img *ngIf="!photoEmpty(item.photo)" src="{{item.photo}}" class="card-img-top img-card-size" alt="Foto do produto">
                             <div class="card-body">
                                 <h4 class="card-title mb-0">{{item.name}}</h4>
                                 <p class="mb-2">{{item.brand}}</p>
@@ -85,7 +86,8 @@
                 <div class="col-md-3 mb-4" *ngFor='let item of category.products'>
 
                     <div class="card bg-light color-green">
-                        <img src="{{item.photo}}" class="card-img-top img-card-size" alt="Foto do produto">
+                        <img *ngIf="photoEmpty(item.photo)" src="https://imgur.com/a597BDf.jpg" class="card-img-top img-card-size" alt="Produto sem Foto">
+                        <img *ngIf="!photoEmpty(item.photo)" src="{{item.photo}}" class="card-img-top img-card-size" alt="Foto do produto">
                         <div class="card-body">
                             <h4 class="card-title mb-0">{{item.name}}</h4>
                             <p class="mb-2">{{item.brand}}</p>

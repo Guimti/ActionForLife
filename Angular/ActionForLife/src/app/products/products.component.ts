@@ -6,6 +6,7 @@ import { CategoryModel } from '../Model/CategoryModel';
 import { CategoryService } from '../service/category.service';
 import { AuthService } from '../service/auth.service';
 import { environment } from 'src/environments/environment.prod';
+import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-products',
@@ -37,6 +38,8 @@ export class ProductsComponent implements OnInit {
     this.findAllProducts()
     this.findAllCategories()
   }
+
+  
 
   findAllCategories() {
     this.categoryService.getAllCategory().subscribe((resp: CategoryModel[]) => {
@@ -111,8 +114,17 @@ export class ProductsComponent implements OnInit {
       this.router.navigate(["/login"])
       }else{
         //criar componente carrinho.
-      }
     }
+  }
 
-
+  photoEmpty(link: string) {
+    let ok = false
+    if(link == "") {
+      ok = true
+    }
+    return ok
+  }
+  
 }
+
+  
