@@ -43,3 +43,7 @@ input::placeholder {
     color: white;
     border: none;
 }
+
+.action{
+    color:#253F01;
+}

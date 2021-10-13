@@ -22,3 +22,26 @@
 .columnn {
     flex-direction: column;
 }
+
+#divBusca{
+    background-color: #F2A922;
+    border-radius:12px;
+    width: 230px;
+    display: flex;
+    position: relative;
+    color: white;
+}
+#txtBusca{
+    float:left;
+    background-color:transparent;
+    padding-left: 20px;
+    font-style:italic;
+    font-size:15px;
+    border:none;
+    color: white;
+}
+
+input::placeholder {
+    color: white;
+    border: none;
+}
