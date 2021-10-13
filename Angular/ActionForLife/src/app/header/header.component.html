@@ -47,11 +47,11 @@
         </li>
       </ul>
 
-      <ul class="navbar-nav ml-auto d-flex align-items-center">
+      <ul class="navbar-nav ml-auto d-flex align-items-center align-text-bottom">
         <li>
-          <div class="row mx-3 d-flex text-center">
+          <div class="row mx-3 d-flex text-center align-text-center align-items-center">
             <img *ngIf="logado()" class="imgUser" src="{{authService.userDados().photo}}" alt="">
-            <h6 *ngIf="logado()"> Olá {{authService.userDados().name}}! </h6>
+            <h6 *ngIf="logado()" class="ml-2 mt-2"> Olá {{authService.userDados().name}}! </h6>
           </div>
         </li>
         <li class="nav-item">

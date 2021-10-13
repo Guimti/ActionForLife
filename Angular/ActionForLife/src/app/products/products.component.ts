@@ -87,8 +87,14 @@ export class ProductsComponent implements OnInit {
 
     this.productService.putProduct(this.product).subscribe((resp: ProductModel) => {
       this.product = resp
-      alert('Produto atualizado com sucesso!')
-      this.router.navigate(['/products'])
+      if(environment.production=!("")){
+        alert('Produto atualizado com sucesso!')
+        this.router.navigate(['/products'])
+      }else{
+        alert('Produto não atualizado tente novamente!')
+        this.router.navigate(['/products'])
+      }
+
     })
   }
 
