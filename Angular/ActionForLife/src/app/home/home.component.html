@@ -5,7 +5,7 @@
 <!--INFOS ACTION-->
         <div class="col-6 color-green padding-r pt-3">
             <h1>Action For Life</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamsus porttitor et tellus ac dignissim.
+            <p class="size-action">Nascemos para facilitar a vida de pessoas que gostam de fazer compras de forma  consciente! Apoie essa causa e garanta um futuro melhor.
             </p>
             <button class="btn border-radius text-white bgcolor-orange px-4" routerLink='/products'>Produtos</button>
             <button *ngIf="authService.logado() && authService.typeUser() == true "  class="btn border-radius text-white bgcolor-orange px-4 ml-4" data-toggle="modal" data-target="#newProduct">Cadastrar Produto</button>
@@ -41,17 +41,17 @@
             <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel" data-interval="0">
                 <div class="carousel-inner w-100" role="listbox">
                     <div class="carousel-item row no-gutters active">
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
+                        <div class="col-2 float-left"><img class="img-fluid hover-img size-multiple-carousel border-radius"
                                 src="https://i.imgur.com/hFmAI0I.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
+                        <div class="col-2 float-left"><img class="img-fluid hover-img size-multiple-carousel border-radius"
                                 src="https://i.imgur.com/nEgswFP.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
+                        <div class="col-2 float-left"><img class="img-fluid hover-img size-multiple-carousel border-radius"
                                 src="https://i.imgur.com/MEvoEin.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
+                        <div class="col-2 float-left"><img class="img-fluid hover-img size-multiple-carousel border-radius"
                                 src="https://i.imgur.com/5rmPacL.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius"
+                        <div class="col-2 float-left"><img class="img-fluid hover-img size-multiple-carousel border-radius"
                                 src="https://i.imgur.com/XFN17F9.jpg"></div>
-                        <div class="col-2 float-left"><img class="img-fluid size-multiple-carousel border-radius" src="https://i.imgur.com/x3WwxXu.jpg"></div>
+                        <div class="col-2 float-left"><img class="img-fluid hover-img size-multiple-carousel border-radius" src="https://i.imgur.com/x3WwxXu.jpg"></div>
 
                     </div>
                     <div class="carousel-item row no-gutters">
@@ -81,16 +81,13 @@
         </div>
 
         <div class="col-12 text-center text-white mt-5 py-5 bgcolor-orange mx-0" id="ideias">
-            <h2>Faça Parte!</h2>
             <h3>Compre uma ideia</h3>
-            <p class="padding-x">Pellentesque convallis purus eget metus gravida, ell tempor ante mattis. Nulla
-                facilisi. Aliq
-                uam scelerisque, sem bibendum tincidunt blandit, leo lacus viverra orci.
+            <p class="padding-x">O compre uma ideia é uma iniciativa da Action For Life para restaurar algumas áreas ameaçadas pelo desmatamento. A pessoa que estiver interessada em combater o desmatamento pode comprar suprimentos, contratar pessoas ou dependendo da área pode até comprar o local. 
             </p>
             <div class="d-flex justify-content-around">
-                <img class="size-img-idea" src="/../../assets/img/ideia/arte.png" alt="Arte Urbana">
-                <img class="size-img-idea" src="/../../assets/img/ideia/ideia-de-negocio.png" alt="Lâmpada de ideia">
-                <img class="size-img-idea" src="/../../assets/img/ideia/natureza.jpg" alt="Natureza">
+                <img class="size-img-idea" src="https://i.imgur.com/x1bGDB1.jpg" alt="Arte Urbana">
+                <img class="size-img-idea" src="https://i.imgur.com/MQjDFu3.jpg" alt="Lâmpada de ideia">
+                <img class="size-img-idea" src="https://i.imgur.com/dkkQz8k.jpg" alt="Natureza">
             </div>
         </div>
 
