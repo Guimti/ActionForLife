@@ -3,7 +3,11 @@
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 40pt;
+}
+
+.size-action {
+    font-size: 15pt;
 }
 
 .bgcolor-orange {
@@ -16,6 +20,10 @@ h1 {
 
 .size-carousel {  
     width: 20em;
+}
+
+.hover-img:hover{
+    border: 3px solid #253f016e;
 }
 
 /*.zero-padding {
@@ -48,8 +56,9 @@ h1 {
 }
 
 .size-img-idea {
-    max-width: 25%;
+    max-width: 30%;
     height: auto;
+    border-radius: 7px;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
