@@ -22,12 +22,12 @@
                     aria-controls="nav-byCategory" aria-selected="false">{{category.type}}
                 </a>
                 <!--\Botões para editar e deletar categorias-->
-                <div *ngIf="authService.typeUser()" class="col-md-12 pl-2">
-                    <button (click)='findByIdCategory(category.idCategory)' type="button"
+                <div class="col-md-12 pl-2">
+                    <button *ngIf="authService.typeUser()" (click)='findByIdCategory(category.idCategory)' type="button"
                         class="btn btn-sm font-size10 font-weight-bold text-info" data-toggle="modal"
                         data-target='#updateCategory'>Editar
                     </button>
-                    <button (click)='findByIdCategory(category.idCategory)' type="button"
+                    <button *ngIf="authService.typeUser()" (click)='findByIdCategory(category.idCategory)' type="button"
                         class="btn btn-sm font-size10 font-weight-bold p-0 text-danger" data-toggle="modal"
                         data-target='#deleteCategory'>Deletar
                     </button>
