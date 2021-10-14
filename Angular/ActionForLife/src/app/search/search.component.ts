@@ -28,7 +28,9 @@ export class SearchComponent implements OnInit {
   search(busca: string){
     this.productService.getProductsByName(busca).subscribe((resp: ProductModel[])=>{
       this.listProduct = resp
+      console.log('produtos: '+JSON.stringify(this.listProduct))
     })
+
   }
 
 }
