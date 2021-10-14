@@ -88,8 +88,13 @@ h1 {
 }
 
 .icon-1{
-    width: 120px;
+    width: 9rem;
 }
+
+.icon-1:hover{
+    transform: scale(1.1, 1.1);
+}
+
 
 .bg-container-2{
     background-color: #253F01;
