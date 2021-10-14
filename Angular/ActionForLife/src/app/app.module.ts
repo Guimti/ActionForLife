@@ -24,6 +24,7 @@ import { SearchComponent } from './search/search.component';
 import { PaymentComponent } from './payment/payment.component';
 import { KnifeComponent } from './knife/knife.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { ProductByIdComponent } from './product-by-id/product-by-id.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +43,9 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     AboutUsComponent,
     SearchComponent,
     PaymentComponent,
-    KnifeComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    ProductByIdComponent
+
 
   ],
   imports: [

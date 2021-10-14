@@ -18,7 +18,7 @@
         </div>
   
         <div class="col-md-3">
-          <!-- <p id="precoParcial">R$ {{item.valorParcial.toFixed(2).replace('.', ',')}}</p> -->
+          <!-- <p id="precoParcial">R$ {{item.valorParcial.toFixed(2)}}</p> -->
         </div>
   
       </div>
@@ -28,9 +28,9 @@
       <hr>
       <h3 id="total"><strong>TOTAL:</strong> R$ {{vTotal.toFixed(2).replace('.', ',')}} </h3>
       <div class="d-flex justify-content-center">
-        <button type="submit" id="continuar" class="btn mr-3" routerLink="/home"><strong>Continuar
+        <button type="submit" id="continuar" class="btn mr-3" routerLink="/products"><strong>Continuar
             comprando</strong></button>
-        <button type="submit" id="comprar" class="btn" [routerLink]="['/pagamento', vTotal.toFixed(2)]"><strong>Ir para
+        <button type="submit" id="comprar" class="btn" [routerLink]="['/payment', vTotal.toFixed(2)]"><strong>Ir para
             Pagamento</strong></button>
       </div>
     </div>

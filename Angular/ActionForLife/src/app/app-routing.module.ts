@@ -14,6 +14,7 @@ import { SearchComponent } from './search/search.component';
 import { PaymentComponent } from './payment/payment.component';
 import { KnifeComponent } from './knife/knife.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { ProductByIdComponent } from './product-by-id/product-by-id.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'home', pathMatch: 'full'},
@@ -29,9 +30,8 @@ const routes: Routes = [
   {path: "about", component: AboutComponent},
   {path: "search", component: SearchComponent},
   {path: "payment", component: PaymentComponent},
-  {path: "knife", component: KnifeComponent},
-  {path: "carrinho", component: CarrinhoComponent}
-
+  {path: "carrinho", component: CarrinhoComponent},
+  {path: "product-by-id", component: ProductByIdComponent}
 ];
 
 @NgModule({

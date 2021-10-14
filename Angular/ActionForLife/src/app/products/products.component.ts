@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductModel } from '../Model/ProductModel';
 import { ProductService } from '../service/product.service';
 import { CategoryModel } from '../Model/CategoryModel';
 import { CategoryService } from '../service/category.service';
 import { AuthService } from '../service/auth.service';
 import { environment } from 'src/environments/environment.prod';
+import { __param } from 'tslib';
 import { isNgTemplate } from '@angular/compiler';
 
 @Component({
@@ -23,25 +24,35 @@ export class ProductsComponent implements OnInit {
   product: ProductModel = new ProductModel()
   productsList: ProductModel[]
 
+  carrinho: ProductModel[]
+  quant: number
+  vParcial: number
+
   constructor(
     private router: Router,
     private productService: ProductService,
     public authService: AuthService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
-   /*  if(environment.token == '') {
-      this.router.navigate(['/login'])
-    } */
-    
+    window.scroll(0, 0)
+    /*  if(environment.token == '') {
+       this.router.navigate(['/login'])
+     } */
+
     this.findAllProducts()
     this.findAllCategories()
+
+    this.quant = 1
+    this.vParcial = this.product.price
   }
 
-  refresh(){
-    this.router.navigate(["/search"],{queryParams:{name:this.busca}})   
+  refresh() {
+    this.productService.getProductsByName(this.busca).subscribe((resp: ProductModel[]) => {
+      this.productsList = resp
+    })
   }
 
   findAllCategories() {
@@ -65,7 +76,7 @@ export class ProductsComponent implements OnInit {
   findByIdProduct(id: number) {
     this.productService.getByIdProducts(id).subscribe((resp: ProductModel) => {
       this.product = resp
-      console.log("IdCategoriaaaa: "+ JSON.stringify(this.product))
+      console.log("IdCategoriaaaa: " + JSON.stringify(this.product))
 
     })
   }
@@ -80,11 +91,11 @@ export class ProductsComponent implements OnInit {
   }
 
   deleteCategory(id: number) {
-    console.log("IdCategoriaaaa: "+ JSON.stringify(id))
+    console.log("IdCategoriaaaa: " + JSON.stringify(id))
     this.categoryService.deleteCategory(id).subscribe(() => {
       alert('Categoria deletada com sucesso!')
       this.router.navigate(['/home'])
-    }) 
+    })
   }
 
   updateProduct() {
@@ -93,10 +104,10 @@ export class ProductsComponent implements OnInit {
 
     this.productService.putProduct(this.product).subscribe((resp: ProductModel) => {
       this.product = resp
-      if(environment.production=!("")){
+      if (environment.production = !("")) {
         alert('Produto atualizado com sucesso!')
         this.router.navigate(['/products'])
-      }else{
+      } else {
         alert('Produto não atualizado tente novamente!')
         this.router.navigate(['/products'])
       }
@@ -104,7 +115,7 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  
+
   deleteProduct(id: number) {
     this.productService.deleteProduct(id).subscribe(() => {
       alert('Produto deletado com sucesso!')
@@ -112,23 +123,30 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  comprar(){
-    if (environment.token == "") {
-      alert('É preciso estar logado para comprar')
-      this.router.navigate(["/login"])
-      }else{
-        //criar componente carrinho.
-    }
+  parcial() {
+    this.vParcial = this.product.price * this.quant
+    return this.vParcial
   }
 
   photoEmpty(link: string) {
     let ok = false
-    if(link == "") {
+    if (link == "") {
       ok = true
     }
     return ok
   }
 
+  comprar() {
+    if (environment.token == "") {
+      alert('É preciso estar logado para comprar')
+      this.router.navigate(["/login"])
+    } else {
+      this.router.navigate(['/product-by-id'], { queryParams: this.findByIdProduct, skipLocationChange: true })
+    }
+
+  }
+  
 }
 
-  
+    
+
