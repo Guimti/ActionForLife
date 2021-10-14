@@ -22,6 +22,7 @@ import { ProductEditComponent } from './edit/product-edit/product-edit.component
 import { ProductDeleteComponent } from './delete/product-delete/product-delete.component';
 import { SearchComponent } from './search/search.component';
 import { PaymentComponent } from './payment/payment.component';
+import { KnifeComponent } from './knife/knife.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { PaymentComponent } from './payment/payment.component';
     ProductDeleteComponent,
     AboutUsComponent,
     SearchComponent,
-    PaymentComponent
+    PaymentComponent,
+    KnifeComponent
 
   ],
   imports: [
