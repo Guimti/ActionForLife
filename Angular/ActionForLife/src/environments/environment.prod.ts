@@ -8,5 +8,7 @@ export const environment = {
   photo:'',
   address:'',
   token: '',
-  type: ''
+  type: '',
+  idProd: 0,
+  totalPrice: 0
 };

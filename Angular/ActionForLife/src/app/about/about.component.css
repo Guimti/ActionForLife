@@ -100,3 +100,31 @@ h1 {
     background-color: #253F01;
     color: #ECF3D5;
 }
+
+.img-produtos {
+    width: 35rem;
+    border-radius: 8px;
+}
+
+.bg-color-sust {
+    background-color: #253F01;
+    color: #ECF3D5;
+    border-radius: 10px;
+}
+
+.img-produtos-2 {
+    width: 35rem;
+    border-radius: 8px;
+}
+
+.bg-color-sust-2 {
+    background-color: #ECF3D5;
+    color: #253F01;
+    border-radius: 10px;
+}
+
+.bg-color-sust-3 {
+    background-color: #F2A922;
+    color: #ECF3D5;
+    border-radius: 10px;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmailValidator } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserModel } from '../Model/UserModel';
 import { AuthService } from '../service/auth.service';
@@ -14,6 +15,7 @@ export class RegistrationComponent implements OnInit {
   confirmPassword1: string
   code: string
   user: UserModel = new UserModel()
+  email:UserModel = new UserModel
 
   constructor(
     private authService: AuthService,
@@ -54,7 +56,10 @@ export class RegistrationComponent implements OnInit {
         this.router.navigate(['/registration'])
       }
 
-    }
-
+     }
+  
+    //  if(error.status==400){
+    //   alert("Este Email ja existe. Por favor tento um email diferente")
+    // }
   }
 }
