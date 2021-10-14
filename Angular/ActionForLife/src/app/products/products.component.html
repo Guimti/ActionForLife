@@ -87,6 +87,7 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             <!--Buscar e exibir produtos por categoria-->
     
             <div class="tab-pane fade" id="byCategory" role="tabpanel" aria-labelledby="nav-byCategory-tab">
@@ -117,6 +118,41 @@
                                         <button *ngIf="!authService.typeUser()" (click)="comprar()" class="btn btn-success mt-2">Comprar</button>
                                     </div>
                                 </div>
+=======
+        </div>
+        <!--Buscar e exibir produtos por categoria-->
+
+        <div class="tab-pane fade" id="byCategory" role="tabpanel" aria-labelledby="nav-byCategory-tab">
+
+            <div class="col-md-12 d-flex justify-content-center mb-3">
+                <h1>
+                    {{category.type}}
+                </h1>
+            </div>
+
+            <div class="col-md-12 d-flex flex-wrap">
+                <div class="col-md-3 mb-4" *ngFor='let item of category.products'>
+
+                    <div class="card bg-light color-green">
+                        <img src="{{item.photo}}" class="card-img-top img-card-size" alt="Foto do produto">
+                        <div class="card-body">
+                            <h4 class="card-title mb-0">{{item.name}}</h4>
+                            <p class="mb-2">{{item.brand}}</p>
+                            <p class="card-text h5">R${{item.price}}</p>
+                            <!--Botões de editar, deletar e comprar produto-->
+
+
+                            <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
+                                data-toggle="modal" data-target='#updateProduct' class="text-info mr-3"
+                                href="">Editar</a>
+                            <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
+                                data-toggle="modal" data-target='#deleteProduct' class="text-danger" href="">Deletar</a>
+
+
+
+                            <div>
+                                <button (click)="comprar()" class="btn btn-success mt-2">Comprar</button>
+>>>>>>> 73a681d77be1f7fd98f0925452d6891453537cce
                             </div>
                         </div>
                     </div>

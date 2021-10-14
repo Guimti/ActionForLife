@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment.prod';
 import { CategoryModel } from '../Model/CategoryModel';
 import { AuthService } from '../service/auth.service';
 import { CategoryService } from '../service/category.service';
-import { ProductService } from '../service/product.service';
 
 @Component({
   selector: 'app-header',
@@ -21,8 +20,7 @@ export class HeaderComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     public authService: AuthService,
-    private categoryService: CategoryService,
-    public productService: ProductService
+    private categoryService: CategoryService
   ) { }
 
   ngOnInit() {
@@ -54,7 +52,7 @@ export class HeaderComponent implements OnInit {
   }
 
   refresh(){
-    this.router.navigate(["/search"],{queryParams:{name:this.busca}})
+    this.router.navigate(["/search"],{queryParams:{name:this.busca}})   
   }
 
   logado() {
