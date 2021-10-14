@@ -8,4 +8,7 @@ export class ProductModel{
     public price: string
     public photo: string
     public categoryProduct:CategoryModel
+
+    public quantidade: number
+    public valorParcial: number
 }
