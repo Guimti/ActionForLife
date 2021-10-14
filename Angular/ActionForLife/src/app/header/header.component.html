@@ -19,23 +19,16 @@
         <li class="nav-item">
           <a class="nav-link mx-2" routerLink="/about">Sobre</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mx-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item">
+          <a class="nav-link mx-2" routerLink="/products">
             Produtos
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink='/products#byCategory'
-              *ngFor="let category of categoryList">{{category.type}}</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" routerLink='/products'>Todos os produtos</a>
-          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link mx-2" routerLink="/knife">Faça Parte</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link mx-2" routerLink="/about-us">Contato</a>
+          <a class="nav-link mx-2" routerLink="/contact">Contato</a>
         </li>
       </ul>
 

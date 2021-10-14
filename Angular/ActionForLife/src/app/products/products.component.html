@@ -1,90 +1,124 @@
-<div class="row ml-0 pb-0 mb-0" id="section-products">
+<div class="container-fluid">
+    <div class="row ml-0 pb-0 mb-0" id="section-products">
 
-    <!--Menu lateral com Categorias-->
-    <div class="col-md-3 margin-top4-5rem bg-light pl-5 pt-3">
-        <ul class="nav d-flex columnn" id="nav-tab" role="tablist">
-
-            <li class="">
-                <a class="nav-item nav-link active h5 color-green" id="nav-allProducts-tab" data-toggle="tab"
-                    href="#allProducts" role="tab" aria-controls="nav-allProducts" aria-selected="true">Todos os
-                    produtos</a>
-            </li>
-            <!-- Barra de pesquisa -->
-            <form class="form-inline my-2 my-lg-0">
-                <div id="divBusca">
-                    <input [(ngModel)]="busca" name="search" type="search" id="txtBusca" placeholder="Pesquisar...">
-                    <button class="btn" type="submit" id="cor" (click)="refresh()"><i id="cor" class="fa fa-search"
-                            aria-hidden="true"></i></button>
-                </div>
-            </form>
-            
-            <li class="mt-3 mb-0">
-                <h5 class="nav-item nav-link color-green" id="nav-categories-tab" aria-controls="nav-categories">
-                    Categorias
-                </h5>
-            </li>
-
-            <!--Buscar todas as categorias para exibir no menu-->
-            <li class="mb-2" *ngFor="let category of categoryList">
-                <a (click)='findByIdCategory(category.idCategory)' class="nav-item nav-link h6 color-green mb-0 pb-0"
-                    id="nav-byCategory-tab" data-toggle="tab" href="#byCategory" role="tab"
-                    aria-controls="nav-byCategory" aria-selected="false">{{category.type}}
-                </a>
-                <!--\Botões para editar e deletar categorias-->
-                <div class="col-md-12 pl-2">
-                    <button *ngIf="authService.typeUser()" (click)='findByIdCategory(category.idCategory)' type="button"
-                        class="btn btn-sm font-size10 font-weight-bold text-info" data-toggle="modal"
-                        data-target='#updateCategory'>Editar
-                    </button>
-                    <button *ngIf="authService.typeUser()" (click)='findByIdCategory(category.idCategory)' type="button"
-                        class="btn btn-sm font-size10 font-weight-bold p-0 text-danger" data-toggle="modal"
-                        data-target='#deleteCategory'>Deletar
-                    </button>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-
-    <div class="tab-content col-md-9" id="nav-tabContent">
-
-        <div class="tab-pane fade show active" id="allProducts" role="tabpanel" aria-labelledby="nav-allProducts-tab">
-            <!--Exibição de todos os produtos-->
-            <div class="row">
-                <div class="col-md-12 d-flex justify-content-center mb-3">
-                    <h1>
-                        Todos os Produtos
-                    </h1>
-                </div>
-
-                <div class="col-md-12 d-flex flex-wrap">
-                    <!--Buscar e exibir todos os produtos-->
-
-                    <div class="col-md-3 mb-4" *ngFor='let item of productsList'>
-                        <div class="card bg-light color-green">
-                            <img src="{{item.photo}}" class="card-img-top img-card-size" alt="Foto do produto">
-                            <div class="card-body">
-                                <h4 class="card-title mb-0">{{item.name}}</h4>
-                                <p class="mb-2">{{item.brand}}</p>
-                                <p class="card-text h5">R${{item.price}}</p>
-
-                                <!--Botões para editar, deletar e comprar produto-->
-
-                                <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
-                                    data-toggle="modal" data-target='#updateProduct' class="text-info mr-3"
-                                    href="">Editar</a>
-                                <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
-                                    data-toggle="modal" data-target='#deleteProduct' class="text-danger"
-                                    href="">Deletar</a>
-                                <div>
-                                    <button (click)="comprar()" class="btn btn-success mt-2">Comprar</button>
+        <!--Menu lateral com Categorias-->
+        <div class="col-md-3 margin-top4-5rem bg-light pl-5 pt-3">
+            <ul class="nav d-flex columnn" id="nav-tab" role="tablist">
+    
+                <li class="">
+                    <a class="nav-item nav-link active h5 color-green" id="nav-allProducts-tab" data-toggle="tab"
+                        href="#allProducts" role="tab" aria-controls="nav-allProducts" aria-selected="true">Todos os
+                        produtos</a>
+                </li>
+                <!-- Barra de pesquisa -->
+                <form class="form-inline my-2 my-lg-0">
+                    <div id="divBusca">
+                        <input [(ngModel)]="busca" name="search" type="search" id="txtBusca" placeholder="Pesquisar...">
+                        <button class="btn" type="submit" id="cor" (click)="refresh()"><i id="cor" class="fa fa-search"
+                                aria-hidden="true"></i></button>
+                    </div>
+                </form>
+                
+                <li class="mt-3 mb-0">
+                    <h5 class="nav-item nav-link color-green" id="nav-categories-tab" aria-controls="nav-categories">
+                        Categorias
+                    </h5>
+                </li>
+    
+                <!--Buscar todas as categorias para exibir no menu-->
+                <li class="mb-2" *ngFor="let category of categoryList">
+                    <a (click)='findByIdCategory(category.idCategory)' class="nav-item nav-link h6 color-green mb-0 pb-0"
+                        id="nav-byCategory-tab" data-toggle="tab" href="#byCategory" role="tab"
+                        aria-controls="nav-byCategory" aria-selected="false">{{category.type}}
+                    </a>
+                    <!--\Botões para editar e deletar categorias-->
+                    <div class="col-md-12 pl-2">
+                        <button *ngIf="authService.typeUser()" (click)='findByIdCategory(category.idCategory)' type="button"
+                            class="btn btn-sm font-size10 font-weight-bold text-info" data-toggle="modal"
+                            data-target='#updateCategory'>Editar
+                        </button>
+                        <button *ngIf="authService.typeUser()" (click)='findByIdCategory(category.idCategory)' type="button"
+                            class="btn btn-sm font-size10 font-weight-bold p-0 text-danger" data-toggle="modal"
+                            data-target='#deleteCategory'>Deletar
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    
+    
+        <div class="tab-content col-md-9" id="nav-tabContent">
+    
+            <div class="tab-pane fade show active" id="allProducts" role="tabpanel" aria-labelledby="nav-allProducts-tab">
+                <!--Exibição de todos os produtos-->
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center mb-3">
+                        <h1>
+                            Todos os Produtos
+                        </h1>
+                    </div>
+    
+                    <div class="col-md-12 d-flex flex-wrap">
+                        <!--Buscar e exibir todos os produtos-->
+    
+                        <div class="col-md-3 mb-4" *ngFor='let item of productsList'>
+                            <div class="card bg-light color-green">
+                                <img *ngIf="photoEmpty(item.photo)" src="https://imgur.com/a597BDf.jpg" class="card-img-top img-card-size" alt="Produto sem Foto">
+                                <img *ngIf="!photoEmpty(item.photo)" src="{{item.photo}}" class="card-img-top img-card-size" alt="Foto do produto">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-0">{{item.name}}</h4>
+                                    <p class="mb-2">{{item.brand}}</p>
+                                    <p class="card-text h5">R${{item.price}}</p>
+    
+                                    <!--Botões para editar, deletar e comprar produto-->
+                                    <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
+                                        data-toggle="modal" data-target='#updateProduct' class="text-info mr-3"
+                                        href="">Editar</a>
+                                    <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
+                                        data-toggle="modal" data-target='#deleteProduct' class="text-danger"
+                                        href="">Deletar</a>
+                                    <div>
+                                        <button *ngIf="!authService.typeUser()" (click)="comprar()" class="btn btn-success mt-2">Comprar</button>
+                                    </div>
                                 </div>
                             </div>
+    
                         </div>
-
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
+            <!--Buscar e exibir produtos por categoria-->
+    
+            <div class="tab-pane fade" id="byCategory" role="tabpanel" aria-labelledby="nav-byCategory-tab">
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center mb-3">
+                        <h1>
+                            {{category.type}}
+                        </h1>
+                    </div>
+        
+                    <div class="col-md-12 d-flex flex-wrap">
+                        <div class="col-md-3 mb-4" *ngFor='let item of category.products'>
+        
+                            <div class="card bg-light color-green">
+                                <img *ngIf="photoEmpty(item.photo)" src="https://imgur.com/a597BDf.jpg" class="card-img-top img-card-size" alt="Produto sem Foto">
+                                <img *ngIf="!photoEmpty(item.photo)" src="{{item.photo}}" class="card-img-top img-card-size" alt="Foto do produto">
+                                <div class="card-body">
+                                    <h4 class="card-title mb-0">{{item.name}}</h4>
+                                    <p class="mb-2">{{item.brand}}</p>
+                                    <p class="card-text h5">R${{item.price}}</p>
+                                    <!--Botões de editar, deletar e comprar produto-->
+                                    <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
+                                        data-toggle="modal" data-target='#updateProduct' class="text-info mr-3"
+                                        href="">Editar</a>
+                                    <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
+                                        data-toggle="modal" data-target='#deleteProduct' class="text-danger" href="">Deletar</a>
+                                    <div>
+                                        <button *ngIf="!authService.typeUser()" (click)="comprar()" class="btn btn-success mt-2">Comprar</button>
+                                    </div>
+                                </div>
+=======
         </div>
         <!--Buscar e exibir produtos por categoria-->
 
@@ -118,18 +152,14 @@
 
                             <div>
                                 <button (click)="comprar()" class="btn btn-success mt-2">Comprar</button>
+>>>>>>> 73a681d77be1f7fd98f0925452d6891453537cce
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
-
     </div>
-
 </div>
 
 <!--Modal para atualizar categoria-->
