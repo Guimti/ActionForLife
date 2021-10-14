@@ -9,6 +9,6 @@ export class ProductModel{
     public photo: string
     public categoryProduct:CategoryModel
 
-    public quantidade: number
-    public valorParcial: number
+    public quantity: number
+    public parcialValue: number 
 }

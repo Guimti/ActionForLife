@@ -31,7 +31,8 @@ const routes: Routes = [
   {path: "search", component: SearchComponent},
   {path: "payment", component: PaymentComponent},
   {path: "carrinho", component: CarrinhoComponent},
-  {path: "product-by-id", component: ProductByIdComponent}
+  {path: "product-by-id", component: ProductByIdComponent},
+  {path: "join-us", component: KnifeComponent}
 ];
 
 @NgModule({

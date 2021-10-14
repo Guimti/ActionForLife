@@ -13,9 +13,11 @@ import { ProductService } from '../service/product.service';
 export class ProductByIdComponent implements OnInit {
 
   product: ProductModel = new ProductModel()
-  carrinho: ProductModel[]
+
+  shoppingCart: ProductModel[]
   quant: number
   vParcial: number
+
 
   constructor(
     private router: Router,
@@ -26,25 +28,36 @@ export class ProductByIdComponent implements OnInit {
   ngOnInit() {
     window.scroll(0, 0)
     let id = this.route.snapshot.params['id']
-    this.findProdById(id)
-    console.log(JSON.stringify(id))
+    this.findProdById()
+    this.quant = 1
   }
 
-  findProdById(id: number) {
-    this.productService.getByIdProducts(id).subscribe((resp: ProductModel) => {
+  findProdById() {
+    this.productService.getByIdProducts(environment.idProd).subscribe((resp: ProductModel) => {
       this.product = resp
     })
   }
 
   process(value: number) {
-    value += this.quant;
-    if (value < 1) {
+    this.quant += value;
+    if (this.quant < 1) {
       this.quant = 1;
-    } else if (value >= (this.product.quantidade - 1)) {
-      this.quant = (this.product.quantidade - 1);
-    } else {
-      this.quant = value;
+    } else if (this.quant >= 10) {
+      this.quant = 10
     }
   }
 
+  parcial() {
+    this.vParcial = this.product.price * this.quant
+    return this.vParcial
+  }
+
+  addShopCart() {
+    this.parcial()
+    console.log("chegou aqui")
+    
+    this.router.navigate(['/carrinho'])
+  }
 }
+
+

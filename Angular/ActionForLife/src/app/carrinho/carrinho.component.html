@@ -4,7 +4,7 @@
   
     <div class=" container-fluid" id="container-produto">
   
-      <div class="row" id="produto" *ngFor="let item of carrinho">
+      <div class="row" id="produto" *ngFor="let item of shopCart">
   
         <div class="col-md-2"> <img class="rounded-circle" src={{item.photo}} alt=""></div>
         <!--"https://cd.shoppub.com.br/beirario/media/cache/fc/5c/fc5c9341d00c5d9598f6eb629344e42e.jpg"-->
@@ -14,7 +14,7 @@
         </div>
   
         <div class="col-md-3">
-          <p class="bastian" id="quantidade">x {{item.quantidade}}</p>
+          <p class="bastian" id="quantidade">x {{item.quantity}}</p>
         </div>
   
         <div class="col-md-3">
