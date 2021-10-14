@@ -5,7 +5,7 @@ export class ProductModel{
     public name: string
     public brand: string
     public description: string
-    public price: string
+    public price: number
     public photo: string
     public categoryProduct:CategoryModel
 

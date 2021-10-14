@@ -23,6 +23,7 @@ import { ProductDeleteComponent } from './delete/product-delete/product-delete.c
 import { SearchComponent } from './search/search.component';
 import { PaymentComponent } from './payment/payment.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import { ProductByIdComponent } from './product-by-id/product-by-id.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     AboutUsComponent,
     SearchComponent,
     PaymentComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    ProductByIdComponent
 
   ],
   imports: [

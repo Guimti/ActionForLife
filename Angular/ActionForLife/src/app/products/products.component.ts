@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductModel } from '../Model/ProductModel';
 import { ProductService } from '../service/product.service';
 import { CategoryModel } from '../Model/CategoryModel';
 import { CategoryService } from '../service/category.service';
 import { AuthService } from '../service/auth.service';
 import { environment } from 'src/environments/environment.prod';
+import { __param } from 'tslib';
 
 @Component({
   selector: 'app-products',
@@ -22,11 +23,16 @@ export class ProductsComponent implements OnInit {
   product: ProductModel = new ProductModel()
   productsList: ProductModel[]
 
+  carrinho: ProductModel[]
+  quant: number
+  vParcial: number
+
   constructor(
     private router: Router,
     private productService: ProductService,
     public authService: AuthService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -37,10 +43,15 @@ export class ProductsComponent implements OnInit {
     
     this.findAllProducts()
     this.findAllCategories()
+
+    this.quant = 1
+    this.vParcial = this.product.price
   }
 
   refresh(){
-    this.router.navigate(["/search"],{queryParams:{name:this.busca}})   
+    this.productService.getProductsByName(this.busca).subscribe((resp: ProductModel[])=>{
+      this.productsList = resp
+    })
   }
 
   findAllCategories() {
@@ -116,8 +127,13 @@ export class ProductsComponent implements OnInit {
       alert('É preciso estar logado para comprar')
       this.router.navigate(["/login"])
       }else{
-        //criar componente carrinho.
+        this.router.navigate(['/product-by-id'],{queryParams: this.findByIdProduct, skipLocationChange: true })
       }
+    }
+
+    parcial() {
+      this.vParcial = this.product.price * this.quant
+      return this.vParcial
     }
 
 

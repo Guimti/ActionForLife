@@ -20,7 +20,7 @@
                 <div *ngFor="let product of listProduct" class="card-body text-center">
                     <h4>{{product.name}}</h4>
                     <small>{{product.categoryProduct.type}}</small>
-                    <p>R$ {{product.price.replace('.', ',')}}</p>
+                    <p>R$ {{product.price}}</p>
                     <a class="btn" href="">Ver Produto</a>
                 </div>
             </div>
