@@ -22,6 +22,7 @@ import { ProductEditComponent } from './edit/product-edit/product-edit.component
 import { ProductDeleteComponent } from './delete/product-delete/product-delete.component';
 import { SearchComponent } from './search/search.component';
 import { PaymentComponent } from './payment/payment.component';
+import { KnifeComponent } from './knife/knife.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { ProductByIdComponent } from './product-by-id/product-by-id.component';
 
@@ -44,6 +45,7 @@ import { ProductByIdComponent } from './product-by-id/product-by-id.component';
     PaymentComponent,
     CarrinhoComponent,
     ProductByIdComponent
+
 
   ],
   imports: [

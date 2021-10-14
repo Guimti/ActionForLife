@@ -12,6 +12,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
 import { PaymentComponent } from './payment/payment.component';
+import { KnifeComponent } from './knife/knife.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { ProductByIdComponent } from './product-by-id/product-by-id.component';
 
@@ -25,7 +26,7 @@ const routes: Routes = [
   {path: "category-delete/:id", component: CategoryDeleteComponent},
   {path: "product-edit/:id", component: ProductEditComponent},
   {path: "product-delete/:id", component: ProductDeleteComponent},
-  {path: "about-us", component: AboutUsComponent},
+  {path: "contact", component: AboutUsComponent},
   {path: "about", component: AboutComponent},
   {path: "search", component: SearchComponent},
   {path: "payment", component: PaymentComponent},

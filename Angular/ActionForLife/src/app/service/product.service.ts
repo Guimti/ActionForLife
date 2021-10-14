@@ -38,4 +38,5 @@ export class ProductService {
   deleteProduct(id: number) {
     return this.http.delete(`https://action-forlife.herokuapp.com/product/delete/${id}`, this.token)
   }
+  
 }

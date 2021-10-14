@@ -7,6 +7,7 @@ import { CategoryService } from '../service/category.service';
 import { AuthService } from '../service/auth.service';
 import { environment } from 'src/environments/environment.prod';
 import { __param } from 'tslib';
+import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-products',
@@ -36,11 +37,11 @@ export class ProductsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)
-   /*  if(environment.token == '') {
-      this.router.navigate(['/login'])
-    } */
-    
+    window.scroll(0, 0)
+    /*  if(environment.token == '') {
+       this.router.navigate(['/login'])
+     } */
+
     this.findAllProducts()
     this.findAllCategories()
 
@@ -48,8 +49,8 @@ export class ProductsComponent implements OnInit {
     this.vParcial = this.product.price
   }
 
-  refresh(){
-    this.productService.getProductsByName(this.busca).subscribe((resp: ProductModel[])=>{
+  refresh() {
+    this.productService.getProductsByName(this.busca).subscribe((resp: ProductModel[]) => {
       this.productsList = resp
     })
   }
@@ -75,7 +76,7 @@ export class ProductsComponent implements OnInit {
   findByIdProduct(id: number) {
     this.productService.getByIdProducts(id).subscribe((resp: ProductModel) => {
       this.product = resp
-      console.log("IdCategoriaaaa: "+ JSON.stringify(this.product))
+      console.log("IdCategoriaaaa: " + JSON.stringify(this.product))
 
     })
   }
@@ -90,11 +91,11 @@ export class ProductsComponent implements OnInit {
   }
 
   deleteCategory(id: number) {
-    console.log("IdCategoriaaaa: "+ JSON.stringify(id))
+    console.log("IdCategoriaaaa: " + JSON.stringify(id))
     this.categoryService.deleteCategory(id).subscribe(() => {
       alert('Categoria deletada com sucesso!')
       this.router.navigate(['/home'])
-    }) 
+    })
   }
 
   updateProduct() {
@@ -103,10 +104,10 @@ export class ProductsComponent implements OnInit {
 
     this.productService.putProduct(this.product).subscribe((resp: ProductModel) => {
       this.product = resp
-      if(environment.production=!("")){
+      if (environment.production = !("")) {
         alert('Produto atualizado com sucesso!')
         this.router.navigate(['/products'])
-      }else{
+      } else {
         alert('Produto não atualizado tente novamente!')
         this.router.navigate(['/products'])
       }
@@ -114,7 +115,7 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  
+
   deleteProduct(id: number) {
     this.productService.deleteProduct(id).subscribe(() => {
       alert('Produto deletado com sucesso!')
@@ -122,19 +123,30 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  comprar(){
+  parcial() {
+    this.vParcial = this.product.price * this.quant
+    return this.vParcial
+  }
+
+  photoEmpty(link: string) {
+    let ok = false
+    if (link == "") {
+      ok = true
+    }
+    return ok
+  }
+
+  comprar() {
     if (environment.token == "") {
       alert('É preciso estar logado para comprar')
       this.router.navigate(["/login"])
-      }else{
-        this.router.navigate(['/product-by-id'],{queryParams: this.findByIdProduct, skipLocationChange: true })
-      }
+    } else {
+      this.router.navigate(['/product-by-id'], { queryParams: this.findByIdProduct, skipLocationChange: true })
     }
 
-    parcial() {
-      this.vParcial = this.product.price * this.quant
-      return this.vParcial
-    }
-
-
+  }
+  
 }
+
+    
+
