@@ -22,7 +22,11 @@ import { ProductEditComponent } from './edit/product-edit/product-edit.component
 import { ProductDeleteComponent } from './delete/product-delete/product-delete.component';
 import { SearchComponent } from './search/search.component';
 import { PaymentComponent } from './payment/payment.component';
+<<<<<<< HEAD
 import { KnifeComponent } from './knife/knife.component';
+=======
+import { CarrinhoComponent } from './carrinho/carrinho.component';
+>>>>>>> 0eab6be4d1ec0a6cb5b14667a2fc740ecb8cd7ff
 
 @NgModule({
   declarations: [
@@ -41,7 +45,11 @@ import { KnifeComponent } from './knife/knife.component';
     AboutUsComponent,
     SearchComponent,
     PaymentComponent,
+<<<<<<< HEAD
     KnifeComponent
+=======
+    CarrinhoComponent
+>>>>>>> 0eab6be4d1ec0a6cb5b14667a2fc740ecb8cd7ff
 
   ],
   imports: [

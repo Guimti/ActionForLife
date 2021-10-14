@@ -12,7 +12,11 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { AboutComponent } from './about/about.component';
 import { SearchComponent } from './search/search.component';
 import { PaymentComponent } from './payment/payment.component';
+<<<<<<< HEAD
 import { KnifeComponent } from './knife/knife.component';
+=======
+import { CarrinhoComponent } from './carrinho/carrinho.component';
+>>>>>>> 0eab6be4d1ec0a6cb5b14667a2fc740ecb8cd7ff
 
 const routes: Routes = [
   {path: '', redirectTo:'home', pathMatch: 'full'},
@@ -28,7 +32,11 @@ const routes: Routes = [
   {path: "about", component: AboutComponent},
   {path: "search", component: SearchComponent},
   {path: "payment", component: PaymentComponent},
+<<<<<<< HEAD
   {path: "knife", component: KnifeComponent}
+=======
+  {path: "carrinho", component: CarrinhoComponent}
+>>>>>>> 0eab6be4d1ec0a6cb5b14667a2fc740ecb8cd7ff
 ];
 
 @NgModule({

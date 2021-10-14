@@ -17,6 +17,7 @@ export class ProductsComponent implements OnInit {
   category: CategoryModel = new CategoryModel()
   categoryList: CategoryModel[]
   idCateg: number
+  busca: string
 
   product: ProductModel = new ProductModel()
   productsList: ProductModel[]
@@ -36,6 +37,10 @@ export class ProductsComponent implements OnInit {
     
     this.findAllProducts()
     this.findAllCategories()
+  }
+
+  refresh(){
+    this.router.navigate(["/search"],{queryParams:{name:this.busca}})   
   }
 
   findAllCategories() {
@@ -98,6 +103,7 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+  
   deleteProduct(id: number) {
     this.productService.deleteProduct(id).subscribe(() => {
       alert('Produto deletado com sucesso!')
