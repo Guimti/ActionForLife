@@ -70,7 +70,6 @@
 
                                 <!--Botões para editar, deletar e comprar produto-->
 
-
                                 <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
                                     data-toggle="modal" data-target='#updateProduct' class="text-info mr-3"
                                     href="">Editar</a>
@@ -109,12 +108,12 @@
                             <!--Botões de editar, deletar e comprar produto-->
 
 
-
                             <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
                                 data-toggle="modal" data-target='#updateProduct' class="text-info mr-3"
                                 href="">Editar</a>
                             <a *ngIf="authService.typeUser()" (click)='findByIdProduct(item.idProduct)'
                                 data-toggle="modal" data-target='#deleteProduct' class="text-danger" href="">Deletar</a>
+
 
 
                             <div>
