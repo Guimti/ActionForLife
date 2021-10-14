@@ -14,6 +14,15 @@ h1 {
     background-color: #F2A922;
 }
 
+.w-img-iniciativas {
+    width: 23rem;
+    border-radius: 12px;
+}
+.w-img-iniciativas:hover {
+    transform: scale(1.1, 1.1);
+}
+
+
 .bgcolor-green {
     background-color: #253F01;
 }
