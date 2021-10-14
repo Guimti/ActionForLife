@@ -45,5 +45,13 @@ input::placeholder {
 }
 
 .botomtop{
-    background-color:#253F01  ;
+    background-color:#253F01 
+}
+
+.color-green {
+    color: #253F01;
+}
+
+.color-white {
+    color: white;
 }

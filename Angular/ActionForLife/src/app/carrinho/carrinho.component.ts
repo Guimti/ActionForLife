@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { ProductModel } from '../Model/ProductModel';
 import { AuthService } from '../service/auth.service';
+import { ProductService } from '../service/product.service';
 
 @Component({
   selector: 'app-carrinho',
@@ -10,8 +11,8 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./carrinho.component.css']
 })
 export class CarrinhoComponent implements OnInit {
-  produto: ProductModel = new ProductModel
-  carrinho: ProductModel[]
+  product: ProductModel = new ProductModel
+  shopCart: ProductModel[]
   vParcial: number
   vTotal: number
   vazio: string
@@ -21,6 +22,7 @@ export class CarrinhoComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private productService: ProductService,
     private router: Router
     
   ) { }
@@ -32,19 +34,25 @@ export class CarrinhoComponent implements OnInit {
       this.router.navigate(["/login"])
     }
 
-    this.exibirCarrinho()
-    // this.total()
+    this.findProdById()
+    // this.exibirCarrinho()
   }
 
-  exibirCarrinho() {
-    const localS = localStorage['carrinho']
-    if (localS.length > 0) {
-      this.carrinho = localS ? JSON.parse(localS) : []
-    } else {
-      this.vazio = "O Carrinho está vazio"
-      this.vTotal = 0
-    }
+  findProdById() {
+    this.productService.getByIdProducts(environment.idProd).subscribe((resp: ProductModel) => {
+      // this.shopCart.push({resp})
+    })
   }
+
+  // exibirCarrinho() {
+  //   const localS = localStorage['carrinho']
+  //   if (localS.length > 0) {
+  //     this.carrinho = localS ? JSON.parse(localS) : []
+  //   } else {
+  //     this.vazio = "O Carrinho está vazio"
+  //     this.vTotal = 0
+  //   }
+  // }
 
   // total() {
   //   this.vTotal = 0

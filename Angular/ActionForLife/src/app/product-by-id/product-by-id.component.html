@@ -1,18 +1,21 @@
 <div class="container mt-3 mb-5">
-    <div class="row">
-
-        <div class="col">
-
-            <!-- <h3>{{product.categoryProduct.type}}</h3> -->
+    <div class="row d-flex flex-wrap">
+        <div class="col-md-12 text-center">
+            <h3>{{product.categoryProduct.type}}</h3>
         </div>
-    </div>
+        <div class="col-md-6">
+            <img src="{{product.photo}}" alt="">
+        </div>
+        <div class="col-md-6 text-center">
+            <h2>{{product.name}}</h2>
+            <h3>{{product.price}}</h3>
+            <p>Quantidade: </p>
+            <input type="button" id="minus" value="-" (click)="process(-1)"/>
+            <input [(ngModel)]="quant" id="quant" name="quant" class="text" size="1" value="1" type="text"
+              maxlength="2" />
+            <input type="button" id="plus" value="+" (click)="process(1)">
 
-    <div>
-        <img src="{{product.photo}}" alt="">
-
-        <div>
-            <h5>{{product.name}}</h5>
-            <h6>{{product.price}}</h6>
+            <button type="button" class="btn bb" (click)="addShopCart()">Adicionar ao carrinho</button>
         </div>
     </div>
 

@@ -136,13 +136,14 @@ export class ProductsComponent implements OnInit {
     return ok
   }
 
-  comprar() {
-    if (environment.token == "") {
-      alert('É preciso estar logado para comprar')
-      this.router.navigate(["/login"])
-    } else {
-      this.router.navigate(['/product-by-id'], { queryParams: this.findByIdProduct, skipLocationChange: true })
-    }
+  comprar(id: number) {
+    // if (environment.token == "") {
+    //   alert('É preciso estar logado para comprar')
+    //   this.router.navigate(["/login"])
+    // } else {
+      environment.idProd = id
+      this.router.navigate(['/product-by-id']) 
+  //  }
 
   }
   
