@@ -17,7 +17,7 @@ export class ProductByIdComponent implements OnInit {
   shoppingCart: ProductModel[]
   quant: number
   vParcial: number
-
+  
 
   constructor(
     private router: Router,
@@ -54,8 +54,25 @@ export class ProductByIdComponent implements OnInit {
 
   addShopCart() {
     this.parcial()
-    console.log("chegou aqui")
-    
+    this.product.quantity = this.quant
+    this.product.parcialValue = this.vParcial
+
+    this.shoppingCart = JSON.parse(localStorage.getItem('shoppingCart') || '[]')
+
+    this.shoppingCart.push({
+      idProduct: this.product.idProduct,
+      name: this.product.name,
+      brand: this.product.brand,
+      description: this.product.description,
+      price: this.product.price,
+      photo: this.product.photo,
+      categoryProduct: this.product.categoryProduct,
+      quantity: this.product.quantity,
+      parcialValue: this.product.parcialValue
+    })
+
+    localStorage.setItem('shoppingCart', JSON.stringify(this.shoppingCart))
+
     this.router.navigate(['/carrinho'])
   }
 }

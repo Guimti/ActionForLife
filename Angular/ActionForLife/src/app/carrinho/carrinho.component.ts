@@ -12,10 +12,10 @@ import { ProductService } from '../service/product.service';
 })
 export class CarrinhoComponent implements OnInit {
   product: ProductModel = new ProductModel
-  shopCart: ProductModel[]
+  shoppingCart: ProductModel[]
   vParcial: number
-  vTotal: number
-  vazio: string
+  totalValue: number
+  empty: string
   quant: number
   carrinhoOb = {
     valor: 0}
@@ -29,43 +29,45 @@ export class CarrinhoComponent implements OnInit {
 
   ngOnInit(){
     window.scroll(0,0)
-    if (environment.token == "") {
-     alert('É PRECISO ESTAR LOGADO')
-      this.router.navigate(["/login"])
+    // if (environment.token == "") {
+    //  alert('É PRECISO ESTAR LOGADO')
+    //   this.router.navigate(["/login"])
+    // }
+    this.showCart()
+    this.showTotal()
+  }
+
+  showCart() {
+    const storage = localStorage['shoppingCart']
+    if (storage.length > 0) {
+      this.shoppingCart = storage ? JSON.parse(storage) : []
+    } else {
+      this.empty = "O Carrinho está vazio"
+      this.totalValue = 0
     }
-
-    this.findProdById()
-    // this.exibirCarrinho()
   }
 
-  findProdById() {
-    this.productService.getByIdProducts(environment.idProd).subscribe((resp: ProductModel) => {
-      // this.shopCart.push({resp})
+  priceSum() {
+    console.log('PREÇO: ' + JSON.stringify(this.totalValue))
+
+    this.shoppingCart.forEach(item => {
+      this.totalValue += item.price      
+    });
+    console.log('PREÇO2: ' + JSON.stringify(this.totalValue))
+  }
+
+  showTotal() {
+    this.totalValue = 0
+    let dataCart = []
+    dataCart = JSON.parse(localStorage.getItem('shoppingCart') || '{}')
+    
+    dataCart.forEach((i: any) => {
+      this.carrinhoOb = {
+        valor: i.parcialValue
+      }
+
+      this.totalValue += this.carrinhoOb.valor
     })
+    return this.totalValue
   }
-
-  // exibirCarrinho() {
-  //   const localS = localStorage['carrinho']
-  //   if (localS.length > 0) {
-  //     this.carrinho = localS ? JSON.parse(localS) : []
-  //   } else {
-  //     this.vazio = "O Carrinho está vazio"
-  //     this.vTotal = 0
-  //   }
-  // }
-
-  // total() {
-  //   this.vTotal = 0
-  //   let dadosProd = []
-  //   dadosProd = JSON.parse(localStorage.getItem('carrinho') || '{}')
-  //   dadosProd.forEach((i) => {
-  //     this.carrinhoOb = {
-  //       valor: i.valorParcial
-  //     }
-
-
-  //     this.vTotal = this.carrinhoOb.valor + this.vTotal
-  //   })
-  //   return this.vTotal.toFixed(2)
-  // }
 }
