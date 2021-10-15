@@ -1,5 +1,5 @@
+import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { EmailValidator } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserModel } from '../Model/UserModel';
 import { AuthService } from '../service/auth.service';
@@ -36,6 +36,8 @@ export class RegistrationComponent implements OnInit {
   }
 
   register() {
+
+    
     if (this.userModel.password != this.confirmPassword1) {
       alert("As senhas estão incorretas.")
     } else {
@@ -51,7 +53,10 @@ export class RegistrationComponent implements OnInit {
           this.router.navigate(["/login"])
           alert("Usuário cadastrado com sucesso!")
         })
-        } else {
+        }/* else if(erro.status == 400){
+          alert("Este Email ja existe. Por favor tente um email diferente")
+        } */
+        else{
         alert("Dados incorretos, por favor corrigir.")
         this.router.navigate(['/registration'])
       }
@@ -59,7 +64,7 @@ export class RegistrationComponent implements OnInit {
      }
   
     //  if(error.status==400){
-    //   alert("Este Email ja existe. Por favor tento um email diferente")
+    //   alert("Este Email ja existe. Por favor tente um email diferente")
     // }
   }
 }
