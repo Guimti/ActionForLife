@@ -38,7 +38,7 @@ export class ProductByIdComponent implements OnInit {
     })
   }
 
-  process(value: number) {
+  quantityChange(value: number) {
     this.quant += value;
     if (this.quant < 1) {
       this.quant = 1;
