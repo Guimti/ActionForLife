@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
       environment.photo = this.userLogin.photo
       environment.address = this.userLogin.address
       environment.type = this.userLogin.type
+      localStorage.clear();
 
       this.router.navigate(['/home'])
     }, erro =>{
