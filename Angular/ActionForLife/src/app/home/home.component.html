@@ -306,7 +306,7 @@
 
                     <div class="form-group">
                         <label for="category">Defina a categoria do produto ou <a data-dismiss="modal"
-                                data-toggle="modal" data-target="#newCategory">cadastre uma nova categoria</a>:</label>
+                                data-toggle="modal" data-target="#newCategory" class="styleLink">crie uma nova categoria</a>:</label>
                         <select class="form-control" [(ngModel)]='idCateg' (change)='findByIdCategory()' name="category"
                             id="category">
                             <option *ngFor="let item of categoryList" value="{{item.idCategory}}">

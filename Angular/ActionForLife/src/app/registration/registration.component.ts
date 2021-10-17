@@ -1,5 +1,6 @@
+import { HttpResponse } from '@angular/common/http';
+import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { EmailValidator } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserModel } from '../Model/UserModel';
 import { AuthService } from '../service/auth.service';
@@ -19,6 +20,7 @@ export class RegistrationComponent implements OnInit {
   email: UserModel = new UserModel
 
   terms: boolean
+
 
   constructor(
     private authService: AuthService,
@@ -41,6 +43,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   register() {
+
     if (this.userModel.password != this.confirmPassword1) {
       alert("As senhas estão incorretas.")
     } else {
@@ -68,9 +71,7 @@ export class RegistrationComponent implements OnInit {
         alert("Dados incorretos, por favor corrigir.")
         this.router.navigate(['/registration'])
       }
-
     }
-
   }
 
   findAllUsers() {
@@ -80,11 +81,10 @@ export class RegistrationComponent implements OnInit {
   }
 
   verifyCheckboxFalse() {
-      return !this.terms
+    return !this.terms
   }
 
   verifyCheckbox() {
     return this.terms
   }
-  
 }
