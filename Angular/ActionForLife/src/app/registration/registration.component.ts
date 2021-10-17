@@ -12,10 +12,13 @@ import { AuthService } from '../service/auth.service';
 export class RegistrationComponent implements OnInit {
 
   userModel: UserModel = new UserModel()
+  usersList: UserModel[]
   confirmPassword1: string
   code: string
   user: UserModel = new UserModel()
-  email:UserModel = new UserModel
+  email: UserModel = new UserModel
+
+  terms: boolean
 
   constructor(
     private authService: AuthService,
@@ -24,6 +27,8 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0, 0)
+
+    this.findAllUsers
   }
 
   confirmPassword(event: any) {
@@ -32,7 +37,7 @@ export class RegistrationComponent implements OnInit {
 
   typeUser(event: any) {
     this.userModel.type = event.target.value
-    console.log("categorias: "+ JSON.stringify(this.userModel.type))
+    console.log("categorias: " + JSON.stringify(this.userModel.type))
   }
 
   register() {
@@ -44,22 +49,42 @@ export class RegistrationComponent implements OnInit {
           this.userModel = resp
           this.router.navigate(['/login'])
           alert("Usuário cadastrado com sucesso!")
+        }, error => {
+          if (error.status == 400) {
+            alert("Este Email ja existe! Por favor utilize um email diferente.")
+          }
         })
       } else if (this.userModel.type == "Normal") {
-        this.authService.register(this.userModel).subscribe((resp: UserModel)=>{
+        this.authService.register(this.userModel).subscribe((resp: UserModel) => {
           this.userModel = resp
           this.router.navigate(["/login"])
           alert("Usuário cadastrado com sucesso!")
+        }, error => {
+          if (error.status == 400) {
+            alert("Este Email ja existe! Por favor utilize um email diferente.")
+          }
         })
-        } else {
+      } else {
         alert("Dados incorretos, por favor corrigir.")
         this.router.navigate(['/registration'])
       }
 
-     }
-  
-    //  if(error.status==400){
-    //   alert("Este Email ja existe. Por favor tento um email diferente")
-    // }
+    }
+
   }
+
+  findAllUsers() {
+    this.authService.getAllUsers().subscribe((resp: UserModel[]) => {
+      this.usersList = resp
+    })
+  }
+
+  verifyCheckboxFalse() {
+      return !this.terms
+  }
+
+  verifyCheckbox() {
+    return this.terms
+  }
+  
 }

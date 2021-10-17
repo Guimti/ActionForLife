@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -16,12 +16,20 @@ export class AuthService {
     private router: Router
     ) { }
 
+    token = {
+      headers: new HttpHeaders().set('Authorization', environment.token)
+    }
+
   login(userLogin: UserLogin): Observable<UserLogin>{
     return this.http.put<UserLogin>('https://action-forlife.herokuapp.com/user/authorize', userLogin)
   }
 
   register(userModel: UserModel): Observable<UserModel>{
     return this.http.post<UserModel>('https://action-forlife.herokuapp.com/user/register', userModel)
+  }
+
+  getAllUsers(): Observable<UserModel[]> {
+    return this.http.get<UserModel[]>('https://action-forlife.herokuapp.com/user/all', this.token)
   }
 
   logado() {
