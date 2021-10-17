@@ -18,21 +18,23 @@ export class CarrinhoComponent implements OnInit {
   empty: string
   quant: number
   carrinhoOb = {
-    valor: 0}
+    valor: 0
+  }
 
   constructor(
     private authService: AuthService,
     private productService: ProductService,
     private router: Router
-    
+
   ) { }
 
-  ngOnInit(){
-    window.scroll(0,0)
-    // if (environment.token == "") {
-    //  alert('É PRECISO ESTAR LOGADO')
-    //   this.router.navigate(["/login"])
-    // }
+  ngOnInit() {
+    window.scroll(0, 0)
+    if (environment.token == "") {
+      alert('É preciso estar logado!')
+      this.router.navigate(["/login"])
+ 
+    }
     this.showCart()
     this.showTotal()
   }
@@ -51,7 +53,7 @@ export class CarrinhoComponent implements OnInit {
     console.log('PREÇO: ' + JSON.stringify(this.totalValue))
 
     this.shoppingCart.forEach(item => {
-      this.totalValue += item.price      
+      this.totalValue += item.price
     });
     console.log('PREÇO2: ' + JSON.stringify(this.totalValue))
   }
@@ -60,7 +62,7 @@ export class CarrinhoComponent implements OnInit {
     this.totalValue = 0
     let dataCart = []
     dataCart = JSON.parse(localStorage.getItem('shoppingCart') || '{}')
-    
+
     dataCart.forEach((i: any) => {
       this.carrinhoOb = {
         valor: i.parcialValue

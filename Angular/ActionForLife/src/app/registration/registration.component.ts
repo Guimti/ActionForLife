@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -15,7 +16,7 @@ export class RegistrationComponent implements OnInit {
   confirmPassword1: string
   code: string
   user: UserModel = new UserModel()
-  email:UserModel = new UserModel
+  email: UserModel = new UserModel
 
   constructor(
     private authService: AuthService,
@@ -32,12 +33,11 @@ export class RegistrationComponent implements OnInit {
 
   typeUser(event: any) {
     this.userModel.type = event.target.value
-    console.log("categorias: "+ JSON.stringify(this.userModel.type))
+    console.log("categorias: " + JSON.stringify(this.userModel.type))
   }
 
   register() {
 
-    
     if (this.userModel.password != this.confirmPassword1) {
       alert("As senhas estão incorretas.")
     } else {
@@ -48,23 +48,27 @@ export class RegistrationComponent implements OnInit {
           alert("Usuário cadastrado com sucesso!")
         })
       } else if (this.userModel.type == "Normal") {
-        this.authService.register(this.userModel).subscribe((resp: UserModel)=>{
+        this.authService.register(this.userModel).subscribe((resp: UserModel) => {
           this.userModel = resp
           this.router.navigate(["/login"])
           alert("Usuário cadastrado com sucesso!")
         })
-        }/* else if(erro.status == 400){
-          alert("Este Email ja existe. Por favor tente um email diferente")
-        } */
-        else{
+      } else {
         alert("Dados incorretos, por favor corrigir.")
         this.router.navigate(['/registration'])
       }
+    }
 
-     }
-  
-    //  if(error.status==400){
-    //   alert("Este Email ja existe. Por favor tente um email diferente")
-    // }
+   /*  if (console.error == 400) {
+      alert("Este Email ja existe. Por favor tente um email diferente")
+    } */
+
   }
+
+  /* function check(div) {
+    if(div.checkd == true){
+      document.getElementById('submit').disabled == false
+    }
+  } */
+
 }
