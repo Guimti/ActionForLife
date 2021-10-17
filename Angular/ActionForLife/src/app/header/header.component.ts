@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
-    
+
     this.getAllCategories()
   }
 
@@ -46,6 +46,9 @@ export class HeaderComponent implements OnInit {
     environment.id = 0
     environment.photo = ''
     environment.type = ''
+    environment.idProd = 0
+    environment.production = true
+    environment.totalPrice = 0
   }
 
   refresh(){

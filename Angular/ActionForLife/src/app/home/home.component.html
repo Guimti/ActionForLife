@@ -114,11 +114,11 @@
 
             </p>
             <div class="d-flex justify-content-around">
-                <a class="nav-link" routerLink="/knife"><img class="w-img-iniciativas mr-1"
+                <a class="nav-link" routerLink="/join-us"><img class="w-img-iniciativas mr-1"
                         src="https://i.imgur.com/IQI0XAm.png" alt="Arte Urbana"></a>
-                <a class="nav-link" routerLink="/knife"><img class="w-img-iniciativas mr-1"
+                <a class="nav-link" routerLink="/join-us"><img class="w-img-iniciativas mr-1"
                         src="https://i.imgur.com/N2lK4Zx.png" alt="Arte Urbana"></a>
-                <a class="nav-link" routerLink="/knife"><img class="w-img-iniciativas"
+                <a class="nav-link" routerLink="/join-us"><img class="w-img-iniciativas"
                         src="https://i.imgur.com/8oqoYx7.png" alt="Arte Urbana"></a>
 
             </div>
@@ -236,7 +236,7 @@
 
                     <div class="form-group">
                         <label for="category">Defina a categoria do produto ou <a data-dismiss="modal"
-                                data-toggle="modal" data-target="#newCategory">cadastre uma nova categoria</a>:</label>
+                                data-toggle="modal" data-target="#newCategory" class="styleLink">crie uma nova categoria</a>:</label>
                         <select class="form-control" [(ngModel)]='idCateg' (change)='findByIdCategory()' name="category"
                             id="category">
                             <option *ngFor="let item of categoryList" value="{{item.idCategory}}">

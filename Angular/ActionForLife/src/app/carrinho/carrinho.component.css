@@ -2,7 +2,6 @@
     text-align: center;
     color: #1c372c;
     margin-bottom: 20px;
-    font-size: 100pt;
   }
   
   p{
@@ -16,7 +15,7 @@
   }
   #container-produto{
   
-      background-color: #1c372ce5;
+      background-color: #565754;
       border-radius: 10px;
       width: 700px;
   }
@@ -39,7 +38,7 @@
   #total{
       margin-bottom: 10vh;
       text-align: right;
-      font-size: 30pt;
+      font-size: 28pt;
   }
   #comprar{
       width: 30vh;
@@ -61,7 +60,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    font-size: 80pt;
+    font-size: 25pt;
   }
   
   #vazio{

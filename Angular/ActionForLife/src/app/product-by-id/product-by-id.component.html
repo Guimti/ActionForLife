@@ -8,14 +8,14 @@
         </div>
         <div class="col-md-6 text-center">
             <h2>{{product.name}}</h2>
-            <h3>{{product.price}}</h3>
+            <h3>R$ {{product.price}}</h3>
             <p>Quantidade: </p>
             <input type="button" id="minus" value="-" (click)="quantityChange(-1)"/>
             <input [(ngModel)]="quant" id="quant" name="quant" class="text" size="1" value="1" type="text"
               maxlength="2" />
             <input type="button" id="plus" value="+" (click)="quantityChange(1)">
 
-            <button type="button" class="btn bb" (click)="addShopCart()">Adicionar ao carrinho</button>
+            <button type="button" class="btn btn-secondary mx-2" (click)="addShopCart()">Adicionar ao carrinho</button>
         </div>
     </div>
 

@@ -38,6 +38,9 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0, 0)
+/*      if(environment.token == '') {
+       this.router.navigate(['/login'])
+     } */
 
     this.findAllProducts()
     this.findAllCategories()
@@ -134,13 +137,13 @@ export class ProductsComponent implements OnInit {
   }
 
   comprar(id: number) {
-    // if (environment.token == "") {
-    //   alert('É preciso estar logado para comprar')
-    //   this.router.navigate(["/login"])
-    // } else {
+     if (environment.token == "") {
+       alert('É preciso estar logado para comprar')
+       this.router.navigate(["/login"])
+     } else {
       environment.idProd = id
       this.router.navigate(['/product-by-id']) 
-  //  }
+    }
 
   }
   
