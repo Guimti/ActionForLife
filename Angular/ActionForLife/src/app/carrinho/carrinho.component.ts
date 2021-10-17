@@ -30,7 +30,7 @@ export class CarrinhoComponent implements OnInit {
   ngOnInit(){
     window.scroll(0,0)
      if (environment.token == "") {
-      alert('É PRECISO ESTAR LOGADO')
+      alert('Você precisa estar logado para comprar.')
       this.router.navigate(["/login"])
      }
     this.showCart()
