@@ -13,10 +13,14 @@ import { AuthService } from '../service/auth.service';
 export class RegistrationComponent implements OnInit {
 
   userModel: UserModel = new UserModel()
+  usersList: UserModel[]
   confirmPassword1: string
   code: string
   user: UserModel = new UserModel()
   email: UserModel = new UserModel
+
+  terms: boolean
+
 
   constructor(
     private authService: AuthService,
@@ -25,6 +29,8 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0, 0)
+
+    this.findAllUsers
   }
 
   confirmPassword(event: any) {
@@ -46,29 +52,39 @@ export class RegistrationComponent implements OnInit {
           this.userModel = resp
           this.router.navigate(['/login'])
           alert("Usuário cadastrado com sucesso!")
+        }, error => {
+          if (error.status == 400) {
+            alert("Este Email ja existe! Por favor utilize um email diferente.")
+          }
         })
       } else if (this.userModel.type == "Normal") {
         this.authService.register(this.userModel).subscribe((resp: UserModel) => {
           this.userModel = resp
           this.router.navigate(["/login"])
           alert("Usuário cadastrado com sucesso!")
+        }, error => {
+          if (error.status == 400) {
+            alert("Este Email ja existe! Por favor utilize um email diferente.")
+          }
         })
       } else {
         alert("Dados incorretos, por favor corrigir.")
         this.router.navigate(['/registration'])
       }
     }
-
-   /*  if (console.error == 400) {
-      alert("Este Email ja existe. Por favor tente um email diferente")
-    } */
-
   }
 
-  /* function check(div) {
-    if(div.checkd == true){
-      document.getElementById('submit').disabled == false
-    }
-  } */
+  findAllUsers() {
+    this.authService.getAllUsers().subscribe((resp: UserModel[]) => {
+      this.usersList = resp
+    })
+  }
 
+  verifyCheckboxFalse() {
+    return !this.terms
+  }
+
+  verifyCheckbox() {
+    return this.terms
+  }
 }

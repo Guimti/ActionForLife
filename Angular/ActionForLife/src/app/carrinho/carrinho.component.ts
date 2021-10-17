@@ -37,6 +37,8 @@ export class CarrinhoComponent implements OnInit {
     }
     this.showCart()
     this.showTotal()
+
+    console.log('PREÇO: ' + JSON.stringify(this.shoppingCart))
   }
 
   showCart() {
@@ -47,15 +49,6 @@ export class CarrinhoComponent implements OnInit {
       this.empty = "O Carrinho está vazio"
       this.totalValue = 0
     }
-  }
-
-  priceSum() {
-    console.log('PREÇO: ' + JSON.stringify(this.totalValue))
-
-    this.shoppingCart.forEach(item => {
-      this.totalValue += item.price
-    });
-    console.log('PREÇO2: ' + JSON.stringify(this.totalValue))
   }
 
   showTotal() {
@@ -72,4 +65,14 @@ export class CarrinhoComponent implements OnInit {
     })
     return this.totalValue
   }
+
+  priceSum() {
+    console.log('PREÇO: ' + JSON.stringify(this.totalValue))
+
+    this.shoppingCart.forEach(item => {
+      this.totalValue += item.price      
+    });
+    console.log('PREÇO2: ' + JSON.stringify(this.totalValue))
+  }
+
 }
