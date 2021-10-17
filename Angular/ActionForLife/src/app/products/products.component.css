@@ -10,6 +10,10 @@
     color: #253F01;
 }
 
+.color-white {
+    color: aliceblue;
+}
+
 .img-card-size {
     max-height: 11rem;
     width: auto;

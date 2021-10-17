@@ -49,6 +49,7 @@ h1 {
 
 .size-multiple-cards {
     max-height: 8rem;
+    max-width: 8rem;
 }
 
 .font-size08 {
@@ -63,12 +64,10 @@ h1 {
     border: 2px solid #253F01;
     background-color: #253F01 !important;
 }
-/*TESTE PRA DEIXAR IMAGEM DO PRODUTO DE FUNDO E TEXTO DENTRO DELA
-.bg-img1 {
-    background-image: url(../../assets/img/img-bg1.png);
-    background-size: 100%;
-}
 
+.height {
+    height: 22rem;
+}
 .bg-white-opacity {
     background-color: rgba(255, 255, 255, 0.801);
 }

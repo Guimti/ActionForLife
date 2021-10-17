@@ -43,7 +43,16 @@ ul li {
 .myButton:hover {
     background-color:#D93D04;
 }
+
 .myButton:active {
     position:relative;
     top:1px;
+}
+
+.color-green {
+    color: #253F01;
+}
+
+.color-orange {
+    color: #F2A922;
 }

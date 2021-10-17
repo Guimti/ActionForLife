@@ -7,14 +7,14 @@
     
                 <li class="">
                     <a class="nav-item nav-link active h5 color-green" id="nav-allProducts-tab" data-toggle="tab"
-                        href="#allProducts" role="tab" aria-controls="nav-allProducts" aria-selected="true">Todos os
+                        href="#allProducts" (click)='findAllProducts()' role="tab" aria-controls="nav-allProducts" aria-selected="true">Todos os
                         produtos</a>
                 </li>
                 <!-- Barra de pesquisa -->
                 <form class="form-inline my-2 my-lg-0">
                     <div id="divBusca">
                         <input [(ngModel)]="busca" name="search" type="search" id="txtBusca" placeholder="Pesquisar...">
-                        <button class="btn" type="submit" id="cor" (click)="refresh()"><i id="cor" class="fa fa-search colorWhite"
+                        <button class="btn" type="submit" id="cor" (click)="refresh()"><i id="cor" class="fa fa-search color-white"
                                 aria-hidden="true"></i></button>
                     </div>
                 </form>
@@ -53,7 +53,7 @@
                 <!--Exibição de todos os produtos-->
                 <div class="row">
                     <div class="col-md-12 d-flex justify-content-center mb-3">
-                        <h1>
+                        <h1 class="color-green">
                             Todos os Produtos
                         </h1>
                     </div>

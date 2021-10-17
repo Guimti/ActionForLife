@@ -91,8 +91,7 @@ export class ProductsComponent implements OnInit {
   }
 
   deleteCategory(id: number) {
-    console.log("IdCategoriaaaa: " + JSON.stringify(id))
-    this.categoryService.deleteCategory(id).subscribe(() => {
+      this.categoryService.deleteCategory(id).subscribe(() => {
       alert('Categoria deletada com sucesso!')
       this.router.navigate(['/home'])
     })
