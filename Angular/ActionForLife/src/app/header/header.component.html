@@ -34,7 +34,7 @@
       </ul>
     </div>
 
-      <ul class="navbar-nav ml-auto d-flex align-items-center align-text-bottom">
+      <ul class="navbar-nav ml-auto d-flex align-items-start align-text-bottom">
         <li>
           <div class="row mx-3 d-flex text-center align-text-center align-items-center">
             <img *ngIf="logado()" class="imgUser" src="{{authService.userDados().photo}}" alt="">
@@ -48,7 +48,7 @@
           <a *ngIf="deslogado()" class="nav-link" routerLink="/registration">Criar Conta</a>
         </li>
         <li class="nav-item pl-4 row">
-          <a *ngIf="logado()" class="m-0 font-weight-bolder fs-15" (click)='exit()'>Sair<i class="fa fa-sign-out"
+          <a *ngIf="logado()" class="m-0 mt-1 font-weight-bolder fs-15"href="" (click)='exit()'>Sair  <i class="fa fa-sign-out"
               aria-hidden="true"></i>
           </a>
         </li>
