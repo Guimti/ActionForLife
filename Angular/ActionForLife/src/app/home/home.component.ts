@@ -16,7 +16,7 @@ import { ProductService } from '../service/product.service';
 export class HomeComponent implements OnInit {
 
   product: ProductModel = new ProductModel()
-  
+
   category: CategoryModel = new CategoryModel()
   categoryList: CategoryModel[]
   idCateg: number
@@ -31,12 +31,11 @@ export class HomeComponent implements OnInit {
     private categoryService: CategoryService
   ) { }
 
-    ngOnInit() {
-      window.scroll(0,0)
-     
+  ngOnInit() {
+    window.scroll(0, 0)
+
     this.getAllCategories()
 
-    console.log("categorias: "+ JSON.stringify(this.categoryList))
   }
 
   getAllCategories() {
@@ -75,16 +74,16 @@ export class HomeComponent implements OnInit {
   logado() {
     let ok: boolean = false
 
-    if(environment.token != ''){
+    if (environment.token != '') {
       ok = true
     }
 
     return ok
-  } 
+  }
 
-  typeUser(){
+  typeUser() {
     let ok: boolean = false
-    if(environment.type == "Administrador"){
+    if (environment.type == "Administrador") {
       ok = true
     }
 
