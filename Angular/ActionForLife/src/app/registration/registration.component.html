@@ -66,17 +66,17 @@
     <div class="row d-flex align-items-center color-text">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="type">Tipo de Usuário</label>
+                <label for="type">Tipo de cadastro</label>
                 <select class="form-control" name="type" id="type" [(ngModel)]='userModel.type' (change)='typeUser($event)'>
-                    <option>Selecione um tipo de usuário</option>
-                    <option value="Comprador">Comprador(a)</option>
+                    <option>Selecione um tipo de cadastro</option>
+                    <option value="Usuario">Usuario</option>
                     <option value="Administrador">Administrador</option>
                 </select>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="code">Código de usuário administrador</label><input [(ngModel)]='code'
+                <label for="code">Código de administrador</label><input [(ngModel)]='code'
                     class="form-control" type="password" name="code">
             </div>
         </div>

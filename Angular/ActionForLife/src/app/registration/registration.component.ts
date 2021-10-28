@@ -57,7 +57,7 @@ export class RegistrationComponent implements OnInit {
             alert("Este Email ja existe! Por favor utilize um email diferente.")
           }
         })
-      } else if (this.userModel.type == "Normal") {
+      } else if (this.userModel.type == "Usuario") {
         this.authService.register(this.userModel).subscribe((resp: UserModel) => {
           this.userModel = resp
           this.router.navigate(["/login"])
