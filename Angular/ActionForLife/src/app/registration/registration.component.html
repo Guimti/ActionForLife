@@ -1,4 +1,4 @@
-<div class="container container-fluid">
+<div class="container container-fluid mb-3">
 
     <div class="row m-5">
 
@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="form-group">
+            <div *ngIf="userAdm()" class="form-group">
                 <label for="code">Código de administrador</label><input [(ngModel)]='code'
                     class="form-control" type="password" name="code">
             </div>
@@ -83,8 +83,8 @@
     </div>
 
     <div class="row m-auto">
-        <div class="col">
-            <input [(ngModel)]='terms' type="checkbox" class="m-3" id="temos" name="termos">
+        <div class="col pl-0">
+            <input [(ngModel)]='terms' type="checkbox" class="mr-3 my-3" id="temos" name="termos">
 
             <label for="termos"> Aceito os <a class="colorBlue" data-toggle="modal" data-target="#termosModal">Termos e Condições</a> e autorizo o uso de meus dados de acordo com a Declaração
                 de privacidade.</label>

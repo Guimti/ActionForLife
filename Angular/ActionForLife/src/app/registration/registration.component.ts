@@ -39,7 +39,14 @@ export class RegistrationComponent implements OnInit {
 
   typeUser(event: any) {
     this.userModel.type = event.target.value
-    console.log("categorias: " + JSON.stringify(this.userModel.type))
+  }
+
+  userAdm() {
+    if (this.userModel.type == "Administrador") {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   register() {
